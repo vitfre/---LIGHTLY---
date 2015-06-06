@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>История изменений движка шкурок - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="Code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>История изменений движка шкурок - Справка Light Alloy</h1>
+
+<h2>4.8.0</h2>
+<ul class="add">
+<li>реализована поддержка PNG для всех файлов изображений шкурки;</li>
+<li>добавлена возможность выравнивания контролов посередине;</li>
+<li>добавлены независимые маркеры закладок на шкалу времени (аттрибут chapter=""), и возможность указывать позицию (аттрибут chapter_pos="x,y");</li>
+<li>добавлена возможность изменять позицию по вертикали для насечек и цифр (атрибуты digits_ypos="y" и ticks_ypos="y" для <CONTROL type="seeker" ...>);</li>
+<li>добавлена битовая прозрачность для бегунка громкости, а также насечек, маркеров закладки и бегунка шкалы времени   (прозрачный цвет - зелёный #00ff00);</li>
+<li>добавлена возможность указать минимальные ширину и высоту шкурки: &lt;SKIN minsize="x,y&gt;;</li>
+<li>контролы типа "текстовая строка" и "графическая текстовая строка" теперь могут иметь атрибут link="", что позволяет им выполнять функцию при нажатии ЛКМ;</li>
+<li>добавлена новая кнопка с фиксацией <span class="button">Прямой/обратный отсчёт времени воспроизведения</span> (link="Position.Switch") для переключения минуса в контроле "позиция";</li>
+<li>также добавлены обычные кнопки: <span class="button">Менеджер списков</span> (link="PList.Manager"), <span class="button">Переключить вторые субтитры</span> (link="Subtitles.Switch2"), <span class="button">Увеличить размер субтитров</span> (link="Subtitles.SizeUp"), <span class="button">Уменьшить размер субтитров</span> (link="Subtitles.SizeDown");</li>
+<li>добавлена возможность определять точки растягивания бордюра (аттрибуты bgsplit_lt="x,y" и bgsplit_rb="x,y").</li>
+</ul>
+
+<ul class="modify">
+<li>Исправлена логика анимации ползунков громкости и шкалы времени. Теперь она учитывает не 10 и 24 пикс. соответственно, а реальные размеры ползунков;</li>
+<li>Логика переключения прямого и обратного отсчёта времени воспроизведения изменена: вместо пары "&lt;" и " " теперь используется пара "-" и " ";</li>
+<li>тип шкурки теперь также прописывается в interface.xml: &lt;SKIN type="standart|audio|fullscreen"&gt;;</li>
+</ul>
+
+<h2>4.7.6</h2>
+<ul class="del">
+<li>Удалён механизм настройки анимации ползунков шкалы времени и громкости (Thumbshift), потому как не работал;</li>
+</ul>
+
+<h2>4.7.5</h2>
+<ul class="add">
+<li>Добавлена кнопка <span class="button">Каталог интернет радиостанций</span>;</li>
+<li>Добавлен флаг аудиошкурки (SkinAudio=1 в SkinInfo.txt);</li>
+</ul>
+
+
+<h2>4.7.4</h2>
+<ul class="add">
+<li>Добавлена кнопка <span class="button">Радио: начать/остановить запись</span>;</li>
+<li>Добавлен механизм настройки анимации ползунков шкалы времени и громкости (Thumbshift);</li>
+</ul>
+<ul class="modify">
+<li>Содержимое текстовой строки вновь зависит от шкурки (если variable="1");</li>
+<li>Клик по позиции теперь работает и в хедере.</li>
+</ul>
+
+<h2>4.7.3</h2>
+<ul class="add">
+<li>Ширина <span class="not_button">бордюра окна</span> теперь определяются шкуркой (раньше было жёстко: лв-верх-пр-низ = 4,3,4,5);</li>
+</ul>
+
+<h2>4.6.7</h2>
+<ul class="add">
+<li>В <span class="not_button">шкале времени</span> теперь определяются цвета и положение зон автопромотки;</li>
+</ul>
+
+<h2>4.6.6</h2>
+<ul class="add">
+<li>Возможность задать цвета <span class="not_button">хинтов</span>;</li>
+<li>Возможность задать изображения <span class="not_button">хинтов</span>;</li>
+<li>В блок <span class="not_button">OSD</span> добавлен цвет для видеообласти.</li>
+</ul>
+
+<h2>4.5.5</h2>
+<ul class="add">
+<li>Возможность задать цвета <span class="not_button">Списка</span>;</li>
+<li>Возможность задать цвета <span class="not_button">Контекстного меню</span>;</li>
+<li>Возможность задать цвета <span class="not_button">Полноэкранного меню открытия файлов</span>;</li>
+<li>Возможность задать цвета <span class="not_button">Полноэкранного меню добавления субтитров</span>;</li>
+<li>Возможность задать цвета <span class="not_button">OSD</span>;</li>
+<li>Возможность задать цвета <span class="not_button">текста в заголовке (текстовой строке)</span>;</li>
+<li><span class="not_button">Текстовая строка</span> поддерживает новые параметры: fontsz, top_delta, bold.</li>
+<li>Добавлена кнопка <span class="button">Планировщик</span>.</li>
+</ul>
+
+<ul class="modify">
+<li><span class="button">Воспроизведение</span> теперь с фиксацией;</li>
+<li><span class="button">Пауза</span> теперь с фиксацией;</li>
+<li><span class="button">Скорость воспроизведения</span> теперь с фиксацией;</li>
+<li><span class="button">Окно / Весь экран</span> теперь с фиксацией;</li>
+<li><span class="button">Повтор списка</span> теперь с фиксацией;</li>
+<li><span class="button">Случайный порядок воспроизведения</span> теперь с фиксацией;</li>
+<li><span class="button">Закладки в списке</span> теперь с фиксацией;</li>
+<li>Высота нижней панели теперь определяется шкуркой: &lt;CTLDEF id="CtlPanel" size="400,<b>99</b>"&gt; (раньше она была строго 99 пикселей).</li>
+</ul>
+
+<ul class="del">
+<li>Окно <b>О программе</b> больше не оформляется шкуркой.</li>
+</ul>
+
+<h2>4.5.0</h2>
+<ul class="modify">
+<li>Точка отсчёта.</li>
+</ul>
+
+
+
+
+
+
+</body></html>

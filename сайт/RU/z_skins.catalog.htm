@@ -1,0 +1,1467 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Шкурки. Справочник - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="Code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>Шкурки. Справочник - Справка Light Alloy</h1>
+<p>Вся информация по шкуркам в виде справочника.</p>
+
+<p>
+<a href="#skin_structure">Структура шкурки</a><br/>
+<a href="#SkinInfo.txt">Структура файла SkinInfo.txt</a><br/>
+<a href="#Interface.xml">Структура файла Interface.xml</a><br/>
+<a href="#Interface_tags">Перечень тегов Interface.xml</a><br/>
+<a href="#Interface_atr">Перечень атрибутов тегов Interface.xml</a><br/>
+<a href="#elements_types">Типы элементов шкурки</a><br/>
+<a href="#all_elements">Перечень всех элементов шкурки</a><br/>
+</p>
+
+<h2>Структура шкурки<a name="skin_structure"></a></h2>
+<table>
+<tr>
+<th>Файл</th>
+<th>Функция</th>
+<th width="50%">Требования</th>
+</tr>
+<tr>
+<th>Шкурка.las</th>
+<td>Объединяет все файлы шкурки в один непонятный файл, который неподготовленный пользователь не станет распаковывать</td>
+<td>
+<ol>
+<li>Имя файла: любое.las (в личных целях можно использовать zip или вообще неупакованную шкурку);</li>
+<li>архив в формате ZIP;</li>
+<li>алгоритм сжатия DEFLATE (используется архиваторами по умолчанию);</li>
+<li>метод сжатия (скоростной/нормальный/максимальный и т.п.) - любой, но рекомендуется максимальный.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<th>SkinInfo.txt</th>
+<td>Информация о шкурке в окне настроек</td>
+<td>
+	<ol>
+	<li>Имя файла: "SkinInfo.txt";</li>
+	<li>Кодировка: UTF-8 with signature (она же - UTF-8 BOM).</li>
+	</ol>
+</td>
+</tr>
+<tr>
+<th>Preview.png</th>
+<td>Предпросмотр шкурки в окне настроек</td>
+<td>
+	<ol>
+	<li>Имя файла: "Preview.png";</li>
+	<li>Параметры сохранения в PNG: любые;</li>
+	<li>Размеры изображения: 200х150.</li>
+	</ol>
+</td>
+</tr>
+<tr>
+<th>Interface.xml</th>
+<td>Описывает, что, где и как будет расположено</td>
+<td>
+	<ol>
+	<li>Имя файла: "Interface.xml";</li>
+	<li>Кодировка: UTF-8 with signature (она же - UTF-8 BOM).</li>
+	</ol>
+</td>
+</tr>
+<tr>
+<th>Skin.png (.png)</th>
+<td>Источник всей графики шкурки</td>
+<td>
+	<p>Изображения:</p>
+	<ol>
+		<li>необходимо избегать оставлять много свободного места (но не в ущерб удобству);</li>
+		<li>необходимо разделять все изображения в файле отступами в 1 пиксель (в том числе состояния кнопки между собой) для удобства восприятия и последующей разметки.</li>
+	</ol>
+	<p>PNG:</p>
+	<ol>
+		<li>имя файла: любое на латинице;</li>
+		<li>цветовое пространство: любое (24 бит/256/2 цветов);</li>
+		<li>прозрачность не поддерживается;</li>
+		<li>если изначально PNG-файл был создан в Photoshop, рекомендуется пересохранение с помощью <a class="ext" href="http://www.faststone.org/FSViewerDetail.htm">FastStone Image Viewer</a> (бесплатен для домашнего пользования),  - это может в 2-4 раза уменьшить размер файла.</li>
+	</ol>
+	<p>BMP:</p>
+	<ol>
+		<li>имя файла: любое на латинице;</li>
+		<li>цветовое пространство: любое (24 бит/256/16/2 цветов);</li>
+		<li>сжатие в RLE не рекомендуется, т.к. это ослабит сжатие всей шкурки, и она будет больше.</li>
+	</ol>
+</td>
+</tr>
+</table>
+
+<h2>Структура файла SkinInfo.txt <a name="SkinInfo.txt"></a></h2>
+<p>Параметры:</p>
+<ul>
+<li>имя файла: "<b>skinInfo.txt</b>" (менять нельзя);</li>
+<li>кодировка: <b>UTF-8 with signature</b> (она же - <b>UTF-8 BOM</b>);</li>
+<li>язык заполнения: английский (по крайней мере буквы английские).</li>
+</ul>
+<p>Файл SkinInfo.txt состоит из 6-и строк. Ограничение каждой строки - не более 45 символов. Переносы не допускаются.</p>
+<table>
+<tr>
+<th width="100 px">Строка</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td>SkinTitle</td>
+<td>Название шкурки</td>
+</tr>
+<tr>
+<td>SkinAuthor</td>
+<td>Автор шкурки (имя или псевдоним)</td>
+</tr>
+<tr>
+<td>SkinVer</td>
+<td>версия шкурки</td>
+</tr>
+<tr>
+<td>SkinWWW</td>
+<td>вебсайт шкурки; рекомендуется таковым именовать тему на официальном форуме, но не обязательно. </td>
+</tr>
+<tr>
+<td>SkinCmt</td>
+<td>Комментарий к шкурке любого содержания</td>
+</tr>
+<tr>
+<td>SkinAudio</td>
+<td>Если "0", то шкурка будет доступна только в обычном режиме;<br/>
+если "1", то шкурка будет доступна только в аудиорежиме.</td>
+</tr>
+</table>
+
+<p>Пример:</p>
+<p class="code">
+SkinTitle=Dub Audio
+SkinAuthor=Gilorn, Dvigok
+SkinVer=4.7.5.2
+SkinWWW=http://www.light-alloy.ru/forum/ru_skins/dub_audio/
+SkinCmt=Dub skin for audio
+SkinAudio=1
+</p>
+
+<h2>Структура файла Interface.xml <a name="Interface.xml"></a></h2>
+<table><tr><td>
+	&lt;SKIN minsize="," type="standart"&gt;
+	<table><tr><td>
+		<sup>Определение графических констант (подблоки можно располагать в произвольном порядке)</sup>
+		<table><tr><td>
+		&lt;IMAGE id="Logo" file="logo.png"&gt;
+		<sup>константа логотипа</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="HD" file="Header.png"&gt;
+		<sup>константы верхней панели (заголовка)</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="FT" file="Footer.png"&gt;
+		<sup>константы нижней панели (панели управления)</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="PL" file="Playlist.png"&gt;
+		<sup>константы панели списка</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="Menu" file="Menu.png"&gt;
+		<sup>константы контекстного меню</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="Hint" file="Hint.png"&gt;
+		<sup>константы хинтов</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;IMAGE id="Color" file="Color.png"&gt;
+		<sup>константы наборов цветов</sup>
+		</td></tr></table>
+		<sup>Каждый "IMAGE" состоит из отдельных элементов - AREA.</sup>
+	</td></tr></table>
+	<table><tr><td>	
+	<sup>блок распознавания графических шрифтов</sup><br />
+	&lt;FONT id="Digits" img="FT.Digits" chars=" 0123456789:"/&gt;
+	
+	</td></tr></table>	
+	<table><tr><td>	
+		<sup>Применение контролов  (подблоки можно располагать в произвольном порядке)</sup>
+		<table><tr><td>
+		&lt;CTLDEF id="WndBorder" type="Panel" bg="HD.brd" size="29,52" bgsplit="14,24"/&gt;
+		<sup>рамка</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;CTLDEF id="Caption" type="Panel" bg="HD.bg" size="400,21" bgsplit="14,10"&gt;
+		<sup>верхняя панель (заголовок)</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;CTLDEF id="CtlPanel" type="Panel" bg="FT.bg" size="400,84" bgsplit="10,10"&gt;
+		<sup>нижняя панель (панель управления)</sup>
+		</td></tr></table>
+		<table><tr><td>
+		&lt;CTLDEF id="PListPanel" type="Panel" bg="PL.bg" size="29,46" bgsplit="7,23"&gt;
+		<sup>панель списка</sup>
+		</td></tr></table>
+		<sup>Каждый "CTLDEF" (кроме CTLDEF id="WndBorder") состоит из отдельных элементов - CONTROL.</sup>
+	</td></tr></table>	
+</td></tr></table>
+<p>Параметр "id" менять в большинстве случаев нельзя (исключения: IMAGE id="HD", IMAGE id="FT", IMAGE id="PL", но для удобства восприятия даже их не рекомендуется менять).</p>
+
+<h2>Перечень тегов Interface.xml <a name="Interface_tags"></a></h2>
+
+<table>
+<tr>
+<th>Тег</th>
+<th>Назначение</th>
+<th>Доступные атрибуты</th>
+</tr>
+<tr>
+<td>SKIN</td>
+<td>Контейнер для всех остальных тегов</td>
+<td>minsize, type</td>
+</tr>
+<tr>
+<td>   IMAGE</td>
+<td>Именной блок констант со ссылкой на файл-источник</td>
+<td>id, file</td>
+</tr>
+<tr>
+<td>      AREA</td>
+<td>Создаёт графическую константу</td>
+<td>id, pos, size</td>
+</tr>
+<tr>
+<td>   FONT</td>
+<td>Создаёт графический шрифт на основе константы</td>
+<td>id, img, chars</td>
+</tr>
+<tr>
+<td>   CTLDEF</td>
+<td>Именной блок контролов. Представляет одну из жёстко заданных панелей</td>
+<td>id, type, bg, size, bgsplit, bgsplit_lt, bgsplit_rb</td>
+</tr>
+<tr>
+<td>      CONTROL</td>
+<td>Создаёт контрол.<br/>Контрол типа "панель" может содержать другие контролы</td>
+<td>type, align, pos, size, bgsplit, img, link,<br/>
+font, fontsz, top_delta, bold, bg, bgsplit, variable, text,<br/>
+bgfill, chapter, chapter_pos, digits_ypos, thumb, ticks_ypos, lotick, hitick, OpeningPos, OpeningHeight</td>
+</tr>
+</table>
+
+<h2>Перечень атрибутов тегов Interface.xml <a name="Interface_atr"></a></h2>
+
+<table>
+<tr>
+<th>Атрибут</th>
+<th>Функция</th>
+<th>Синтаксис</th>
+<th>Доступен для тегов</th>
+</tr>
+<tr>
+<td>align<sup>опциональный</sup></td>
+<td>Располагает контрол горизонтально по центру. При этом игнорируется значение позиции по горизонтали. Рекомендуется для размещения по центру панелей, в которых будут расположены другие контролы.</td>
+<td><b>align="center"</b><br/>
+только так и никак иначе
+<td>CONTROL<br/>type = Panel | GfxBtn</td>
+</tr>
+<tr>
+<td>bg</td>
+<td>Определяет изображение фона контролов и группы контролов (кроме кнопок)</td>
+<td><b>bg="(IMAGE id).(AREA id)"</b><br/>
+Например, bg="HD.bg"
+<td>CTLDEF, CONTROL <br/>(кроме кнопок)</td>
+</tr>
+<tr>
+<td>bgfill</td>
+<td>Определяет изображение фона пройденного участка контролов "громкость" и "шкала времени"</td>
+<td><b>bgfill="(IMAGE id).(AREA id)"</b><br/>
+Например, bgfill="FT.VolBGF"</td>
+<td>CONTROL<br/>type = slider | seeker</td>
+</tr>
+<tr>
+<td>bgsplit</td>
+<td>Определяет пиксель по которому произойдёт растягивание контрола (кроме кнопок).</td>
+<td><b>bgsplit="x,y"</b><br/>
+x,y - целые, больше нуля<br/>
+Например: bgsplit="5,19"</td>
+<td>CTLDEF, CONTROL<br/>(кроме кнопок)</td>
+</tr>
+
+<tr>
+<td>bgsplit_lt, <br/>bgsplit_rb</td>
+<td>Определяет левый верхний (bgsplit_lt) и правый нижний (bgsplit_rb) пиксели, определяющие прямоугольник, по которому произойдёт растягивание бордюра.<br/>
+</td>
+<td><b>bgsplit_lt="x,y"</b><br/><b>bgsplit_rb="x,y"</b><br/>
+x,y - целые, больше нуля<br/>
+Например: bgsplit_lt="6,26" bgsplit_rb="6,6"</td>
+<td>CTLDEF<br/>id="WndBorder"</td>
+</tr>
+
+<tr>
+<td>bold</td>
+<td>Определяет жирность текстовой строки, если она задаётся обычным шрифтом</td>
+<td><b>bold="x"</b><br/>
+где x= 0 или 1. Если 1, то жирный, если 0, то нет.<br/>
+Например, bold="0"</td>
+<td>CONTROL<br/>type = text</td></td>
+</tr>
+
+<tr>
+<td>border_size<sup>опциональный</sup></td>
+<td>Параметр, определяющий толщину рамки окна. Рамка есть всегда, даже когда её толщина составляет 0 пикселей.</td>
+<td><b>border_size="x1,y1,x2,y2"</b><br/>
+где x1,y1,x2,y2 - это четыре целых числа в порядке "слева,сверху,справа,снизу". По умолчанию "4,3,4,5"<br/>
+Например, border_size="3,2,3,4"</td>
+<td>CTLDEF<br/>id="WndBorder"</td></td>
+</tr>
+
+<tr>
+<td>chapter</td>
+<td>определяет изображение маркера закладки на шкале времени</td>
+<td><b>chapter="(IMAGE id).(AREA id)"</b><br/>
+Например, chapter="Ft.SeekChapter"</td>
+<td>CONTROL<br/>type=Seeker</td></td>
+</tr>
+
+<tr>
+<td>chapter_pos</sup></td>
+<td>определяет позицию изображения маркера закладки на шкале времени.</td>
+<td><b>chapter_pos="x,y"</b><br/>
+где x - целое неположительное число (0 - левый пиксель маркера указывает на нужную позицию),<br/>y - целое неотрицательное число (0 - касается верхней границы шкалы времени)<br/>
+Например, chapter_pos="-1,12"</td>
+<td>CONTROL<br/>type=Seeker</td></td>
+</tr>
+
+<tr>
+<td>chars</td>
+<td>задаёт последовательность, в соответствии с которой будет распознаваться графический шрифт</td>
+<td><b>chars="abcd"</b><br/>
+где abcd должен содержать " 0123456789:" для Часов и Длительности и дополнительно "&lt;" для Позиции. Порядок символов любой. Возможно наличие любых дополнительных символов.</td>
+<td>FONT</td>
+</tr>
+
+<tr>
+<td>digits_ypos</sup></td>
+<td>определяет вертикальное смещение цифр на шкале времени.</td>
+<td><b>digits_ypos="y"</b><br/>
+где y - целое неотрицательное число (0 - касается верхней границы шкалы времени)<br/>
+Например, digits_ypos="4"</td>
+<td>CONTROL<br/>type=Seeker</td></td>
+</tr>
+
+<tr>
+<td>file</td>
+<td>определяет файл изображения, на основе которого будут создаваться вложенные графические константы.</td>
+<td><b>file="filename.ext"</b><br/>где filename.ext - имя файла, включая расширение.<br/>
+Напимер: file="main.png"</td>
+<td>IMAGE</td>
+</tr>
+<tr>
+<td>font</td>
+<td>определяет шрифт (системный или графический) для текстового контрола</td>
+<td><b>font="anyfont"</b><br/>где anyfont - название шрифта<br/>Например font="Verdana", font="Digits"</td>
+<td>CONTROL<br/>type=Text</td>
+</tr>
+<tr>
+<td>fontsz</td>
+<td>определяет размер системного шрифта</td>
+<td><b>fontsz="x"</b><br/>где x - целое число больше нуля.<br/>Например fontsz="10"</td>
+<td>CONTROL<br/>type=Text</td>
+</tr>
+<tr>
+<td>hitick</td>
+<td>определяет основную (высокую) насечку на шкале времени</td>
+<td><b>hitick="(IMAGE id).(AREA id)"</b><br/>Например hitick="FT.SeekHiTick"</td>
+<td>CONTROL<br/>type=Seeker</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Имя собственное элемента, используемое в дальнейшем для обращения к нему</td>
+<td><b>id="TypName"</b><br/>где TypName - уникальное имя (см. справочник дальше)<br/>Например id="btSubs"</td>
+<td>IMAGE, AREA, FONT, CTLDEF</td>
+</tr>
+<tr>
+<td>img</td>
+<td>определяет графическую константу для формирования кнопки</td>
+<td><b>img="(IMAGE id).(AREA id)"</b><br/>Например img="FT.btPlay"</td>
+<td>CONTROL<br/>type=GfxBtn</td>
+</tr>
+<tr>
+<td>link</td>
+<td>определяет функцию кнопки или текстовой строки</td>
+<td><b>link="fx"</b><br/>где fx - это одна из предопределённых функций<br/>Например link="App.SuperPlay"</td>
+<td>CONTROL<br/>type=GfxBtn | Text</td>
+</tr>
+<tr>
+<td>lotick</td>
+<td>определяет дополнительную (низкую) насечку на шкале времени</td>
+<td><b>lotick="(IMAGE id).(AREA id)"</b><br/>Например lotick="FT.SeekLoTick"</td>
+<td>CONTROL<br/>type=Seeker</td>
+</tr>
+<tr>
+<tr>
+<td>minsize</td>
+<td>Определяет минимальный размер окна проигрывателя, если используется эта шкурка. Используется, чтобы кнопки не наезжали одна на другую.</td>
+<td><b>minsize="x,y"</b><br/>где x,y - ширина и высота соответственно<br/>Например minsize="500,250"</td>
+<td>SKIN</td>
+</tr>
+<tr>
+<td>openingHeight</td>
+<td>определяет высоту полосы автопромотки на шкале времени</td>
+<td><b>openingHeight="x"</b><br/>где x - целое положительное число<br/>Например openingHeight="6"</td>
+<td>CONTROL<br/>type=Seeker</td>
+</tr>
+<tr>
+<td>openingPos</td>
+<td>определяет отступ от верхнего края шкалы времени для полосы автопромотки</td>
+<td><b>openingPos="y"</b><br/>где y - расстояние от верха шкалы времени до верха автопромотки<br/>Например openingPos="14"</td>
+<td>CONTROL<br/>type=Seeker</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>определяет позицию графической константы на рисунке или контрола на панели</td>
+<td><b>pos="x,y"</b><br/>где x,y - расстояние от левого и верхнего краёв соответственно. У контролов значения могут быть отрицательными. Отрицательность говорит о том, что отсчёт будет происходить не от левого или верхнего краёв, а от правого или нижнего<br/>Например pos="50,67"</td>
+<td>AREA, CONTROL</td>
+</tr>
+<tr>
+<td>size</td>
+<td>определяет размер графической константы или контрола</td>
+<td><b>size="x,y"</b><br/>где x,y - расстояние от левого и верхнего краёв описываемого элемента соответственно. У контролов значения могут быть отрицательными. Отрицательность говорит о том, что отсчёт будет происходить не от левого или верхнего краёв <b>элемента</b>, а от правого или нижнего краёв <b>панели</b><br/>Например size="24,28"</td>
+<td>AREA, CONTROL</td>
+</tr>
+
+<tr>
+<td>text</td>
+<td>определяет текстовое содержимое контрола соответствующего типа</td>
+<td><b>text="any"</b><br/>где any - это произвольный текст.<br/>
+Помимо всего прочего, можно вставить переменные {TITLE},{POS},{DUR},{TIME}, обозначающие Заголовок, Позицию, Длительность и Время соответственно
+<br/>Например text="{TIME}"</td>
+<td>CONTROL<br/>type=Text</td>
+</tr>
+
+<tr>
+<td>thumb</td>
+<td>определяет изображение бегунка в громкости и шкале времени</td>
+<td><b>thumb="(IMAGE id).(AREA id)"</b><br/>Например thumb="FT.VolThumb"</td>
+<td>CONTROL<br/>type = slider | seeker</td>
+</tr>
+
+<tr>
+<td>ticks_ypos</sup></td>
+<td>определяет вертикальное смещение насечек на шкале времени.</td>
+<td><b>ticks_ypos="y"</b><br/>
+где y - целое неотрицательное число (0 - касается верхней границы шкалы времени)<br/>
+Например, ticks_ypos="0"</td>
+<td>CONTROL<br/>type=Seeker</td></td>
+</tr>
+
+<tr>
+<td>top_delta</td>
+<td>определяет сдвиг текста в неграфической текстовой строке по вертикали; фон остаётся неподвижным</td>
+<td><b>top_delta="y"</b><br/>где y - это величина сдвига текста по вертикали. Плюс - вниз, минус - вверх<br/>Например top_delta="-2"</td>
+<td>CONTROL<br/>type=Text</td>
+</tr>
+<tr>
+<tr>
+<td>type</td>
+<td>определяет тип контрола. От этого зависят все остальные параметры.</td>
+<td><b>type="t"</b><br/>где t - это Panel (панель), GfxBtn (кнопка), Text (текст), Seeker (шкала времени), Slider (громкость)<br/>Например type="Text"</td>
+<td>CTLDEF, CONTROL</td>
+</tr>
+<td>type (внутри SKIN)</td>
+<td>Определяет тип шкурки: обычная, полноэкранная или аудио.</td>
+<td><b>type="t"</b><br/>где t - это standart (по умолчанию), audio (аудиорежим), fullscreen (пока не используется)<br/>Например type="audio"</td>
+<td>SKIN</td>
+</tr>
+<tr>
+<td>variable<sup>опциональный</sup></td>
+<td>объявляет, что содержимое текстовой строки произвольное (иначе строка всегда выводит {title})</td>
+<td><b>variable="x"</b><br/>где x = 0 или 1. По умолчанию "0". Если 1, то будет выведено любое содержимое, если 0, выводится {title}. Рекомендуется всегда использовать variable="1"<br/>Например variable="1"</td>
+<td>CONTROL<br/>type=Text</td>
+</tr>
+</table>
+
+<h2>Типы элементов шкурки <a name="elements_types"></a></h2>
+<table>
+<tr>
+<th width="100 px">Тип</th>
+<th width="240 px">Элементы</th>
+<th>Характеристика</th>
+</tr>
+<tr>
+	<td>Контур</td>
+	<td>Контур окна</td>
+	<td>
+		Рамка вокруг окна проигрывателя. Особенность: не разрезается по точке, а растягивается по прямоугольнику.
+	</ul>
+	</td>
+</tr>
+<tr>
+	<td>Панель</td>
+	<td>
+		Верхняя панель (заголовок)<br/>
+		Нижняя панель (панель управления)<br/>
+		Панель списка<br/>
+		Плавающие панели
+	</td>
+	<td>
+	Панель располагает в себе все контролы. По сути это - контейнер. Положение трёх предопределённых панелей (верхней, нижней, панели списка) определено жёстко. В шкурке можно менять только их высоту. Плавающие панели могут располагаться где угодно внутри предопределённых панелей.<br />
+Тем не менее ширина важна даже для предопределённых панелей. Она должна быть больше, чем ширина с учётом каждого отдельно взятого контрола (с учётом его позиции и размера), иначе шкурка не будет корректно отображаться до перезагрузки проигрывателя.
+	</td>
+</tr>
+<tr>
+	<td>Кнопка</td>
+	<td>
+		Открыть файл<br />
+		Воспроизведение / Пауза <sup>с фиксацией</sup><br />
+		и пр.<br />
+		Полный перечень ниже.
+	</td>
+	<td>
+		Кнопка - это основной контрол шкурки. Задача кнопки - выполнить функцию при нажатии на неё. Кнопки имеют три состояния:
+		<ul>
+		<li>обычная</li>
+		<li>под курсором</li>
+		<li>нажимаемая</li>
+		</ul>
+		Некоторые кнопки имеют <b>фиксацию</b>: после нажатия они переходят не в обычное состояние, а в дополнительное обычное состояние. Соответственно, такие кнопки имеют уже шесть состояний. Для кнопок с фиксацией необходимо использовать анимацию по принципу "срабатывает при отпускании кнопки".
+	</td>
+</tr>
+<tr>
+	<td>Текстовая строка</td>
+	<td>Текст заголовка <br/>Позиция <br/>Длительность <br/>Время<br/>Любой текст</td>
+	<td>
+		Текстовая строка предназначена для отображения информации. Информации в заголовке файла. В текстовой строке можно написать любой текст, но есть всего 4 вида <i>интерактивной</i> информации:
+		<ol>
+		<li>{TITLE} - информация заголовка</li>
+		<li>{POS} - позиция воспроизводимого файла</li>
+		<li>{DUR} - длительность воспроизводимого файла</li>
+		<li>{TIME} - системное время</li>
+		</ol>
+		Можно комбинировать простой текст и интерактивный.<br/>
+		Выравнивание текста в текстовой строке выполняется по центру.<br/>
+		Так же как и кнопка, текстовая строка способна выполнять функцию (без анимации)
+	</td>
+</tr>
+<tr>
+	<td>Графическая текстовая строка</td>
+	<td>Позиция<br/>Длительность<br/>Время</td>
+	<td>
+		Отличие от предыдущего типа состоит в том, что используемый шрифт нарисован. А это многое упрощает: нет нужды выставлять гарнитуру и размер шрифта, его жирность, если всё это является рисунком.<br/>
+		Графические шрифты используются для интерактивной информации с ограниченным набором символов - для позиции, длительности и времени.<br/>
+		Выравнивание текста в графической текстовой строке выполняется по левому краю.<br/>
+		Так же как и кнопка, графическая текстовая строка способна выполнять функцию (без анимации)
+	</td>
+</tr>
+<tr>
+	<td>Слайдер</td>
+	<td>Громкость</td>
+	<td>
+		Единственным представителем слайдера является громкость. Слайдер использует не одну а сразу три графические константы:
+		<ul>
+		<li>фон</li>
+		<li>фон заполненный (слева от бегунка)</li>
+		<li>бегунок</li>
+		</ul>
+		Бегунок громкости поддерживает битовую прозрачность. Прозрачность должна быть выражена зелёным цветом: #00ff00 или RGB{0,255,0}.
+	</td>
+</tr>
+<tr>
+	<td>Шкала времени</td>
+	<td>Шкала времени</td>
+	<td>
+		Как и громкость, шкала времени является единственным представителем своего типа. Но шкала времени сложнее. Помимо того, что есть в громкости, шкала времени также имеет два вида насечек (основные и промежуточные), маркер закладок и шрифт для обозначения позиции.<br/>
+		Ползунок шкалы времени, насечки и маркер поддерживает битовую прозрачность. Прозрачность должна быть выражена зелёным цветом: #00ff00 или RGB{0,255,0}.<br/>
+		Важный нюанс: шкала начинается раньше нуля и заканчивается после окончания.
+	</td>
+</tr>
+<tr>
+	<td>Декоративные изображения</td>
+	<td>
+		Логотип<br/>
+		Иконки контекстного меню<br/>
+		Галка контекстного меню<br/>
+		Закладка в списке<br/>
+		Мышка  в хинтах
+	</td>
+	<td>
+		Декоративные изображения не имеют функций. Они просто есть. Их задача - только украшать окно Light Alloy.
+		<br/>
+		Одна из особенностей декоративных изображений - место их применения заложено в программу, поэтому они только объявляются.
+		<br/><br/>
+		Иконки контекстного меню, Галка контекстного меню и Закладка в списке поддерживают битовую прозрачность. Прозрачность должна быть выражена зелёным цветом (#00ff00 или RGB{0,255,0})
+	</td>
+</tr>
+<tr>
+	<td>Набор цветов</td>
+	<td>
+	Цвета текста в заголовке окна<br/>
+	Цвета OSD и видеообласти<br/>
+	Цвета списка<br/>
+	Цвета автопромотки<br/>
+	Цвета хинтов<br/>
+	Цвета контекстного меню<br/>
+	Цвета полноэкранной загрузки файлов и субтитров (два одинаковых блока).
+	</td>
+	<td>
+	Наборы цветов представляют собой блоки изображений шириной в 1 пиксель и высотой в соответствии с количеством цветов. Цвета соответствующих пикселей используются для заливки фонов и текстовых строк.<br/>
+	Наборы цветов только объявляются. Их применение определяется программой.
+	</td>
+</tr>
+</table>
+
+<h2>Перечень всех элементов шкурки <a name="all_elements"></a></h2>
+
+<p>Все элементы, из которых строится шкурка, делятся на необходимые и опциональные. Без первых шкурка попросту невозможна. К тому же они жёстко привязаны к своим местам. Наличие или отсутствие вторых является определяется только автором шкурки.</p>
+
+<h3>Необходимые элементы шкурки</h3>
+<p>Id в части применения менять нельзя. Если части применения нет, то нельзя менять все Id в части объявления.</p>
+<table>
+<tr>
+<th>Название</th>
+<th>Тип</th>
+<th width="25%">Объявление</th>
+<th width="25%">Применение</th>
+<th width="25%">Описание</th>
+</tr>
+<tr> <!-- Логотип -->
+<td>Логотип</td>
+<td>Декоративное изображение</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Logo"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"logo.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Splash"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"262,230"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td>-</td>
+<td>Отображается в видеообласти при отсутствии видео</td>
+</tr>
+
+<tr> <!-- Контур окна -->
+<td>Контур окна</td>
+<td>Контур</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"HD"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Header.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"brd"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"210,128"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"WndBorder"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"HD.brd"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"29,127"</span><span class="sc8"> </span><span class="sc3">border_size</span><span class="sc8">=</span><span class="sc6">"3,2,3,4"</span><span class="sc8"> </span><span class="sc3">bgsplit_lt</span><span class="sc8">=</span><span class="sc6">"6,26"</span><span class="sc8"> </span><span class="sc3">bgsplit_rb</span><span class="sc8">=</span><span class="sc6">"6,6"</span></span></td>
+<td>Рамка вокруг окна проигрывателя</td>
+</tr>
+
+<tr> <!-- Верхняя панель -->
+<td>Верхняя панель</td>
+<td>Панель</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"HD"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"header.png"</span><span class="sc1">&gt;</span><span class="sc0">                   
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"10,4"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"10,21"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Caption"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"HD.bg"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,21"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"14,10"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span></span></td>
+<td>Панель вверху окна</td>
+</tr>
+
+<tr> <!-- Нижняя панель -->
+<td>Нижняя панель</td>
+<td>Панель</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"FT"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"footer.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"224,104"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"CtlPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"FT.bg"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,104"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"110,103"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span></span></td>
+<td>Панель внизу окна</td>
+</tr>
+
+<tr> <!-- Панель списка -->
+<td>Панель списка</td>
+<td>Панель</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PL"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"playlist.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"14,34"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PListPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"PL.bg"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"300,34"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"7,23"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span></span></td>
+<td>Панель внизу области списка</td>
+</tr>
+
+<tr> <!-- Контекстное меню -->
+<td>Контекстное меню</td>
+<td>Декоративное изображение</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Rclick.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,23"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"pics"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,24"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"33,84"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Checked"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,109"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"16,16"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Bookmark"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"22,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"11,11"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml">-</span></td>
+<td>Значки в контекстном меню, маркер контекстного меню, закладка списка</td>
+</tr>
+
+<tr> <!-- Значки мышки в хинтах -->
+<td>Значки мышки в хинтах</td>
+<td>Декоративное изображение</td>
+<td><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"main.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Lclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,235"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Rclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"23,235"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span></span></td>
+<td><span class="xml">-</span></td>
+<td>Изображения мышек в хинтах</td>
+</tr>
+
+<tr> <!-- Наборы цветов -->
+<td>Наборы цветов</td>
+<td>Наборы цветов</td>
+<td><span class="xml"><span class="xml"><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Color"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Color.png"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"LACaption"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"OSD"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"141,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,5"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Timeline"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,119"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PL"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,12"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,7"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"FOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span>
+</span></span></td>
+<td><span class="xml">-</span></td>
+<td>
+Все цвета по цвету на пиксель (сверху вниз):<br/>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета текста в заголовке окна</div>
+    <div class="body">
+		<ol>
+		<li>Текст, когда окно Light Alloy активно</li>
+		<li>Текст, когда окно Light Alloy неактивно</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета OSD и видеообласти</div>
+    <div class="body">
+		<ol>
+		<li>текст OSD</li>
+		<li>фон OSD</li>
+		<li>тень текста OSD</li>
+		<li>контур текста OSD</li>
+		<li>фон видеообласти</li>
+		</ol>	
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета списка</div>
+    <div class="body">
+		<ol>
+		<li>фон</li>
+		<li>текст видеоэлемента (видео и IPTV)</li>
+		<li>проигрываемый сейчас файл</li>
+		<li>курсор</li>
+		<li>повторяемый файл</li>
+		<li>удалённый/недоступный файл</li>
+		<li>прошлый проигрываемый файл при запуске проигрывателя</li>
+		<li>закладки</li>
+		<li>закладки проигрываемого сейчас файла</li>
+		<li>разделитель списка и видеообласти</li>
+		<li><b>текст крупных цифр на шкале времени</b></li>
+		<li>текст аудиоэлемента (музыка и радио)</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета автопромотки</div>
+    <div class="body">
+		<ol>
+		<li>автопромотка, сделанная ранее</li>
+		<li>автопромотка во время отмечания её мышью</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета хинтов</div>
+    <div class="body">
+		<ol>
+		<li>фон</li>
+		<li>контур и разделитель</li>
+		<li>текст</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета контекстного меню</div>
+    <div class="body">
+		<ol>
+		<li>фон</li>
+		<li>обычный пункт меню</li>
+		<li>недоступный пункт меню</li>
+		<li>рамка курсора</li>
+		<li>текст под курсором</li>
+		<li>фон курсора</li>
+		<li>горизонтальный разделитель</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета полноэкранной загрузки файлов</div>
+    <div class="body">
+		<ol>
+		<li>текст под курсором</li>
+		<li>текст папок</li>
+		<li>текст файлов</li>
+		<li>курсор активный</li>
+		<li>курсор неактивный</li>
+		<li>фон активной панели файлов</li>
+		<li>фон активной панели дисков</li>
+		<li>фон неактивной панели файлов</li>
+		<li>фон неактивной панели дисков</li>
+		<li>общий фон</li>
+		<li>фон кнопок</li>
+		<li>тект кнопок</li>
+		<li>фон кнопок при наведении</li>
+		<li>фон заголовка</li>
+		<li>текст заголовка</li>
+		<li>текст жёстких дисков</li>
+		<li>текст сменных дисков (флешек)</li>
+		<li>текст оптических дисков</li>
+		</ol>
+	</div>
+</label>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Цвета полноэкранной загрузки субтитров</div>
+    <div class="body">
+	набор цветов полностью аналогичен предыдущему блоку
+	</div>
+</label>
+
+</td>
+</tr>
+
+</table>
+
+<h3>Опциональные элементы шкурки</h3>
+<p>Все опциональные элементы шкурки условно можно разделить на кнопки и остальные элементы (не кнопки). Все кнопки строятся по единому принципу, по сути отличаются только функцией и собственным именем. Не кнопки характеризуются уникальными правилами для каждого отдельно взятого элемента.</p>
+
+<h4>Кнопки</h4>
+<p>Кнопки характеризуются единым подходом к синтаксису, анимацией, постоянным содержанием и одинаковой реакцией по всей площади. Синтаксис кнопок таков:</p>
+<p class="code xml">
+&lt;IMAGE ...&gt;
+<span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btPlay"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,60"</span><span class="sc11">/&gt;</span><span class="sc0">
+&lt;/IMAGE&gt;
+
+&lt;CTLDEF ...&gt;
+</span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"30,30"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.btPlay"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.SuperPlay"</span><span class="sc11">/&gt;</span>
+&lt;/CTLDEF&gt;
+</p>
+
+<p>Здесь надо помнить три вещи:</p>
+<ol>
+<li><b>AREA id</b> может быть любая, но есть разработанный удобочитаемый набор имён. Рекомендуется пользоваться в первую очередь им для дальнейшей удобочитаемости шкурки как автором, так и любыми заинтересованными людьми. В случае самостоятельного создания id необходимо использовать латиницу и избегать точек.</li>
+<li><b>CONTROL img</b> составной. Он состоит из "IMAGE id" и "AREA id", написанных через точку.</li>
+<li><b>CONTROL link</b> обозначает функцию кнопки (а также графической и обычной тестовой строки). Если указанная функция не существует, проигрыватель просто проигнорирует нажатие кнопки. Существует лишь ограниченное число функций. Попытка назначить функцию не из нижеприведенного перечня методом аналогии не сработает.</li>
+</ol>
+
+<table>
+<tr>
+<th width="25%">Название</th>
+<th width="25%">Тип</th>
+<th width="25%">Рекомендуемый AREA id</th>
+<th width="25%">CONTROL link</th>
+</tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+
+<tr><th colspan="4"><span class="path">Файл</span></th></tr>
+
+<tr> <!-- Открыть файл -->
+<td>Открыть файл</td>
+<td>Обычная кнопка</td>
+<td>btOpen</td>
+<td>PlayList.OpenFiles</td>
+</tr>
+
+<tr> <!-- Информация о файле -->
+<td>Информация о файле</td>
+<td>Обычная кнопка</td>
+<td>btInfo</td>
+<td>Window.FileInfo</td>
+</tr>
+
+<tr> <!-- Воспроизвести DVD-диск -->
+<td>Воспроизвести DVD-диск</td>
+<td>Обычная кнопка</td>
+<td>btDVD</td>
+<td>File.PlayDVD</td>
+</tr>
+
+<tr> <!-- Открыть папку с DVD -->
+<td>Открыть папку с DVD</td>
+<td>Обычная кнопка</td>
+<td>btFolderDVD</td>
+<td>File.OpenDVD</td>
+</tr>
+
+<tr> <!-- Информация о файле в OSD -->
+<td>Информация о файле в OSD</td>
+<td>Обычная кнопка</td>
+<td>btOSDInfo</td>
+<td>File.OSDInfo</td>
+</tr>
+
+<tr> <!-- Полноэкранное меню открытия файлов -->
+<td>Полноэкранное меню открытия файлов</td>
+<td>Обычная кнопка</td>
+<td>btOpenFS</td>
+<td>File.OpenFile_Fullscr</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Радио</span></th></tr>
+
+<tr> <!-- Каталог интернет радиостанций -->
+<td>Каталог интернет радиостанций</td>
+<td>Обычная кнопка</td>
+<td>btOpenIRE</td>
+<td>File.OpenIRE</td>
+</tr>
+
+<tr> <!-- Радио: начать/остановить запись -->
+<td>Радио: начать/остановить запись</td>
+<td>Кнопка с фиксацией</td> 
+<td>btRec</td>
+<td>Player.RadioRecord</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Воспроизведение</th></tr>
+
+<tr> <!-- Воспроизведение / Пауза -->
+<td>Воспроизведение / Пауза</td>
+<td>Кнопка с фиксацией</td>
+<td>btPlay</td>
+<td>App.SuperPlay</td>
+</tr>
+
+<tr> <!-- Стоп (выгрузка файла) -->
+<td>Стоп (выгрузка файла)</td>
+<td>Обычная кнопка</td>
+<td>btStop</td>
+<td>Playback.RealStop</td>
+</tr>
+
+<tr> <!-- Кадр вперёд -->
+<td>Кадр вперёд</td>
+<td>Обычная кнопка</td>
+<td>btFStep</td>
+<td>Player.FrameStep</td>
+</tr>
+
+<tr> <!-- Сделать закладку на шкале времени -->
+<td>Сделать закладку на шкале времени</td>
+<td>Обычная кнопка</td>
+<td>btBookmark</td>
+<td>Seek.SetBookmark</td>
+</tr>
+
+<tr> <!-- Изменение скорости -->
+<td>Изменение скорости</td>
+<td>Кнопка с фиксацией</td>
+<td>btFF</td>
+<td>Player.SpeedPlay</td>
+</tr>
+
+<tr> <!-- Увеличить скорость воспроизведения -->
+<td>Увеличить скорость воспроизведения</td>
+<td>Обычная кнопка</td>
+<td>btSpdUp</td>
+<td>Playback.SpeedUp</td>
+</tr>
+
+<tr> <!-- Уменьшить скорость воспроизведения -->
+<td>Уменьшить скорость воспроизведения</td>
+<td>Обычная кнопка</td>
+<td>btSpdDown</td>
+<td>Playback.SpeedDown</td>
+
+<tr> <!-- Прямой/обратный отсчёт времени воспроизведения -->
+<td>Прямой/обратный отсчёт времени воспроизведения</td>
+<td>Кнопка с фиксацией</td>
+<td>btSwitchPos</td>
+<td>Position.Switch</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Окно</th></tr>
+
+<tr> <!-- Поверх всех окон -->
+<td>Поверх всех окон</td>
+<td>Кнопка с фиксацией</td>
+<td>btTop</td>
+<td>App.StayOnTop</td>
+</tr>
+
+<tr> <!-- Окно/Весь экран -->
+<td>Окно/Весь экран</td>
+<td>Кнопка с фиксацией</td>
+<td>btFullScr</td>
+<td>Window.FullScreen</td>
+</tr>
+
+<tr> <!-- Первоначальный размер -->
+<td>Первоначальный размер</td>
+<td>Обычная кнопка</td>
+<td>btOrigSize</td>
+<td>Window.Original</td>
+</tr>
+
+<tr> <!-- Максимизировать (развернуть) -->
+<td>Максимизировать (развернуть)</td>
+<td>Кнопка с фиксацией</td>
+<td>btMax</td>
+<td>App.Maximize</td>
+</tr>
+
+<tr> <!-- Минимизировать (свернуть) -->
+<td>Минимизировать (свернуть)</td>
+<td>Обычная кнопка</td>
+<td>btMin</td>
+<td>App.Minimize</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Список</th></tr>
+
+<tr> <!-- Менеджер списков -->
+<td>Менеджер списков</td>
+<td>Обычная кнопка</td>
+<td>btPlManager</td>
+<td>PList.Manager</td>
+</tr>
+
+<tr> <!-- Предыдущий по списку -->
+<td>Предыдущий по списку</td>
+<td>Обычная кнопка</td>
+<td>btPlPrev</td>
+<td>PlayList.Prev</td>
+</tr>
+
+<tr> <!-- Список -->
+<td>Список</td>
+<td>Кнопка с фиксацией</td>
+<td>btPlist</td>
+<td>Window.PlayList</td>
+</tr>
+
+<tr> <!-- Следующий по списку -->
+<td>Следующий по списку</td>
+<td>Обычная кнопка</td>
+<td>btPlNext</td>
+<td>PlayList.Next</td>
+</tr>
+
+<tr> <!-- Проиграть выбранный -->
+<td>Проиграть выбранный</td>
+<td>Обычная кнопка</td>
+<td>btPlay</td>
+<td>PList.Play</td>
+</tr>
+
+<tr> <!-- Добавить файл(ы) в список -->
+<td>Добавить файл(ы) в список</td>
+<td>Обычная кнопка</td>
+<td>btAdd</td>
+<td>PList.AddFiles</td>
+</tr>
+
+<tr> <!-- Добавить папку в список -->
+<td>Добавить папку в список</td>
+<td>Обычная кнопка</td>
+<td>btAddDir</td>
+<td>PList.AddDir</td>
+</tr>
+
+<tr> <!-- Удалить из списка -->
+<td>Удалить из списка</td>
+<td>Обычная кнопка</td>
+<td>btRem</td>
+<td>PList.Remove</td>
+</tr>
+
+<tr> <!-- Очистить список -->
+<td>Очистить список</td>
+<td>Обычная кнопка</td>
+<td>btClear</td>
+<td>PList.Clear</td>
+</tr>
+
+<tr> <!-- Переместить выше -->
+<td>Переместить выше</td>
+<td>Обычная кнопка</td>
+<td>btUp</td>
+<td>PList.MoveUp</td>
+</tr>
+
+<tr> <!-- Переместить ниже -->
+<td>Переместить ниже</td>
+<td>Обычная кнопка</td>
+<td>btDown</td>
+<td>PList.MoveDown</td>
+</tr>
+
+<tr> <!-- Случайный порядок воспроизведения -->
+<td>Случайный порядок воспроизведения</td>
+<td>Кнопка с фиксацией</td>
+<td>btShuffle</td>
+<td>PList.Shuffle</td>
+</tr>
+
+<tr> <!-- Закладки в списке -->
+<td>Закладки в списке</td>
+<td>Кнопка с фиксацией</td>
+<td>btMarks</td>
+<td>PList.ShowMarks</td>
+</tr>
+
+<tr> <!-- Повтор списка -->
+<td>Повтор списка</td>
+<td>Кнопка с фиксацией</td>
+<td>btRepeat</td>
+<td>PList.Repeat</td>
+</tr>
+
+<tr> <!-- Таблица по списку -->
+<td>Таблица по списку</td>
+<td>Обычная кнопка</td>
+<td>btReport</td>
+<td>PList.Report</td>
+</tr>
+
+<tr> <!-- Сохранить список -->
+<td>Сохранить список</td>
+<td>Обычная кнопка</td>
+<td>btSave</td>
+<td>PList.Save</td>
+</tr>
+
+<tr> <!-- Перейти к файлу -->
+<td>Перейти к файлу (поиск в списке)</td>
+<td>Обычная кнопка</td>
+<td>btJump</td>
+<td>PList.Jump</td>
+</tr>
+
+<tr> <!-- Отсортировать список -->
+<td>Отсортировать список</td>
+<td>Обычная кнопка</td>
+<td>btSort</td>
+<td>PList.Sort</td>
+</tr>
+
+<tr> <!-- Перемешать список -->
+<td>Перемешать список</td>
+<td>Обычная кнопка</td>
+<td>btVisShuffle</td>
+<td>PList.VisShuffle</td>
+</tr>
+
+<tr> <!-- Поиск в списке -->
+<td>Показать файл в проводнике</td>
+<td>Обычная кнопка</td>
+<td>btShow</td>
+<td>PList.Search</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Звук</th></tr>
+
+<tr> <!-- Отключить звук -->
+<td>Отключить звук</td>
+<td>Кнопка с фиксацией</td>
+<td>btMute</td>
+<td>Audio.Mute</td>
+</tr>
+
+<tr> <!-- Переключить аудио-дорожку -->
+<td>Переключить аудио-дорожку</td>
+<td>Обычная кнопка</td>
+<td>btASwitch</td>
+<td>Sound.Switch</td>
+</tr>
+
+<tr> <!-- Опции звука -->
+<td>Опции звука</td>
+<td>Обычная кнопка</td>
+<td>btAProps</td>
+<td>Window.AudioProps</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Субтитры</th></tr>
+
+<tr> <!-- Показать/скрыть субтитры -->
+<td>Показать/скрыть субтитры</td>
+<td>Кнопка с фиксацией</td>
+<td>btSubs</td>
+<td>Subtitles.Show</td>
+</tr>
+
+<tr> <!-- Переключить субтитры -->
+<td>Переключить субтитры</td>
+<td>Обычная кнопка</td>
+<td>btSSwitch</td>
+<td>Subtitles.Switch</td>
+</tr>
+
+<tr> <!-- Переключить субтитры №2 -->
+<td>Переключить субтитры №2</td>
+<td>Обычная кнопка</td>
+<td>btSSwitch2</td>
+<td>Subtitles.Switch2</td>
+</tr>
+
+<tr> <!-- Увеличить размер субтитров -->
+<td>Увеличить размер субтитров</td>
+<td>Обычная кнопка</td>
+<td>btSSizeUp</td>
+<td>Subtitles.SizeUp</td>
+</tr>
+
+<tr> <!-- Уменьшить размер субтитров -->
+<td>Уменьшить размер субтитров</td>
+<td>Обычная кнопка</td>
+<td>btSSizeDown</td>
+<td>Subtitles.SizeDown</td>
+</tr>
+
+<tr> <!-- Опции субтитров -->
+<td>Опции субтитров</td>
+<td>Обычная кнопка</td>
+<td>btSProps</td>
+<td>Window.SubProps</td>
+</tr>
+
+<tr> <!-- Полноэкранное меню загрузки субтитров -->
+<td>Полноэкранное меню загрузки субтитров</td>
+<td>Обычная кнопка</td>
+<td>btSAddFS</td>
+<td>Subtitles.Open_Fullscr</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Видео</th></tr>
+
+<tr> <!-- Переключить пропорции -->
+<td>Переключить пропорции</td>
+<td>Обычная кнопка</td>
+<td>btVRatio</td>
+<td>Video.RatioSwitch</td>
+</tr>
+
+<tr> <!-- Опции видео -->
+<td>Опции видео</td>
+<td>Обычная кнопка</td>
+<td>btVProps</td>
+<td>Window.VideoProps</td>
+</tr>
+
+<tr> <!-- Сохранить кадр -->
+<td>Сохранить кадр</td>
+<td>Обычная кнопка</td>
+<td>btSShot</td>
+<td>Player.ScreenShot</td>
+</tr>
+
+<tr> <!-- Сохранить кадр в буфер обмена -->
+<td>Сохранить кадр в буфер обмена</td>
+<td>Обычная кнопка</td>
+<td>btSShotCB</td>
+<td>Video.ScreenshotCB</td>
+</tr>
+
+<tr> <!-- Сохранить миниатюры -->
+<td>Сохранить миниатюры</td>
+<td>Обычная кнопка</td>
+<td>btSaveThumbs</td>
+<td>Video.SaveThumbs</td>
+</tr>
+
+<tr> <!-- Сохранить пакет полноразмерных скриншотов -->
+<td>Сохранить пакет полноразмерных скриншотов</td>
+<td>Обычная кнопка</td>
+<td>btSaveScreensPack</td>
+<td>Video.SaveScreensPack</td>
+</tr>
+
+<tr> <!-- Открыть папку со снимками с экрана -->
+<td>Открыть папку со снимками с экрана</td>
+<td>Обычная кнопка</td>
+<td>btOpenScrFolder</td>
+<td>Application.OpenScrFolder</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Программа</th></tr>
+
+<tr> <!-- Настройки -->
+<td>Настройки</td>
+<td>Обычная кнопка</td>
+<td>btPrefs</td>
+<td>App.Prefs</td>
+</tr>
+
+<tr> <!-- Планировщик -->
+<td>Планировщик</td>
+<td>Кнопка с фиксацией</td>
+<td>btSheduler</td>
+<td>Application.Scheduler</td>
+</tr>
+
+<tr> <!-- Дерево фильтров -->
+<td>Дерево фильтров</td>
+<td>Обычная кнопка</td>
+<td>btFlt</td>
+<td>Window.Filters</td>
+</tr>
+
+<tr> <!-- О программе -->
+<td>О программе</td>
+<td>Обычная кнопка</td>
+<td>btAbout</td>
+<td>App.About</td>
+</tr>
+
+<tr> <!-- Выход -->
+<td>Выход</td>
+<td>Обычная кнопка</td>
+<td>btExit</td>
+<td>App.Exit</td>
+</tr>
+
+<tr><th colspan="4"><span class="path">Система</th></tr>
+
+<tr> <!-- Выключить монитор -->
+<td>Выключить монитор</td>
+<td>Обычная кнопка</td>
+<td>btMonitorOff</td>
+<td>Application.MonitorOff</td>
+</tr>
+
+<tr> <!-- Вызов диалога выключения компьютера -->
+<td>Вызов диалога выключения компьютера</td>
+<td>Обычная кнопка</td>
+<td>btPowerOff</td>
+<td>Application.PowerOff</td>
+</tr>
+
+<tr> <!-- Перевести компьютер в спящий режим -->
+<td>Перевести компьютер в спящий режим</td>
+<td>Обычная кнопка</td>
+<td>btHibernate</td>
+<td>Application.Hibernate</td>
+</tr>
+
+</table>
+
+<h4>Не кнопки</h4>
+
+<table>
+<tr>
+<th>Название</th>
+<th>Тип</th>
+<th width="25%">Объявление</th>
+<th width="25%">Применение</th>
+<th width="35%">Описание</th>
+</tr>
+
+<tr> <!-- Шкала времени -->
+<td>Шкала времени</td>
+<td>Шкала времени</td>
+<td><span class="xml"><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBGfill"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"33,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"24,14"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"64,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"14,14"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"79,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"24,14"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekHiTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"58,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekLoTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"59,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekChapter"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"58,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"3,2"</span><span class="sc11">/&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Seeker"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"-1,14"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"12,6"</span><span class="sc8"> </span><span class="sc3">OpeningPos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">OpeningHeight</span><span class="sc8">=</span><span class="sc6">"14"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBG"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBGfill"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"Ft.SeekThumb"</span><span class="sc8"> </span><span class="sc3">lotick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekLoTick"</span><span class="sc8"> </span><span class="sc3">hitick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekHiTick"</span><span class="sc8"> </span><span class="sc3">digits_ypos</span><span class="sc8">=</span><span class="sc6">"4"</span><span class="sc8"> </span><span class="sc3">ticks_ypos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">chapter</span><span class="sc8">=</span><span class="sc6">"Ft.SeekChapter"</span><span class="sc8"> </span><span class="sc3">chapter_pos</span><span class="sc8">=</span><span class="sc6">"-1,12"</span><span class="sc8"> </span><span class="sc11">/&gt;</span></span></td>
+<td>
+Шкала времени служит для перемотки файла. Её атрибуты:
+<ul>
+<li><b>size="-4,24"</b> - отрицательная длина; это значит, что длина отсчитывается от правого края панели;</li>
+
+<li><b>bgfill="FT.SeekBGfill" </b> - фон пройденного участка;</li>
+<li><b>thumb="FT.SeekThumb"</b> - бегунок;</li>
+<li><b>hitick="FT.SeekHiTick"</b> - основные насечки;</li>
+<li><b>lotick="FT.SeekLoTick"</b> - дополнительные насечки;</li>
+<li><b>OpeningPos="14"</b> - высота от верхнего края шкалы времени до автопромотки;</li>
+<li><b>OpeningHeight="6"</b> - высота самой автопромотки.</li>
+  
+<li><b>digits_ypos="4"</b> - вертикальный сдвиг цифр на шкале времени.</li>
+<li><b>ticks_ypos="0"</b> - вертикальный сдвиг насечек на шкале времени.</li>
+<li><b>chapter="Ft.SeekChapter"</b> - маркер закладок.</li>
+<li><b>chapter_pos="-1,12"</b> - сдвиг маркера закладок.</li>
+</ul>
+
+</td>
+</tr>
+
+<tr> <!-- Громкость -->
+<td>Громкость</td>
+<td>Слайдер</td>
+<td><span class="xml"><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBGF"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"226,40"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"9,13"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"236,40"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"10,13"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"247,40"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"9,13"</span><span class="sc11">/&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Slider"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"45,40"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"92,13"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"FT.VolBG"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"5,19"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"FT.VolBGF"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"FT.VolThumb"</span><span class="sc11">/&gt;</span></span></td>
+<td>Громкость говорит сама за себя.</td>
+</tr>
+
+<tr> <!-- Текстовая строка -->
+<td>Заголовок</td>
+<td>Текстовая строка</td>
+<td><span class="xml"><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"TitleBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"10,8"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"10,16"</span><span class="sc11">/&gt;</span></span></td>
+<td><span class="xml"><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"100,3"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"-100,17"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Verdana"</span><span class="sc8"> </span><span class="sc3">fontsz</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc8"> </span><span class="sc3">top_delta</span><span class="sc8">=</span><span class="sc6">"-2"</span><span class="sc8"> </span><span class="sc3">bold</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"HD.TitleBG"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"8,5"</span><span class="sc8"> </span><span class="sc3">variable</span><span class="sc8">=</span><span class="sc6">"1"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{TITLE}"</span><span class="sc11">/&gt;</span></span></td>
+<td>
+Заголовок предназначен для отображения имени файла и некоторой информации о состоянии проигрывателя. Атрибуты:
+<ul>
+<li><b>font="Verdana"</b> - гарнитура.</li>
+<li><b>fontsz="10"</b> - размер шрифта;</li>
+<li><b>top_delta="-2"</b> - смещение текста по вертикали. Минус - вверх, плюс - вниз;</li>
+<li><b>bold="0"</b> - жирность шрифта: 0 - обычный, 1 - жирный;</li>
+<li><b>bg="HD.TitleBG"</b> - фон под текстом;</li>
+<li><b>text="{TITLE}"</b> - собственно текст.</li>
+<li><b>link=""</b> - функция, которая будет выполнена при нажатии на текстовую строку; необязательный параметр.</li>
+</ul>
+Помимо этого, в наборах цветов указываются цвета текста при активном и неактивном окне. Однако, эти цвета действуют на все текстовые строки, поэтому создание обычной текстовой строки с позицией, длительностью или временем, хоть о возможно, но будет иметь ограничения по цвету и сопутствующие проблемы.
+</td>
+</tr>
+
+<tr> <!-- Графическая текстовая строка -->
+<td>Позиция<br/>Длительность<br/>Время</td>
+<td>Графическая текстовая строка</td>
+<td><span class="xml"><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"326,6"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"114,15"</span><span class="sc11">/&gt;</span>
+
+<span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789:/ -"</span><span class="sc11">/&gt;</span></td>
+
+<td><span class="xml"><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"3,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"69,14"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">" {POS} / {DUR}"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"  Position.Switch"</span><span class="sc11">/&gt;</span></span></td>
+<td>
+Позиция, Длительность и Время обозначаются такими значениями соответственно:
+<ol>
+<li>{POS} - позиция воспроизводимого файла</li>
+<li>{DUR} - длительность воспроизводимого файла</li>
+<li>{TIME} - системное время</li>
+</ol>
+Для корректного отображения информации необходимы следующие символы:
+<ul>
+<li>{POS} -  "0123456789: -" (двоеточие разделяет часы, минуты, секунды; пробел и дефис участвуют в отображении прямого и обратного отсчёта)</li>
+<li>{DUR} -  "0123456789:"</li>
+<li>{TIME} - "0123456789: " (двоеточие ежесекундно заменяется пробелом и наоборот)</li>
+</ul>
+Кроме этих значений можно использовать любые символы на своё усмотрение. Также можно комбинировать простой текст и интерактивный.
+<br/><br/>
+Для того, чтобы щелчок по позиции левой кнопкой мыши переключал прямой обратный отсчёт, контрол должен быть снабжён таким атрибутом: link=" Position.Switch"
+
+<br/><br/>
+Изображения делятся на символы на основании нижнего ряда пикселей: изменился цвет - значит начался новый символ. Пример (масштаб 200%):<br/>
+<img src="Images/z_skins.catalog.digits.png" />
+</td>
+</tr>
+
+</body></html>

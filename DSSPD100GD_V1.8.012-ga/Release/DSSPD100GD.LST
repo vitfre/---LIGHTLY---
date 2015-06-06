@@ -1,0 +1,12 @@
+
+AVRASM ver. 2.1.14  Release\DSSPD100GD.elf Fri Nov 08 18:21:50 2013
+
+Release\DSSPD100GD.elf(1): error: Invalid character: '' (0x7f)
+
+Release\DSSPD100GD.elf(1): error: ELF: Unknown instruction or macro
+Release\DSSPD100GD.elf(1): error: Invalid character: '' (0x01)
+
+Release\DSSPD100GD.elf(1): error: Invalid character: '' (0x01)
+
+Release\DSSPD100GD.elf(1): error: Invalid character: '' (0x01)
+

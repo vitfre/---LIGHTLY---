@@ -1,0 +1,181 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Шкурки. Теория - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>Шкурки. Теория - Справка Light Alloy</h1>
+
+<p>Как известно, внешний вид Light Alloy определяется шкурками. Шкурки позволяют определить внешний вид таких элементов:</p>
+<ul>
+<li>главное окно с хинтами к нему;</li>
+<li>контекстные меню;</li>
+<li>полноэкранные окна открытия/добавления файлов/субтитров</li>
+</ul>
+
+<h2>Формат шкурки</h2>
+<p>Шкурка представляет собой файл с расширением LAS, расположенный в программной папке <span class="path">Light Alloy \ Skins</span>. Фактически, это ZIP-архив с изменённым расширением. Это позволяет избегать вопросов пользователя о том, что делать с выкачанным архивом и куда класть распакованные файлы.</p>
+<p>Стоит заметить, что в процессе разработки использовать ZIP-архив, да ещё и переименованный, неудобно. Поэтому Light Alloy способен работать и с другими форматами шкурок:</p>
+<ul>
+<li>архив с расширением .zip;</li>
+<li>распакованная шкурка.</li>
+</ul>
+<p>Архив с расширением .zip - это обычная шкурка, у которой просто сохранили оригинальное расширение архива. Такой вариант шкурки удобен, когда надо оперативно отправить кому-либо шкурку на анализ или оценку.</p>
+<p>Распакованная шкурка - это просто папка с содержимым. Шкурка в таком виде отлично подходит для активной разработки, поскольку есть быстрый и прямой доступ ко всем файлам шкурки. Кроме того, помимо файлов в папке можно хранить также исходники и образцы. В меню настроек распакованные шкурки легко узнать: их название берётся в [квадратные скобки].</p>
+
+<h2>Состав файла шкурки</h2>
+<p>Внутри шкурки находятся такие файлы:</p>
+<ul>
+<li>Preview.png</li>
+<li>SkinInfo.txt</li>
+<li>Interface.xml</li>
+<li>Skin.png (.bmp)</li>
+</ul>
+<p>Пройдёмся по этим файлам подробнее.</p>
+
+<h3>Preview.png</h3>
+<p>Этот файл предпросмотра. Он служит для представления шкурки в настройках:</p>
+<p><img src="Images/z_icons.theory.list.png" /></p>
+<p>Параметры этого файла:</p>
+<ul>
+<li>имя файла: "<b>Preview.png</b>" (менять нельзя);</li>
+<li>размеры: 200х150 пикс. (любые другие размеры будут подогнаны под этот интерполяцией по соседним пикселям);</li>
+<li>глубина цвета: любая;</li>
+<li>поддержка прозрачности: полная;</li>
+<li>параметры сжатия: любые.</li>
+</ul>
+
+<p>Что изображают в файле предпросмотра? В общем и целом, это остаётся на усмотрение автора, но основные направления этого изображения, обычно, таковы:</p>
+<ol>
+<li>Этот рисунок - визитка. Тут должно быть изображение, которое демонстрирует <b>основную идею</b> шкурки.</li>
+<li>Как правило, цветовая гамма предпросмотра перекликается с гаммой окна проигрывателя в этой шкурке.</li>
+<li>В большинстве случаев в предпросмотре изображается стилизованное название шкурки.</li>
+<li>Довольно часто изображается стилизованный логотип проигрывателя.</li>
+</ol>
+
+<p>Обратите внимание: нет смысла изображать предпросмотр шкурки, поскольку двойной щелчок её примеривает на сам проигрыватель. А на нём, как очевидно, "предпросмотреть" шкурку намного удобнее и нагляднее.</p>
+
+<h3>SkinInfo.txt</h3>
+<p>Этот файл работает в паре с предыдущим. Он, в дополнение к Preview.png, представляет шкурку в настройках. Но уже текстовую часть.</p>
+
+<p>Параметры этого файла:</p>
+<ul>
+<li>имя файла: "<b>skinInfo.txt</b>" (менять нельзя);</li>
+<li>кодировка: <b>UTF-8 with signature</b> (она же - <b>UTF-8 BOM</b>);</li>
+<li>язык заполнения: как правило, английский (по крайней мере буквы должны быть английскими).</li>
+</ul>
+
+<p>Внутри skinInfo.txt выглядит примерно так:</p>
+<p class="code">
+SkinTitle=Dub
+SkinAuthor=Dvigok, Gilorn
+SkinVer=4.7.3
+SkinWWW=http://www.light-alloy.ru/forum/skins/dub/
+SkinCmt=Official skin
+SkinAudio=0
+</p>
+<p>Обратите внимание: значение идёт сразу после знака "=". Пробел сразу после "=" недопустим, поскольку он может привести к некорректному отображению информации в проигрывателе. Но уже внутри значения пробелы использовать можно без ограничений.</p>
+
+<table>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+<tr>
+<td><span class="not_button">SkinTitle</span></td>
+<td>Пишется название шкурки. Рекомендуется не использовать в названии [квадратные скобки], поскольку такими скобками обозначается распакованная шкурка.</td>
+</tr>
+<tr>
+<td><span class="not_button">SkinAuthor</span></td>
+<td>Указывается автор шкурки. Или несколько авторов. Здесь <b>не указываются</b> реставраторы шкурки (не касается расширенных портов и альтернативных версий шкурки; в таких случаях действуйте на своё усмотрение).</td>
+</tr>
+<tr>
+<td><span class="not_button">SkinVer</span></td>
+<td>Указывается версия шкурки. Сейчас используются два метода назначения версий шкурки:
+<ol>
+<li>независимый:</li>
+<ul>
+<li>стандартный подход, как у программ:</li>
+<li>первая финальная версия - v1.0.0</li>
+<li>исправление ошибок - v1.0.1</li>
+<li>мелкое/среднее добавление или изменение - v1.1.0</li>
+<li>крупное/глобальное изменение - v2.0.0</li>
+</ul>
+<li>зависимый:</li>
+<ul>
+<li>идёт привязка к версиям Light Alloy:</li>
+<li>первая финальная версия имеет версию, аналогичную той версии Light Alloy, на которой шкурка гарантированно будет работать, например - v4.7.0.1</li>
+<li>если происходит изменение шкурки без использования дополнительных возможностей - v4.7.0.2</li>
+<li>если происходит изменение шкурки с использованием дополнительных возможностей - например уточнением бордюра в соответствии с нововведением в Light Alloy 4.7.3 - v4.7.3.1</li>
+</ul>
+</ol>
+Только автор шкурки определяет, какой метод больше отвечает его интересам.</td>
+</tr>
+<tr>
+<td><span class="not_button">SkinWWW</span></td>
+<td>Адрес шкурки или адрес автора. В большинстве своём здесь указывают адрес шкурки на форуме Light Alloy, но можно указать свой сайт.</td>
+</tr>
+<tr>
+<td><span class="not_button">SkinCmt</span></td>
+<td>Любая дополнительная информация по шкуре. Помните: в окне настроек под неё отводится только одна строка. Учитывайте это. Кстати здесь можно указать имя (или псевдоним) реставратора шкурки.</td>
+</tr>
+<tr>
+<td><span class="not_button">SkinAudio</span></td>
+<td>Строка, согласно которой шкурка считается обычной (если "0") или аудиошкуркой (если "1"). Соответственно шкурка отображается или в общем перечне или в перечне шкурок аудиорежима.</td>
+</tr>
+</table>
+
+<h3>Interface.xml</h3>
+<p>Это файл разметки. Он как бы объясняет, откуда именно брать графические элементы и куда именно их писать.</p>
+
+<p>Параметры этого файла:</p>
+<ul>
+<li>имя файла: "<b>Interface.xml</b>" (менять нельзя);</li>
+<li>кодировка: <b>UTF-8 with signature</b> (она же - <b>UTF-8 BOM</b>);</li>
+<li>язык заполнения: для комментариев - любой удобный.</li>
+</ul>
+
+<p>Interface.xml состоит из трёх частей:</p>
+
+<ul><li>Объявления - присвоение имён фрагментам изображений (единичный элемент называется <b>"константа"</b>). Пример:</li></ul>
+<p class="code xml">
+<span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"main.bmp"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Lclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,235"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Rclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"23,235"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span>
+</p>
+
+<ul><li>Интерпретации графических шрифтов - назначение фрагментам изображения символов. Пример:</li></ul>
+<p class="code xml">
+<span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789: &amp;lt;&amp;gt;_"</span><span class="sc11">/&gt;</span>
+</p>
+
+<ul><li>Применения - создание кнопок и других управляющих элементов с помощью констант и функций (единичный элемент называется <b>"контрол"</b>). Пример:</li></ul>
+<p class="code xml">
+<span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.PosBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"145,38"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"130,18"</span><span class="sc1">&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"3,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"69,14"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">" {POS}_&amp;gt;_"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"72,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"51,14"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{DUR}"</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CONTROL&gt;</span>
+</p>
+ 
+<p>Блоков каждого из трёх типов может быть несколько. Некоторые из блоков имеют фиксированные названия, некоторые - нет.</p>
+<p>Подробности работы с "Interface.xml" описаны в <a href="z_skins.practice.htm">практической части</a>.</p>
+
+<h3>Skin.png (.bmp)</h3>
+<p>Это основной источник изображений для шкурки. Может быть представлен как одним файлом, так и несколькими. Типичный образец:</p>
+<p><img src="Images/z_icons.theory.main.png" /></p>
+<p>Файлы изображений - единственные файлы в шкурках, требования к которым вообще отсутствуют (кроме формата файла: BMP или PNG). Однако, чем больше размеры этого файла, тем больше проигрыватель будет потреблять оперативной памяти.</p>
+<p>Обратите внимание: в PNG-формате в данном случае прозрачность не поддерживается - она будет сведена в непрозрачный вид с помощью белой подложки.</p>
+
+<h2>Ограничения шкурок для Light Alloy</h2>
+<p>Несмотря на активное развитие проигрывателя, возможности шкурок имеют ограничения, связанные с возрастом движка и нюансами его изначальной разработки. Вот ключевые ограничения:</p>
+<ul>
+<li>отсутствие поддержки прозрачности (исключение составляют лишь несколько групп элементов: ползунки громкости и шкалы времени, изображения для контекстного меню и закладка в списке);</li>
+<li>контекстное меню имеет рамку, от которой невозможно избавиться;</li>
+<li>вертикальная полоса прокрутки в списке всегда отображается системной (горизонтальной нет).</li>
+</ul>
+
+</body></html>

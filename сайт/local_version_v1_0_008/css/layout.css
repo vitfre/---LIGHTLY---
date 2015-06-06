@@ -1,0 +1,66 @@
+.cont
+{
+	width: 1024px;
+	margin: 0px auto;
+}
+.head
+{
+	position: relative; /* Относительное позиционирование */
+	width: 1023px;
+	height: 70px;
+	text-align: center;
+	border: solid 1px black;
+	background: #c7b39b url(head.jpg); /* Цвет фона и путь к файлу */
+}
+.head p
+{
+	margin-top: 25px;/* Отступы вокруг блока */
+	text-align: center;
+}
+.nav
+{
+	position: relative; /* Относительное позиционирование */
+	width: 201px;/*ширина меню і випадаючих блоків*/
+	height: 768px;
+	float: left;
+	margin: 5px 5px 0px 0px;/* Отступы вокруг блока */
+	border: solid 2px #262626;
+	padding: 1;
+}
+
+iframe
+{
+	position: absolute;/* Абсолютное позиционирование */
+	width: 812px;
+	height: 768px;
+	float: left;
+	margin-top: 5px;/* Отступы вокруг блока */
+	border: solid 1px black;
+}
+
+body 
+{
+	background: #c7b39b url(bg-lightl.jpg); /* Цвет фона и путь к файлу */
+}
+
+.bot
+{
+	position: absolute;
+	top: 865px;
+	width: 1023px;
+	height: 20px;
+	color: #733; /* Цвет текста */
+	text-align: center;
+	border: solid 0px black;
+}
+
+.legs
+{
+	position: absolute;
+	top: 895px;
+	width: 1023px;
+	height: 70px;
+	text-align: center;
+	border: solid 1px black;
+	background: #c7b39b url(head.jpg); /* Цвет фона и путь к файлу */
+}

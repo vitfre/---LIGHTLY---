@@ -1,0 +1,142 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Создание иконок. Теория - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>Создание иконок. Теория</h1>
+
+<p>Иконки для Light Alloy создаются в виде пакета из двух файлов:</p>
+<ul>
+<li>Библиотеки иконок в формате .icl</li>
+<li>Файла описания в формате .xml</li>
+</ul>
+
+<p>Связь этих двух файлов определяется их одинаковым именем при разных расширениях. Так, если вы создаёте библиотеку иконок с именем <b>graphite</b>.icl, то файл описания к ней должен иметь имя <b>graphite</b>.xml и никак иначе.</p>
+
+<h2>Создание иконок</h2>
+<p>Всё начинается с создания иконки в соответствии с вашей идеей. В ОС Windows иконки формируются несколькими вариантами изображений: можно рисовать сколько угодно независимых вариантов иконок для каждого размера:</p>
+<p><img src="Images/z_icons.theory.icon_sizes.png" /></p>
+
+<p>Необходимо помнить, что чем меньше размеров иконки вы сделаете, тем меньше места эта иконка будет занимать. Кроме того, чтобы ещё сильнее уменьшить размер иконок, к ним можно применять png-сжатие (к размерам 64х64 и выше). Оно позволяет уменьшить занимаемый размер иконки в 3-10 раз без потери качества.</p>
+
+<p>Впрочем, есть минимальный эффективный набор размеров, которые рекомендуется использовать. Обратите внимание, что все размеры представляют собой квадрат:</p>
+<ul>
+<li>16х16 — режим отображения "список", "таблица";</li>
+<li>32х32 — режим отображения "значки", сторонние файловые менеджеры (например, Total Commander, Double Commander и пр.) также активно используют этот размер;</li>
+<li>48х48 — режим отображения "плитка", "крупные значки";</li>
+<li>96х96 — режим отображения "Эскизы" (Windows Vista и старше, не используется, если есть больший размер);</li>
+<li>256х256 — режим отображения "Огромные значки" (Windows Vista и старше);</li>
+</ul>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Глубину цвета выбирайте <u>RGB + alpha</u></div>
+    <div class="body">Названия могут отличаться в разных программах, но суть одна: поддержка полноценной 24-битной цветовой палитры и полноценной 8-битной прозрачности. Ограниченную глубину цвета выбирать не рекомендуется: в современных операционных системах она не имеет значимых преимуществ.</div>
+</label>
+
+<p>Начать рисование иконки рекомендуется с самого большого размера - 256х256. А дальше придётся решать очень важный вопрос: как именно рисовать меньшие размеры. Тут есть два варианта:</p>
+<ul>
+<li>сделать меньшие размеры путём масштабирования большого;</li>
+<li>рисовать все меньшие размеры заново.</li>
+</ul>
+<p>Первый метод очень быстрый, но хорошие результаты даёт только там, где нет мелких деталей:</p>
+<p><img src="Images/z_icons.theory.fast_resize_win.png" /></p>
+
+<p>Если же в иконке присутствуют мелкие детали, то создание уменьшённого размера путём масштабирования будет выглядеть размытым, несмотря на все старания:</p>
+<p><img src="Images/z_icons.theory.fast_resize_fail.png" /></p>
+
+<p>Как видим, чем меньше размер, тем хуже смотрится изображение.</p>
+<p>В таких случаях рисование каждого размера отдельно, хоть и займёт намного больше времени, но даст куда более впечатляющий результат.<br/>
+Обратите внимание, насколько всё чётко и ясно:</p>
+
+<p><img src="Images/z_icons.theory.manual.png" /></p>
+
+<h2>Создание библиотеки иконок</h2>    
+<p>При создании библиотеки  вам потребуется определить уровень её полноты и универсальности. Ваша библиотека может содержать:</p>    
+<ul>
+<li>только одну иконку;</li>
+<li>три иконки: по одной для плейлистов, видео и аудио;</li>
+<li>по иконке для каждого расширения</li>
+</ul>
+<p>Также можно комбинировать подходы. Например, можно создать иконки для трёх типов, а также персональные иконки для некоторых расширений.</p>
+
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Самой первой в библиотеке должна располагаться универсальная иконка без указания расширения.</div>
+    <div class="body">Рано или поздно в проигрывателе появятся расширения, которые не предусмотрены в вашем пакете иконок. В таком случае программа будет использовать самую первую иконку из пакета. И будет отлично, если эта первая иконка не будет вводить в заблуждение. По крайней мере, не ставьте первой иконку с надписанным разрешением.</div>
+</label>
+<p>От вашего выбора будут зависеть универсальность, удобство и размер вашего пакета иконок.</p>
+
+<h2>Создание файла описания</h2>
+<p>Файл описания отвечает хранит информацию об авторе, названии и кратком (очень кратком!) описании пакета иконок. Рекомендуется создавать файл, используя кодировку "UTF-8 with signature" (она же - UTF-8 BOM).</p>
+<p> Внутри он может выглядеть, например, так:</p>
+
+<p class="code xml">
+<span class="sc12">&lt;?</span><span class="sc1">xml</span><span class="sc8"> </span><span class="sc3">version</span><span class="sc8">=</span><span class="sc6">"1.0"</span><span class="sc8"> </span><span class="sc3">encoding</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc13">?&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;ICONLIB&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AUTHOR</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"Ham"</span><span class="sc8"> </span><span class="sc3">email</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">homepage</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">comments</span><span class="sc8">=</span><span class="sc6">"256x48x32x16"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;ICONS&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AAC,AC3,AIF,APE,AT3,AU,CDA,DTS,FLAC,MIDI,MKA,MOD,MP3,MPA,MPC,OGG,WAV,WMA,OPUS"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- audio --&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"1"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"ASX,BDMV,CUE,IFO,LAP,LST,M3U,MPLS,PLS"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- playlist --&gt;</span><span class="sc0">
+  </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"2"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AVI,AVS,FLV,M1V,M2TS,MKV,MOV,MP4,MPG,MPV,MTS,OGM,QT,RMVB,TS,VOB,WEBM"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- video --&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;/ICONS&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/ICONLIB&gt;</span>
+</p>
+
+
+<p>Разберёмся, что тут к чему. Вот обычная строка: </p>
+<p class="code xml">
+<span class="sc1">&lt;AUTHOR</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"Ham"</span><span class="sc8"> </span><span class="sc3">email</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">homepage</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">comments</span><span class="sc8">=</span><span class="sc6">"256x48x32x16"</span><span class="sc11">/&gt;</span>
+</p>
+
+<p>Это тег — единичная команда. Он характеризуется особыми скобками: < >. У нас здесь используется два вида тегов:</p>
+<ol>
+<li>парные;</li>
+<li>единичные.</li>
+</ol>
+
+<p>Парные теги состоят из двух частей: открывающей и закрывающей (например, &lt;ICONLIB&gt; &lt;/ICONLIB&gt;). Внутри парных тегов могут быть другие теги. <br/>
+Единичные теги - &lt;ICON /&gt; - характеризуются косой чертой перед второй скобкой. По сути, запись "&lt;ICON /&gt;" равнозначна записи "&lt;ICON&gt;&lt;/ICON&gt;". Так делается просто для упрощения.</p>
+
+<p>В нашем случае теги состоят из таких частей:</p>
+<ol>
+<li>Имя функции (ICON) — или "что мы вообще хотим этим добиться". "ICON" значит "заявить иконку";</li>
+<li>параметры (id="0" ext="LA") - уточняющие дополнения функции. В них-то вся соль. Именно они определяют, какая именно иконка, и для каких конкретно случаев задаётся.</li>
+</ol>
+
+<hr/>
+
+<p>Теперь пройдемся по нашему образцу и посмотрим, что за что отвечает:</p>
+<p><b>Информация от автора:</b></p>
+
+<p class="code xml">
+<span class="sc1">&lt;AUTHOR</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"Ham"</span><span class="sc8"> </span><span class="sc3">email</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">homepage</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">comments</span><span class="sc8">=</span><span class="sc6">"256x48x32x16"</span><span class="sc11">/&gt;</span>
+</p>
+
+<ul>
+<li><span class="not_button">name</span> = имя или псевдоним создателя пакета иконок;</li>
+<li><span class="not_button">email</span> = указываем электронный ящик для благодарностей и критики. Можно и пустым оставить;</li>
+<li><span class="not_button">homepage</span> = здесь можно указать адрес ветки на форуме, домашнюю страницу или оставить пустым;</li>
+<li><span class="not_button">comments</span> = здесь указывается любая другая важная информация, например, автор редизайна, размер значков (256/48/32/16px, 32бит) и что угодно ещё. Только не особо увлекайтесь: место ведь ограничено.</li>
+</ul>
+
+<p><b>Заявление иконок:</b></p>
+
+<p class="code xml">
+<span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"1"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"ASX,BDMV,CUE,IFO,LAP,LST,M3U,MPLS,PLS"</span><span class="sc11">/&gt;</span><span class="sc0"> </span>
+</p>
+
+<ul>
+<li><span class="not_button">id</span> = номер по порядку в библиотеке иконок. <b>Нумерация начинается с нуля (0,1,2,3,...)</b> и указывает, какую именно иконку мы назначим заданным расширениям;</li>
+<li><span class="not_button">ext</span> = собственно расширения, для которых будет использоваться данная иконка. Если мы хотим использовать одну иконку для нескольких расширений (BDMV,CUE,IFO,...), все эти расширения указываем через запятую.</li>
+</ul>
+
+<h2>Эпилог</h2>
+<p>Всё, что нам остаётся, это проверить что у обоих файлов одинаковое название и опубликовать их вместе со скриншотом на <a class="ext" href="http://www.light-alloy.ru/forum/ru_icons/">специальной ветке форума</a>, предварительно запаковав в архив (старожилы рекомендуют .zip).</p>
+
+</body></html>

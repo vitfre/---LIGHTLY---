@@ -1,0 +1,18 @@
+.content 
+{
+	position: relative;
+	top: 37px; bottom: 0px; left: 400px; width: 1024px;
+	overflow-x: hidden; overflow-y: auto;
+	/* background-color: grey; */
+}
+
+a { text-decoration: none; color: #262626; }
+p { margin: 0 0 15px 0; }
+.content a, .header a { padding: 2px 7px; border-radius: 10px; background-color: #fff373; }
+.content a:hover, .header a:hover { background-color: #fff4ad; }
+
+img 
+{
+	margin-top: -15px;
+	margin: 0 10px 10px 0;
+}

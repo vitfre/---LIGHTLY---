@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>API Light Alloy - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="_contents.htm" frameborder="0">Contents</iframe>
+<h1>API Light Alloy</h1>
+
+<p>В Light Alloy существует возможность получать системные сообщения от сторонней программы, используя API Light Alloy. Это позволяет упомянутой сторонней программе просто и точно управлять проигрывателем без эмуляции нажатий клавиатуры и мышки. Среди программ, которые используют API для управления Light Alloy - Remotty и RC Assistant.</p>
+
+<h2>Управление Light Alloy через API</h2>
+<p>Управление Light Alloy через API, осуществляется путём отправки сообщений окну c названием класса <b>LightAlloyFront</b>.</p>
+
+<p>Номер сообщения = WM_APP + 2504 (0x89C8)</p>
+
+<p>Ниже перечислены команды, которые понимает Light Alloy:</p>
+<p class="code">
+LAC_FILE_OPEN                    = 50;	//Открыть файл
+LAC_FILE_OPEN_URL                = 51;	//Открыть URL
+LAC_FILE_PLAY_DVD_DISC           = 52;	//Открыть DVD/Blu-ray/Audio CD диск
+LAC_FILE_OPEN_DVD_FOLDER_NO_MENU = 53;	//Открыть DVD без меню
+LAC_FILE_OPEN_DVD_FOLDER         = 54;	//Открыть папку с DVD/Blu-ray
+LAC_FILE_OPEN_TV                 = 55;	//Полноэкранное меню открытия файлов
+LAC_FILE_PLAY_CDDVD              = 56;	//Открыть CD/DVD диск
+LAC_FILE_PLAY_BD_DISC            = 57;	//Открыть Blu-ray диск
+LAC_FILE_PLAY_AUD_DISC           = 58;	//Открыть Audio CD диск
+LAC_APPLICATION_HISTORY          = 59;	//Расширенная история файлов
+LAC_FILE_INFO                    = 60;	//Информация о файле
+LAC_FILE_OSD_INFO                = 61;	//Информация о файле на экране
+LAC_FILE_INFO_PLAYLIST           = 62;	//Информация о файле
+LAC_FILE_OPEN_RADIOVIEWER        = 63;	//Каталог интернет радиостанций
+LAC_FILE_RADIO_ON_OFF            = 64;	//Радио: включить/выключить
+LAC_FILE_RADIO_RECSTART          = 65;	//Радио: начать запись
+LAC_FILE_RADIO_RECSTOP           = 66;	//Радио: остановить запись
+
+LAC_PLAYBACK_PLAY                = 100;	//Воспроизведение
+LAC_PLAYBACK_STOP                = 101;	//Пауза
+LAC_PLAYBACK_STOP_PLAY           = 102;	//Воспроизведение / Пауза
+LAC_PLAYBACK_REAL_STOP           = 103;	//Стоп
+LAC_PLAYBACK_SPEED_PLAY          = 104;	//Скорость воспроизведения
+LAC_PLAYBACK_FILTERS             = 105;	//Дерево фильтров
+LAC_PLAYBACK_SPEED_PLAY_UP       = 106;	//Скорость воспроизведения
+LAC_PLAYBACK_SPEED_PLAY_DN       = 107;	//Скорость воспроизведения
+
+LAC_SEEK_FRAME_STEP              = 150;	//Кадр вперед
+LAC_SEEK_FRAME_BACK              = 151;	//Кадр назад
+LAC_SEEK_FORWARD                 = 152;	//Перемотка вперед
+LAC_SEEK_BACKWARD                = 153;	//Перемотка назад
+LAC_SEEK_JUMP_FORWARD            = 154;	//Прыжок вперед
+LAC_SEEK_JUMP_BACKWARD           = 155;	//Прыжок назад
+LAC_SEEK_SUBTITLE_NEXT           = 156;	//Субтитр вперед
+LAC_SEEK_SUBTITLE_PREV           = 157;	//Субтитр назад
+LAC_SEEK_REWIND                  = 158;	//Перемотать в начало
+LAC_SEEK_SET_BOOKMARK            = 159;	//Установить закладку
+LAC_SEEK_LAST_POS                = 160;	//Перемотка на место остановки
+LAC_SEEK_A_B                     = 161;	//Повтор отрезка А-B
+LAC_SEEK_SET_O                   = 162;	//Отметить начало автопромотки
+LAC_SEEK_SET_E                   = 163;	//Отметить конец автопромотки
+LAC_SEEK_SET_OE                  = 164;	//Отметить завершение заставки
+LAC_SEEK_SET_EO                  = 165;	//Отметить начало окончания
+LAC_SEEK_SHOW_OE_PROPS           = 166;	//Настройки автопромотки
+
+LAC_WINDOW_CONTROL_PANEL         = 200;	//Панель управления
+LAC_WINDOW_STAY_ON_TOP           = 201;	//Поверх всех окон
+LAC_WINDOW_MINIMIZE              = 202;	//Минимизировать
+LAC_WINDOW_MAXIMIZE              = 203;	//Максимизировать
+LAC_WINDOW_FULLSCREEN            = 204;	//Окно / Весь экран
+LAC_WINDOW_ORIGINAL              = 205;	//Первоначальный размер
+LAC_WINDOW_PLAYLIST              = 206;	//Список
+LAC_WINDOW_EX_PLAYLIST           = 207;	//Внешний список
+LAC_WINDOW_ADVDIR                = 208;	//Режим плейлиста
+LAC_WINDOW_PLAYLIST_SIZE         = 209;	//Размер плейлиста
+LAC_WINDOW_ADVDIR_DIR_SIZE       = 210;	//Размер панели каталогов
+LAC_WINDOW_GET_USER_SIZE         = 211;	//Сохранить положение и размеры плеера
+LAC_WINDOW_SET_USER_SIZE         = 212;	//Загрузить положение и размеры плеера
+LAC_WINDOW_HIDE_FROM_BOSS        = 213;	//Анти-шеф
+
+LAC_PLAYLIST_SHOW_HIDE_SEARCH    = 250;	//Поле поиска: показать / скрыть
+LAC_PLAYLIST_ADVDIR_FAVORITE     = 251;	//Режим Каталогов - Избранное
+LAC_PLAYLIST_ADVDIR_GO_MYPATH    = 252;	//Режим Каталогов - Любимая папка
+LAC_PLAYLIST_PLAY                = 253;	//Проиграть выбранный
+LAC_PLAYLIST_NEXT                = 254;	//Следующий по списку
+LAC_PLAYLIST_PREV                = 255;	//Предыдущий по списку
+LAC_PLAYLIST_ADD_FILES           = 256;	//Добавить файл
+LAC_PLAYLIST_ADD_FOLDER          = 257;	//Добавить папку в список
+LAC_PLAYLIST_DELETE              = 258;	//Удалить из списка
+LAC_PLAYLIST_DELETE_FILE         = 259;	//Удалить файл
+LAC_PLAYLIST_CLEAR               = 260;	//Очистить список
+LAC_PLAYLIST_SAVE                = 261;	//Сохранить список
+LAC_PLAYLIST_REPORT              = 262;	//Таблица по списку
+LAC_PLAYLIST_MOVE_UP             = 263;	//Переместить выше
+LAC_PLAYLIST_MOVE_DOWN           = 264;	//Переместить ниже
+LAC_PLAYLIST_SORT                = 265;	//Отсортировать список
+LAC_PLAYLIST_VISUALSHUFFLE       = 266;	//Перемешать список
+LAC_PLAYLIST_SHUFFLE             = 267;	//Случайный порядок воспроизведения
+LAC_PLAYLIST_REPEAT              = 268;	//Повтор списка
+LAC_PLAYLIST_REPEAT_FILE         = 269;	//Повтор файла
+LAC_PLAYLIST_BOOKMARKS           = 270;	//Закладки в списке
+LAC_PLAYLIST_JUMP                = 271;	//Перейти к файлу
+LAC_PLAYLIST_SEARCH_FILE         = 272;	//Показать расположение файла
+LAC_PLAYLIST_RENAME_FILE         = 273;	//Переименовать файл или закладку
+
+LAC_VIDEO_PROPERTIES             = 300;	//Опции видео
+LAC_VIDEO_SCREENSHOT             = 301;	//Сохранить скриншот
+LAC_VIDEO_SCREENSHOT_CB          = 302;	//Копировать скриншот в буфер обмена
+LAC_VIDEO_SAVE_THUMBNAILS        = 303;	//Сохранить миниатюры
+LAC_VIDEO_SAVE_SCREENS_PACK      = 304;	//Сохранить пакет полноразмерных скриншотов
+LAC_VIDEO_OPEN_SCR_FOLDER        = 305;	//Открыть папку со снимками с экрана
+LAC_VIDEO_SCALE_50               = 306;	//Масштаб 50%
+LAC_VIDEO_SCALE_100              = 307;	//Масштаб 100%
+LAC_VIDEO_SCALE_150              = 308;	//Масштаб 150%
+LAC_VIDEO_SCALE_200              = 309;	//Масштаб 200%
+LAC_VIDEO_RATIO_ASIS             = 310;	//Пропорции как есть
+LAC_VIDEO_RATIO_16_9             = 311;	//Пропорции 16:9
+LAC_VIDEO_RATIO_4_3              = 312;	//Пропорции 4:3
+LAC_VIDEO_RATIO_WIDTH            = 313;	//Пропорции по ширине
+LAC_VIDEO_RATIO_HEIGHT           = 314;	//Пропорции по высоте
+LAC_VIDEO_RATIO_CUSTOM           = 315;	//Пропорции особые
+LAC_VIDEO_RATIO_CUSTOM_SET       = 316;	//Пропорции особые
+LAC_VIDEO_RATIO_FREE             = 317;	//Без сохранения пропорций
+LAC_VIDEO_RATIO_PIXEL            = 318;	//Пропорции Пиксель-в-Пиксель
+LAC_VIDEO_ZOOM_IN                = 319;	//Увеличить изображение
+LAC_VIDEO_ZOOM_OUT               = 320;	//Уменьшить изображение
+LAC_VIDEO_BRIGHTNESS_INC         = 321;	//Прибавить яркость
+LAC_VIDEO_BRIGHTNESS_DEC         = 322;	//Убавить яркость
+LAC_VIDEO_CONTRAST_INC           = 323;	//Прибавить контрастность
+LAC_VIDEO_CONTRAST_DEC           = 324;	//Убавить контрастность
+LAC_VIDEO_SATURATION_INC         = 325;	//Прибавить насыщенность
+LAC_VIDEO_SATURATION_DEC         = 326;	//Убавить насыщенность
+LAC_VIDEO_COLOR_RESET            = 327;	//Сбросить цветовые настройки
+LAC_VIDEO_SETS_RESTORE           = 328;	//Сбросить настройки масштаба и размеров
+LAC_VIDEO_RATIO_SWITCH           = 329;	//Переключить пропорции
+LAC_VIDEO_DEBUG_OSD              = 330;	//Показать техническое OSD по видео
+LAC_VIDEO_OSD_INFO_CB            = 331;	//Сохр. OSD-инфо фильма в буфер обмена
+LAC_VIDEO_SUBS_DEBUG_OSD         = 332;	//Показать техническое OSD по субтитрам
+LAC_VIDEO_SHOW_STATS             = 333;	//Показывать техническую статистику
+LAC_VIDEO_USE_VSYNC              = 334;	//Разрешить VSync
+LAC_VIDEO_USE_ACCURVSYNC         = 335;	//Использовать аккуратный VSync
+LAC_VIDEO_USE_ALTERVSYNC         = 336;	//Использовать альтернативный VSync
+LAC_VIDEO_FLUSHGPU_BEF_VS        = 337;	//Заполнить GPU перед VSync
+LAC_VIDEO_FLUSHGPU_AFT_PR        = 338;	//Заполнить GPU после представления
+LAC_VIDEO_FLUSHGPU_WAIT          = 339;	//Ожидать заполнения GPU
+LAC_VIDEO_USE_FRAME_TC           = 340;	//Включить коррекцию времени кадра
+LAC_VIDEO_DIS_AERO               = 341;	//Отключить эффекты рабочего стола
+LAC_VIDEO_USE_16_235_OR          = 342;	//Использовать диапазон вывода 16-235
+LAC_VIDEO_PAN_SCAN_LEFT          = 343;	//Сдвинуть картинку влево
+LAC_VIDEO_PAN_SCAN_RIGHT         = 344;	//Сдвинуть картинку вправо
+LAC_VIDEO_PAN_SCAN_UP            = 345;	//Сдвинуть картинку вверх
+LAC_VIDEO_PAN_SCAN_DOWN          = 346;	//Сдвинуть картинку вниз
+
+LAC_SUBTITLES_LOAD               = 350;	//Загрузить субтитры
+LAC_SUBTITLES_LOAD_TV            = 351;	//Полноэкранное меню загрузки субтитров
+LAC_SUBTITLES_SHOW               = 352;	//Отображать субтитры
+LAC_SUBTITLES_SWITCH             = 353;	//Переключить субтитры
+LAC_SUBTITLES_SHOW2              = 354;	//Отображать субтитры №2
+LAC_SUBTITLES_SWITCH2            = 355;	//Переключить субтитры №2
+LAC_SUBTITLES_PROPERTIES         = 356;	//Опции субтитров
+LAC_SUBTITLES_TS_INC             = 357;	//Увеличить сдвиг субтитров
+LAC_SUBTITLES_TS_DEC             = 358;	//Уменьшить сдвиг субтитров
+LAC_SUBTITLES_EXPLORER           = 359;	//Обозреватель субтитров
+LAC_SUBTITLES_FONT_INC           = 360;	//Сделать субтитры крупнее
+LAC_SUBTITLES_FONT_DEC           = 361;	//Сделать субтитры мельче
+
+LAC_SOUND_ADD                    = 400;	//Загрузить звуковую дорожку
+LAC_SOUND_SWITCH_STREAM          = 401;	//Переключить звуковую дорожку
+LAC_SOUND_PROPERTIES             = 402;	//Опции звука
+LAC_SOUND_VOLUME_INC             = 403;	//Увеличить громкость
+LAC_SOUND_VOLUME_DEC             = 404;	//Уменьшить громкость
+LAC_SOUND_MUTE                   = 405;	//Отключить звук
+LAC_SOUND_TS_MINUS               = 406;	//Сдвинуть звук назад
+LAC_SOUND_TS_PLUS                = 407;	//Сдвинуть звук вперёд
+LAC_SOUND_PITCH_INC              = 408;	//Увеличить питч звука
+LAC_SOUND_PITCH_DEC              = 409;	//Уменьшить питч звука
+LAC_SOUND_PITCH_DEF_ONE          = 410;	//Дефолтный питч звука для текущей скорости
+LAC_SOUND_PITCH_DEF_ALL          = 411;	//Дефолтный питч звука для всех скоростей
+
+LAC_APPLICATION_PREFERENCES      = 450;	//Настройки
+LAC_APPLICATION_HELP             = 451;	//Помощь
+LAC_APPLICATION_ABOUT            = 452;	//О программе
+LAC_APPLICATION_EXIT             = 453;	//Выход
+LAC_APPLICATION_MONITOR_OFF      = 454;	//Выключить монитор
+LAC_APPLICATION_POWER_OFF        = 455;	//Выключить компьютер
+LAC_APPLICATION_POW_ONPLDONE     = 456;	//Выкл. компьютер по окончанию списка
+LAC_APPLICATION_HIBERNATE        = 457;	//Спящий режим
+LAC_APPLICATION_HIB_ONPLDONE     = 458;	//Спящий режим по окончанию списка
+LAC_APPLICATION_MEDIAHISTORY_CLEAR = 459;	//Очистить медиа-историю
+LAC_APPLICATION_CLEAR_MEDIA_SETTINGS = 460;	//Очистить медиа-настройки и кэш
+LAC_APPLICATION_WL_KEYS_REMINDER = 461;	//Напомнить назначенные WinLIRC команды
+LAC_APPLICATION_SCHEDULER        = 462;	//Планировщик
+LAC_APPLICATION_SLEEP            = 463;	//Ждущий режим
+LAC_APPLICATION_AGENT_CLOSE      = 464;	//Закрыть LAAgent.exe
+
+LAC_NAVIGATION_TITLE             = 500;	//Заглавное меню
+LAC_NAVIGATION_ROOT              = 501;	//Корневое меню
+LAC_NAVIGATION_SUBS              = 502;	//Меню субтитров
+LAC_NAVIGATION_AUDIO             = 503;	//Меню аудио
+LAC_NAVIGATION_ANGLE             = 504;	//Меню ракурсов видео
+LAC_NAVIGATION_SCENES            = 505;	//Меню сцен
+LAC_NAVIGATION_PREV              = 506;	//Предыдущая глава
+LAC_NAVIGATION_NEXT              = 507;	//Следующая глава
+</p>
+
+<h2>Пример использования API Light Alloy</h2>
+<p>Ниже представлены два скрипта AutoIt3, которые выполняют одно и то же. Отличие только в том, что первый чуть меньше места на диске занимает, а второй чуть понятнее:</p>
+
+<p class="code autoit">
+<span class="sc11">#include</span><span class="sc0"> </span><span class="sc7">&lt;SendMessage.au3&gt;</span><span class="sc0">
+</span><span class="sc9">$hWnd</span><span class="sc0"> </span><span class="sc8">=</span><span class="sc0"> </span><span class="sc4">WinWait</span><span class="sc8">(</span><span class="sc7">"[CLASS:LightAlloyFront]"</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc7">""</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc3">0</span><span class="sc8">)</span><span class="sc0">
+_SendMessage</span><span class="sc8">(</span><span class="sc9">$hwnd</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc3">0x89C8</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc3">100</span><span class="sc8">)</span>
+</span></p>
+
+<p class="code autoit">
+<span class="sc11">#include</span><span class="sc0"> </span><span class="sc7">&lt;SendMessage.au3&gt;</span><span class="sc0">
+</span><span class="sc5">Local</span><span class="sc0"> Const </span><span class="sc9">$LAC_PLAYBACK_PLAY</span><span class="sc0"> </span><span class="sc8">=</span><span class="sc0"> </span><span class="sc3">100</span><span class="sc0">
+</span><span class="sc9">$hWnd</span><span class="sc0"> </span><span class="sc8">=</span><span class="sc0"> </span><span class="sc4">WinWait</span><span class="sc8">(</span><span class="sc7">"[CLASS:LightAlloyFront]"</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc7">""</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc3">0</span><span class="sc8">)</span><span class="sc0">
+_SendMessage</span><span class="sc8">(</span><span class="sc9">$hwnd</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc3">0x89C8</span><span class="sc8">,</span><span class="sc0"> </span><span class="sc9">$LAC_PLAYBACK_PLAY</span><span class="sc8">)</span>
+</p>
+
+</body></html>

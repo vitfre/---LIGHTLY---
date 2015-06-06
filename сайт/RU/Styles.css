@@ -1,0 +1,237 @@
+﻿BODY {
+    background: #ffffff;
+	margin: 0px 0px 15px 260px;
+	font-family: Verdana; 
+	font-size: 14px;
+	font-style: normal;
+	line-height: 170%;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+	text-align: justify;
+}
+BODY.contents {margin: 0px;}
+
+IFRAME {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	width: 260px;
+	height: 100%;
+	border-right: 1px solid #a9b4c2;
+}
+
+a {	text-decoration: none; color: #2d71b2;}
+a:hover {text-decoration: underline;}
+a:visited {text-decoration: none; color: #308f00;}
+
+a.ext{ /* внешняя ссылка */
+    padding: 0px 13px 0px 0px;
+	background-image: url(./images/inner/arrow.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+P {
+	margin: 10px 10px 0px 10px;
+}
+
+P.switch { /* стрелка переключения */
+	float:right;
+	margin-top: 2px;
+	margin-right: 10px;
+}
+P.contents { /* оглавление */
+	margin: 3px 6px 3px 6px;
+	font-family: Verdana, Arial;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-align:left;
+	line-height: 125%;
+}
+
+OL { margin: 0px 10px 10px 7px;}
+UL { margin: 0px 10px 10px 0px;}
+LI { margin: 0px 10px 0px -15px;}
+
+UL.add, UL.modify, UL.del {
+	list-style-type: none;
+	margin: 0px 10px 10px -14px;
+	}
+UL.add  > LI{
+    padding: 4px 4px 4px 16px;
+	background-image: url(./images/inner/add.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+UL.modify > LI {
+    padding: 4px 4px 4px 16px;
+	background-image: url(./images/inner/modified.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	}
+UL.del > LI {
+    padding: 4px 4px 4px 16px;
+	background-image: url(./images/inner/del.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	}
+
+H1 {
+    margin: 0px;
+	font-size: 140%;
+    font-family: Arial, Liberation Sans;
+	text-align: center;
+	color: #30373f;
+	background: #ced3d9;
+	border-bottom: 1px solid #a9b4c2;
+	padding: 6px;
+}
+H2 {
+    margin: 8px;
+	margin-top: 20px;
+	font-size: 120%;
+    font-family: Arial, Liberation Sans;
+	text-align: left;
+	color: #30373f;
+	background: #f7f4ed;
+	padding: 2px 2px 2px 6px;
+	border: 1px dashed #a3a2a0;
+	border-radius: 6px;
+}
+H2.contents {
+	margin: 7px;
+}
+H3 {
+    margin: 12px;
+	font-size: 100%;
+	font-style: italic;
+	text-align: left;
+	padding: 2px;
+	border-bottom: 1px solid #a3a2a0;
+}
+
+H4 {
+    margin: 12px;
+	font-size: 100%;
+	text-align: left;
+	font-weight: normal;
+	font-style: italic;
+	padding: 0px;
+	border-bottom: 1px dashed #a3a2a0;
+}
+
+table, td{
+	margin: 10px;
+    border: 1px solid #cccccc; /* рамка текста */
+	background: #fbfbfb;
+    padding: 4px; /* Расстояние от линии до текста */
+	border-collapse: collapse;
+	font-family: Arial;
+	font-size: 13px;
+	vertical-align: top;
+	text-align: left;
+}
+
+th{
+	margin: 10px;
+    border: 1px solid #cccccc; /* рамка текста */
+	background: #eeeeee;
+    padding: 4px; /* Расстояние от линии до текста */
+	border-collapse: collapse;
+	font-family: Arial;
+	font-size: 13px;
+	text-align: center;
+	vertical-align: top;
+	font-style: bold;
+}
+
+.invisible { /* невидимая ТАБЛИЦА */
+    border: 0px #ffffff; /* рамка текста */
+	background: #ffffff;
+	border-collapse: collapse;
+}
+
+sup, sub { /* в степени "ПКМ!" */
+	color: #FF0000;
+}
+img {
+    border: 0px;
+}
+hr {
+    margin: 8px;
+}
+.key{
+	background-color:#f6f6f6;
+	background: linear-gradient(to top, #eeeeee, #ffffff);
+	color: #000000;
+	font-weight: normal;
+	border: 1px solid #bfbebb;
+	border-radius: 4px;
+	padding: 0px 7px 1px 7px;
+	box-shadow: 2px 1px 2px rgba(0,0,0,0.10);
+}
+.button{
+	background-color:#f2f2f2;
+	background: linear-gradient(to bottom, #fbfbfb, #f0f0f0);
+	color: #000000;
+	border: 1px solid #cccbc8;
+	border-radius: 0px;	
+	padding: 0px 4px 1px 4px;
+}
+.not_button{
+	border-top: 1px dashed #cccbc8;
+	border-bottom: 1px dashed #cccbc8;
+	border-radius: 3px;
+	padding-bottom: 1px;
+	background-color:#fafafa;
+}
+.path{
+	font-weight: bold;
+	color: #990000;
+	
+}
+.spacer{ font-size: 10px; margin: 6px;}
+
+/* spoiler */
+.spoiler {
+    cursor: pointer;
+	display: block;
+	margin: 10px;
+	border: 1px solid #dbdbdb;
+	border-radius: 0px;
+	background:#f4f4f4;
+	font-size: 12px;	
+}
+
+.spoiler > input {
+	display: none;
+}
+
+.spoiler > .title {
+	display: inline;
+    padding: 4px 4px 4px 20px;
+	background-image: url(./images/inner/plus.gif);
+	background-position: 5px 7px;
+	background-repeat: no-repeat;
+	text-align: left;
+	font-weight: bold;
+	font-style: italic;
+}
+.spoiler > :checked ~ .title {
+	background-image: url(./images/inner/minus.gif);
+}
+
+.spoiler > .body {
+    display: none;
+}
+.spoiler > :checked ~ .body {
+	cursor: auto;
+    display: block;
+	border-top: 1px solid #dbdbdb;
+	padding: 4px;
+    background: #fcfcfc;
+}
+/* end of spoiler */

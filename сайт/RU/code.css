@@ -1,0 +1,38 @@
+﻿/* styles for Notepad++ export */
+.code {
+	margin: 10px;
+	border: 1px solid #cccbc8;
+	border-width: 1px 1px 1px 22px;
+	border-color: #e0e0e0;
+	background: #fbfbfb;
+    padding: 0px 10px 10px 10px;
+	white-space: pre-wrap;
+	font-family: Liberation Mono, DejaVu Sans Mono, Courier New;	
+	line-height: 125%;
+	color: #000000;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+}
+/* --------------------------------------- xml ----------------------------------- */
+.xml { white-space: pre-wrap; }
+.xml > .sc0 { } /* space */
+.xml > .sc1 { color: #0000FF; } /* <TAG and quotes> */
+.xml > .sc3 { color: #FF0000; } /* parameter */
+.xml > .sc6 { color: #8000FF; } /* value */
+.xml > .sc8 { } /* = and _ */
+.xml > .sc9 { color: #008000; } /* comment */
+.xml > .sc11 { color: #0000FF; } /* /> */
+.xml > .sc12 { color: #FF0000; background: #FFFF00; } /*   <?   */
+.xml > .sc13 { color: #FF0000; background: #FFFF00; } /*   ?>   */
+/* --------------------------------------- autoit ----------------------------------- */
+.autoit { white-space: pre-wrap; }
+.autoit > .sc0 { }
+.autoit > .sc3 { color: #FF8000; }
+.autoit > .sc4 { color: #8000FF; }
+.autoit > .sc5 { color: #0000FF; font-weight: bold; }
+.autoit > .sc7 { color: #808080; }
+.autoit > .sc8 { color: #000080; font-weight: bold; }
+.autoit > .sc9 { color: #FF0080; font-style: italic; }
+.autoit > .sc11 { color: #804000; }

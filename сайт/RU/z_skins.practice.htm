@@ -1,0 +1,584 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Шкурки. Практика - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="Code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>Шкурки. Практика - Справка Light Alloy</h1>
+
+<p>Создание шкурки начинается с Идеи. Лучше всего сперва нарисовать эскиз шкурки в графическом редакторе, а уже потом создавать файлы, необходимые для шкурки.</p>
+<p>Что может быть идеей для простой шкурки? Что угодно: от красивого цвета или реализации какой-либо концепции до портирования интерфейса другой программы. Это даже необязательно должен быть другой видеопроигрыватель. Например, можно представить родной интерфейс операционной системы:</p>
+<p><img style="box-shadow: 1px 1px 5px rgba(0,0,0,0.30)" src="Images/z_skins.practice.draft.png" /></p>
+<p>Задача эскиза - ответить на такие вопросы:</p>
+<ol>
+<li>Какие будут использоваться цвета?</li>
+<li>Что и как будет выглядеть?</li>
+<li>... и где располагаться.</li>
+</ol>
+<p>Несложно заметить, что эскиз имеет некоторые несоответствия. Это потому что он лишь отвечает на основные вопросы, не более того. И из эскиза видно, что круглый ползунок громкости всё же лучше смотрится чем восьмигранный, а отметки на шкале времени - негармоничны. Однако в целом картинка получилась довольно приятной, а значит имеет смысл реализовать её в шкурку.</p>
+
+<h2>Программное обеспечение</h2>
+<p>Понадобятся такие программы:</p>
+<ul>
+<li><b>Графический редактор</b> - рисования всех элементов и помощи с их разметкой;</li>
+<li><b>Блокнот</b> (желательно с подсветкой xml-синтаксиса) - для создания файла interface.xml</li>
+<li><b>Архиватор</b> - для упаковки шкурки.</li>
+</ul>
+<p>Программы подбирались таким образом, чтобы они были достаточно знакомы и удобны. В результате был сделан выбор таким образом:</p>
+<ul>
+<li>Графический редактор для рисования - <b>Adobe Photoshop</b> (бесплатная альтернатива: PixBuilder Studio, Artweaver free, The Gimp);</li>
+<li>Пересохранение изображений (необязательно) - <b>FastStone Image Viewer</b> (бесплатный для домашнего пользования);</li>
+<li>Помощь в разметке (необязательно) - <b>PhotoFiltre</b> (бесплатный для некоммерческого использования);</li>
+<li>Блокнот с подсветкой xml-синтаксиса - <b>Notepad2 mod</b> (бесплатный; другие варианты: Notepad++, AkelPad, Dpad).</li>
+<li><b>Архиватор</b> - Haozip (бесплатный; другие варианты: 7zip, PeaZip, Hamster Free ZIP Archiver, IZArc).</li>
+</ul>
+
+<h2>Информация о шкурке (SkinInfo.txt)</h2>
+<p>Информация о шкурке не имеет каких либо требований, кроме максимальной длины 45 символов (чтобы уместиться в окне настроек проигрывателя). Просто надо заполнить название шкурки, автора и (при желании) всё остальное. Единственное, избегайте пробелов сразу после знака "равно". В данном случае это выглядит так:</p>
+<p class="code">
+SkinTitle=Ei8ht
+SkinAuthor=Gilorn
+SkinVer=4.8.0
+SkinWWW=http://www.light-alloy.ru/forum/ru_skins/ei8ht
+SkinCmt=Training skin
+SkinAudio=0
+</p>
+
+<!-- spoiler -->
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Как заранее определить ссылку на форум?</div>
+    <div class="body">
+	Есть два подхода:
+		<ul>
+		<li>пишем "http://www.light-alloy.ru/forum/ru_skins/" и добавляем название шкурки латиницей, строчными символами и с заменой пробела на подчёркивание "_". Шансы ошибиться есть, но они весьма низки.</li>
+		<li>создаём тему на форуме (можно даже снимок шкурки опубликовать), после чего у нас есть нужная ссылка на свежесозданную тему, которую и записываем в шкурку. Далее шкурку дополнительно выкладываем с теме.</li>
+		</ul>
+	Кроме того, автор шкурки не ограничен ссылками только на сайт Light Alloy, он может указать ссылку на совершенно произвольный сайт.
+	</div>
+</label>
+<!-- End of spoiler -->
+
+<h2>Визитка (preview.png)</h2>
+<p>Две важные детали, которые делают визитку визиткой:</p>
+<ol>
+<li>изображение характерной черты шкурки;</li>
+<li>наличие названия (да-да, и на визитке тоже).</li>
+</ol>
+<p>Самым запоминающимся элементом шкурки в данном случае являются три центральные кнопки. А к ним нужен соответствующий фон:</p>
+<p><img src="Images/z_skins.practice.preview.png" /></p>
+
+<h2>Рисунки для шкуры</h2>
+<p>Начиная с этого момента придётся сильно полагаться на эскиз и воображение. Ведь создание рисунков для шкуры оценить невозможно: проигрыватель не понимает просто рисунки.</p>
+<p>Первый вопрос, который надо решить, это сколько отдельных рисунков создавать. Чем больше рисунков - тем модульнее получится конструкция и тем проще будет развивать шкурку в будущем или использовать её для создания других шкурок. Одновременно, чем больше отдельных рисунков, тем больше пустого места на них будет и тем тяжелее будет шкурка.</p>
+
+<p>После тщательного размышления было решено оформить отдельными рисунками следующие элементы:</p>
+<ul>
+<li>логотип - чтоб легко можно было поменять; кроме того, его нельзя представить индексированными цветами;</li>
+<li>контекстное меню - его содержимое неизменно и этот блок потом возможно использовать в других шкурках;</li>
+<li>хинты - по тем же соображениям;</li>
+<li>наборы цветов - помимо неизменного содержимого, это ещё и множество слоёв, которые удобнее держать отдельным файлом;</li>
+<li>по изображению на верхнюю, нижнюю панель и панель списка.</li>
+</ul>
+
+<h3>Логотип</h3>
+<p>С ним проще всего: в файле будет только одно изображение. Всё, что требуется - это просто перенести логотип из эскиза.</p>
+<p><img src="Images/z_skins.practice.logo.png" /></p>
+
+<h3>Контекстное меню</h3>
+<p>Здесь уже сложнее, поскольку элементов несколько. Поскольку размер всех элементов стандартен, то можно подумать, как удобно разместить элементы.</p>
+<p>Или взять в качестве основы изображение из похожей по оформлению шкурки:</p>
+<p><img src="Images/z_skins.practice.menu.png" /></p>
+<p>Между прочим, 10 значков контекстного меню являются единым объектом, поэтому изменять их порядок или количество рядов нельзя.</p>
+<p>Обратите внимание на фон: он красно-розовый. Его задача - давать однозначный и очевидный ответ на вопрос "это фон?", а также удобно показывать границы отдельных рисунков в файле. Вместо красно-розового цвета можно было подобрать любой другой - это дело личных предпочтений.</p>
+<p>К слову, такой модульный подход позволяет копировать часть файла разметки (interface.xml) из старой шкурки в новую.</p>
+
+<h3>Наборы цветов</h3>
+<p>Тут всё просто (масштаб 500 %)...</p>
+<p><img src="Images/z_skins.practice.color0.png" /></p>
+<p>...как 67 кирпичей. Увы большое количество настраиваемых цветов не способствует лёгкому пониманию назначения каждого пикселя. И если в будущем потребуется коррекция, придётся тратить уйму времени на определение, какой именно пиксель нужно изменить. Поэтому такой вариант имеет смысл лишь в одном-единственном случае: шкурка не будет более изменяться никогда и ни за что.</p>
+<p>Наиболее разумный вариант - использовать для каждого цвета не один пиксель, а пиксель с иллюстрацией. Конечно, создание такой системы займёт не один час, но в результате появится несравненно более удобный и наглядный механизм выбора цветов. Например, как этот (масштаб 200 %):</p>
+<p><img src="Images/z_skins.practice.color1.png" /></p>
+<p>Здесь каждый цвет представлен слоем-заливкой "цвет" с графической маской (инструментарий Photoshop). Все цвета удобно сгруппированы по папкам. В результате уже на этапе первоначального подбора цветов видно, как он будет смотреться. Кроме того, каждый слой имеет говорящее имя, так что нужный слой отыскивается очень быстро. Для изменения цвета здесь нужен лишь двойной клик на соответствующем слое.</p>
+
+<h3>Рисунки для хинтов</h3>
+<p>Эти рисунки имеет смысл делать после того, как будут определены цвета хинтов. Цвет фона рисунков сразу можно взять из набора цветов, так что остаётся только нарисовать сами рисунки. Для чёткого различия рисунков рекомендуется разделить их заметной линией:</p>
+<p><img src="Images/z_skins.practice.hint.png" /></p>
+
+<h3>Верхняя панель</h3>
+<p>Верхняя панель будет содержать:</p>
+<ul>
+<li>бордюр окна;</li>
+<li>фон панели;</li>
+<li>все кнопки панели.</li>
+</ul>
+
+<p>Особых проблем здесь быть не должно: большинство элементов однородны:</p>
+<p><img src="Images/z_skins.practice.header.png" /></p>
+<p>Обратите внимание: фон панели и бордюр окна визуально совмещены. Так сделано просто потому что это визуально удобно. Также из эстетических соображений высота бордюра точно соответствует высоте рядов кнопок. Добиться этого можно корректировкой высоты бордюра после того, как будут нарисованы кнопки.</p>
+<p>Есть несколько нюансов, касающихся бордюра:</p>
+<ol>
+<li>пространство внутри бордюра тоже используется, его можно заметить во время изменения размера окна проигрывателя, поэтому его нужно заполнять гармонирующим цветом (в данном случае это - цвет разделителя списка);</li>
+<li>Бордюр, в отличие от остальных контролов, растягивается не в одной точке а в прямоугольнике (его интерполяция производится по соседним пикселям);</li>
+
+</ol>
+
+<h3>Панель списка</h3>
+<p>Панель списка будет содержать:</p>
+<ul>
+<li>фон панели;</li>
+<li>все кнопки панели.</li>
+</ul>
+<p>Изображения панели списка создаются аналогично верхней панели:</p>
+<p><img src="Images/z_skins.practice.playlist.png" /></p>
+
+<h3>Нижняя панель</h3>
+<p>Это самая сложная панель, поскольку она содержит много разнородных элементов:</p>
+<ul>
+<li>фон панели;</li>
+<li>все кнопки панели;</li>
+<li>элементы шкалы времени;</li>
+<li>элементы громкости;</li>
+<li>графические шрифты.</li>
+</ul>
+
+<p>Поэтому в нижней панели нужно не просто разместить элементы, но и сделать это так, чтобы потом было ясно, что где находится и к чему относится. Поэтому родственные элементы нужно группировать.</p>
+<p><img src="Images/z_skins.practice.footer.png" /></p>
+
+<p> На представленном выше рисунке можно увидеть сгруппированными следующие группы элементов:</p>
+<ul>
+<li>шкала времени;</li>
+<li>громкость.</li>
+</ul>
+
+<p>Элементы сгруппированы примерно так же, как они будут располагаться в самой шкурке, а значит довольно просто понять, что чем является. Также они имеют объединённую разметку,что визуально объединяет их и позволяет идентифицировать.</p>
+<p>Несложно заметить, что часть элементов выглядит не так, как на эскизе: пройденный участок на шкале времени, шрифт длительности, бегунок. С бегунком проще всего: он просто нарисован прозрачным цветом (#00FF00). Остальные элементы в процессе рисования были признаны негармоничными и потому - перерисованы.</p>
+
+<p>Последнее, на что следует обратить внимание, это анимация кнопок с фиксацией. Реакция проигрывателя происходит не на нажатие кнопки, а на её последующее отпускание - отжатие, если угодно. Вот почему надо использовать изменение изображения кнопки не с нижнего левого рисунка, а с правого верхнего.</p>
+
+<h2>Файл разметки (interface.xml)</h2>
+
+<p>Это самая важная часть работы по созданию шкурки, которую хорошо бы проверять наживую (т.е. примерять недошкурку на проигрыватель). Перво-наперво, нужно создать заготовку: разместить блоки кода в удобном порядке (помним про кодировку UTF-8 with signature):</p>
+<p class="code xml">
+<span class="sc12">&lt;?</span><span class="sc1">xml</span><span class="sc8"> </span><span class="sc3">version</span><span class="sc8">=</span><span class="sc6">"1.0"</span><span class="sc8"> </span><span class="sc3">encoding</span><span class="sc8">=</span><span class="sc6">"UTF-8"</span><span class="sc13">?&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;SKIN</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"standart"</span><span class="sc8"> </span><span class="sc3">minsize</span><span class="sc8">=</span><span class="sc6">"100,100"</span><span class="sc1">&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ============= PREDEFINED DECORATIVE IMAGES. ID FIXED ============= --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Logo --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Logo"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"logo.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Splash"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"200,170"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Logo picture --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Color sets  --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Color"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Color.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"LACaption"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- title --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"OSD"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"141,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,5"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- OSD --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Timeline"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Autorewind --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"141,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">       </span><span class="sc9">&lt;!-- Hints --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PL"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,12"</span><span class="sc11">/&gt;</span><span class="sc0">          </span><span class="sc9">&lt;!-- Playlist --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,7"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- Context menu --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"FOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Fullscreen file opendialog --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Fullscreen subs opendialog --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Context menu --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Menu.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"17,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,28"</span><span class="sc11">/&gt;</span><span class="sc0">         </span><span class="sc9">&lt;!-- Left column background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"pics"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,29"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"33,84"</span><span class="sc11">/&gt;</span><span class="sc0">       </span><span class="sc9">&lt;!-- Icons --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Checked"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,12"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"16,16"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Marker --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Bookmark"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"11,11"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Playlist bookmark --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Hint's images --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Hint.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Lclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- L-click mouse --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Rclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"23,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- R-click mouse --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ======================= GRAPHIC CONSTANTS ======================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+  
+</span><span class="sc9">&lt;!-- Parameters: id=%unique name%; pos=%left,top pixel of constanta% // size=%size of constanta (can be ignored for buttons)%. --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Header --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hd"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Header.png"</span><span class="sc1">&gt;</span><span class="sc0">                   
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">
+                            
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Footer --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Ft"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Footer.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">
+    
+</span><span class="sc9">&lt;!-- timeline --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBGfill"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Timeline filled --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- track, align=bottom --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- Timeline empty --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekHiTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- main scale lines --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekLoTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- secondary scale lines --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekChapter"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- Chapter --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- volume --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBGF"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Volume filled --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- track --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- Volume empty --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+
+</span><span class="sc9">&lt;!-- Playlist --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Pl"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Playlist.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ========================= GRAPHIC FONTS ========================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789: -"</span><span class="sc11">/&gt;</span><span class="sc0">           </span><span class="sc9">&lt;!-- for Position --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits_dur"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789: "</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- for Duration --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ============================ CONTROLS ============================ --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Window border controls --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"WndBorder"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.brd"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"30,120"</span><span class="sc8"> </span><span class="sc3">border_size</span><span class="sc8">=</span><span class="sc6">"6,1,6,6"</span><span class="sc8"> </span><span class="sc3">bgsplit_lt</span><span class="sc8">=</span><span class="sc6">"6,26"</span><span class="sc8"> </span><span class="sc3">bgsplit_rb</span><span class="sc8">=</span><span class="sc6">"6,6"</span><span class="sc11">/&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Header controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Caption"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.bg"</span><span class="sc1">&gt;</span><span class="sc0">                   </span><span class="sc9">&lt;!-- Header background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Verdana"</span><span class="sc8"> </span><span class="sc3">fontsz</span><span class="sc8">=</span><span class="sc6">"11"</span><span class="sc8"> </span><span class="sc3">top_delta</span><span class="sc8">=</span><span class="sc6">"-1"</span><span class="sc8"> </span><span class="sc3">bold</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.TitleBG"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"5,5"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{TITLE}"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Title --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd."</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span><span class="sc0"> 
+ 
+</span><span class="sc9">&lt;!-- Footer controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"CtlPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.bg"</span><span class="sc1">&gt;</span><span class="sc0">                  </span><span class="sc9">&lt;!-- Footer background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Seeker"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">OpeningPos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">OpeningHeight</span><span class="sc8">=</span><span class="sc6">"14"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBG"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBGfill"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"Ft.SeekThumb"</span><span class="sc8"> </span><span class="sc3">lotick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekLoTick"</span><span class="sc8"> </span><span class="sc3">hitick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekHiTick"</span><span class="sc8"> </span><span class="sc3">digits_ypos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">ticks_ypos</span><span class="sc8">=</span><span class="sc6">"7"</span><span class="sc8"> </span><span class="sc3">chapter</span><span class="sc8">=</span><span class="sc6">"Ft.SeekChapter"</span><span class="sc8"> </span><span class="sc3">chapter_pos</span><span class="sc8">=</span><span class="sc6">"-1,12"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- Timeline --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Slider"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"5,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.VolBG"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"Ft.VolBGF"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"Ft.VolThumb"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- Volume --&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft."</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc11">/&gt;</span><span class="sc0">
+
+
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.CenterBg"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Central panel --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft."</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- [Stop] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/CONTROL&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">" {POS}"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Position.Switch"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Position --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{DUR}"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Duration --&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/CTLDEF&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Playlist controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PListPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Pl.bg"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"200,42"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc1">&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- Playlist background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">","</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Pl."</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc11">/&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/SKIN&gt;</span>
+</p>
+
+<p>В заготовке находится 4 раздела, причём первые два отличаются только тем, что в первом меняются только координаты (и то не всегда), а во втором меняется всё.</p>
+<p>Зелёный текст - это комментарии. Они помогают ориентироваться в тексте, но при этом игнорируются программой.</p>
+
+<h3>Объявление графических констант</h3>
+<p>Каждая константа имеет уникальное имя, положение и размер. Если имя можно взять из <a href="z_skins.catalog.htm#all_elements">справочника</a>, то положение с размером придётся определять самостоятельно. Делается это с помощью графического редактора.</p>
+<p>Подавляющее большинство графических редакторов отображает координаты курсора и имеет инструмент "выделение прямоугольной области" с указанием размеров выделенной области.</p>
+<p>Для целей разметки просто идеально подойдёт PhotoFiltre (бесплатная для некоммерческого использования, <a class="ext" href="http://www.photofiltre.com/">официальный сайт</a>, <a class="ext" href="http://portableapps.com/apps/graphics_pictures/photofiltre_portable">портативная версия</a>). Она при выделении позволяет сразу узнать и позицию, и размер. Причём размер выделения можно на месте поправить мышкой:</p>
+<p><img src="Images/z_skins.practice.photofiltre.png" /></p>
+<p>Таким образом определение всех значений происходит в четыре этапа:</p>
+<ol>
+<li>В файл разметки добавляется новая строка вида "&lt;AREA id="," pos="" size=","/&gt;".</li>
+<li>Из <a href="z_skins.catalog.htm#all_elements">справочника</a> подставляется id.</li>
+<li>В графическом редакторе определяются значения позиции и размера.</li>
+<li>Эти значения подставляются в pos="," size=",".</li>
+</ol>
+
+<p>В результате 15-и минут усилий первая часть файла разметки приобретает следующий вид:</p>
+
+<p class="code xml">
+<span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ============= PREDEFINED DECORATIVE IMAGES. ID FIXED ============= --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Logo --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Logo"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"logo.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Splash"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"200,170"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Logo picture --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Color sets  --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Color"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Color.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"LACaption"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- title --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"OSD"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"141,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,5"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- OSD --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Timeline"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,2"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Autorewind --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"141,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">       </span><span class="sc9">&lt;!-- Hints --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PL"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,12"</span><span class="sc11">/&gt;</span><span class="sc0">          </span><span class="sc9">&lt;!-- Playlist --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"71,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,7"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- Context menu --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"FOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Fullscreen file opendialog --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SOD_TV"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"1,83"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,18"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Fullscreen subs opendialog --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Context menu --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Menu"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Menu.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"17,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,28"</span><span class="sc11">/&gt;</span><span class="sc0">         </span><span class="sc9">&lt;!-- Left column background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"pics"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,29"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"33,84"</span><span class="sc11">/&gt;</span><span class="sc0">       </span><span class="sc9">&lt;!-- Icons --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Checked"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,12"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"16,16"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Marker --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Bookmark"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"11,11"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- Playlist bookmark --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Hint's images --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hint"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Hint.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Lclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- L-click mouse --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Rclick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"23,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"22,22"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- R-click mouse --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ======================= GRAPHIC CONSTANTS ======================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+  
+</span><span class="sc9">&lt;!-- Parameters: id=%unique name%; pos=%left,top pixel of constanta% // size=%size of constanta (can be ignored for buttons)%. --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Header --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Hd"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Header.png"</span><span class="sc1">&gt;</span><span class="sc0">                   
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"brd"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"30,62"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- Window border --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"6,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"18,25"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Header background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"TitleBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"6,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"18,20"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Title background--&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btAbout"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"31,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,62"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- [About Light Alloy] --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btTop"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"58,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"53,62"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- [Always on top]--&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btMin"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"112,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,62"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- [Minimize] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btMax"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"139,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"53,62"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- [Window / FullScreen] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btExit"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"193,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"45,62"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- [Exit] --&gt;</span><span class="sc0">                                 
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Footer --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Ft"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Footer.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"30,70"</span><span class="sc11">/&gt;</span><span class="sc0">          </span><span class="sc9">&lt;!-- Footer background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"CenterBg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,14"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"30,56"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- Central panel background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btStop"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,71"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"42,74"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- [Stop] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btPlPrev"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"43,71"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,74"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- [Previous in playlist] --&gt;</span><span class="sc0"> 
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btPlNext"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"87,71"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,74"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- [Next in playlist] --&gt;</span><span class="sc0">     
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btOpen"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"131,71"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"42,74"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Open file] --&gt;</span><span class="sc0">    
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"BtPlay"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"174,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"101,152"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- [Play / pause] --&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"BtMute"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"276,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,182"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Mute] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"BtPlist"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"320,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,182"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- [Playlist] --&gt;</span><span class="sc0">     
+        
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"33,18"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"138,16"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- digits for Position --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"33,37"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"68,8"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- digits for Duration --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- timeline --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBGfill"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"33,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"24,14"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Timeline filled --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"64,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"14,14"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- track, align=bottom --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"79,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"24,14"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- Timeline empty --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekHiTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"58,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- main scale lines --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekLoTick"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"59,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"1,3"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- secondary scale lines --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"SeekChapter"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"58,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"3,2"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Chapter --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- volume --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBGF"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"107,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"9,14"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- Volume filled --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolThumb"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"117,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"14,14"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- track --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"VolBG"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"132,1"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"9,14"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Volume empty --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span><span class="sc0">
+
+
+</span><span class="sc9">&lt;!-- Playlist --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;IMAGE</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Pl"</span><span class="sc8"> </span><span class="sc3">file</span><span class="sc8">=</span><span class="sc6">"Playlist.png"</span><span class="sc1">&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"bg"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"20,42"</span><span class="sc11">/&gt;</span><span class="sc0">          </span><span class="sc9">&lt;!-- Playlist background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btPlay"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"21,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,83"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- [Play selected] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btAdd"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"53,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,83"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- [Add file(s) to playlist] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btRem"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"85,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,83"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- [Remove from playlist] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;AREA</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"btMarks"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"117,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"63,83"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Bookmarks in playlist] --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/IMAGE&gt;</span>
+</p>
+
+<h3>Создание графического шрифта</h3>
+<p>Здесь указываются в правильном порядке символы, изображённые в графической константе:</p>
+
+<p class="code xml">
+<span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789: -"</span><span class="sc11">/&gt;</span><span class="sc0">           </span><span class="sc9">&lt;!-- for Position --&gt;</span>
+<span class="sc1">&lt;FONT</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"FT.Digits_dur"</span><span class="sc8"> </span><span class="sc3">chars</span><span class="sc8">=</span><span class="sc6">"0123456789: "</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- for Duration --&gt;</span>
+</p>
+
+<h3>Применение констант и шрифтов в контролах</h3>
+
+<p>Это финальный этап создания шкурки. И его желательно визуально контролировать.</p>
+<!-- spoiler -->
+<label class="spoiler"> 
+    <input type="checkbox" />
+    <div class="title">Делается это путём использования этой шкурки на проигрывателе.</div>
+    <div class="body">Постоянная перезагрузка шкурки будет требоваться очень часто. Существует несколько способов выполнить её:
+		<ol>
+		<li>Shift+Ctrl+Alt+L - перезагружает шкурку и языковой файл.</li>
+		<li>Выбрать шкурку в контекстном меню кнопки "О программе" - выбор уже активной шкурки ведёт к её перезагрузке.</li>
+		</ol>	
+	</div>
+</label>
+<!-- End of spoiler -->
+
+<p>Есть несколько примечаний, которые необходимо сделать:</p>
+<ol>
+<li>позиция вида "-90,6" подразумевает расстояние между <b>правым краем</b> панели и <b>левым верхним пикселем</b> контрола, а вовсе не ширину пустого места между краем и контролом.</li>
+<li>запись вида <b>pos="140,18" size="-50,24"</b> сообщает, что ширина контрола составляет от точки 140 до точки, смещённой влево относительно правого края панели на 50 пикселей. Т.е. по сути определяется позиция правой грани контрола;</li>
+<li>Как сделать выравнивание нескольких контролов по центру? - надо создать плавающую панель, которая располагается по центру, а уже в ней расположить контролы;</li>
+<li>Если используется дополнительная плавающая панель, то координаты вложенных в неё контролов отсчитываются от левого верхнего угла именно этой плавающей панели.</li>
+
+</ol>
+<p>В примечаниях это может выглядеть сложно, но если посмотреть их на живой шкуре, станет понятнее.</p>
+
+<p>От чего зависят позиция и размер контролов? Размер - только от того, какое изображение было нарисовано (кроме панелей и полос прокрутки громкости и шкалы времени - они тянутся). Позиция не зависит ни от чего. Она определяется лишь задумкой автора.</p>
+
+<p class="code xml">
+<span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ============================ CONTROLS ============================ --&gt;</span><span class="sc0">
+</span><span class="sc9">&lt;!-- ================================================================== --&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Window border controls --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"WndBorder"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.brd"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"30,120"</span><span class="sc8"> </span><span class="sc3">border_size</span><span class="sc8">=</span><span class="sc6">"6,1,6,6"</span><span class="sc8"> </span><span class="sc3">bgsplit_lt</span><span class="sc8">=</span><span class="sc6">"6,26"</span><span class="sc8"> </span><span class="sc3">bgsplit_rb</span><span class="sc8">=</span><span class="sc6">"6,6"</span><span class="sc11">/&gt;</span><span class="sc0">
+
+</span><span class="sc9">&lt;!-- Header controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"Caption"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,25"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"14,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.bg"</span><span class="sc1">&gt;</span><span class="sc0">                     </span><span class="sc9">&lt;!-- Header background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"40,3"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"-80,20"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Verdana"</span><span class="sc8"> </span><span class="sc3">fontsz</span><span class="sc8">=</span><span class="sc6">"11"</span><span class="sc8"> </span><span class="sc3">top_delta</span><span class="sc8">=</span><span class="sc6">"-1"</span><span class="sc8"> </span><span class="sc3">bold</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Hd.TitleBG"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"8,5"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{TITLE}"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Title --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd.btAbout"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.About"</span><span class="sc11">/&gt;</span><span class="sc0">           </span><span class="sc9">&lt;!-- [About Light Alloy] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"27,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd.btTop"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.StayOnTop"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- [Always on top] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-99,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd.btMin"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.Minimize"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- [Minimize] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-72,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"26,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd.btMax"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Window.FullScreen"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Window / FullScreen] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-45,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"45,20"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Hd.btExit"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.Exit"</span><span class="sc11">/&gt;</span><span class="sc0">           </span><span class="sc9">&lt;!-- [Exit] --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span><span class="sc0"> 
+ 
+</span><span class="sc9">&lt;!-- Footer controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"CtlPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"400,70"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.bg"</span><span class="sc1">&gt;</span><span class="sc0">                    </span><span class="sc9">&lt;!-- Footer background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Seeker"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"-1,14"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"12,6"</span><span class="sc8"> </span><span class="sc3">OpeningPos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">OpeningHeight</span><span class="sc8">=</span><span class="sc6">"14"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBG"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"Ft.SeekBGfill"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"Ft.SeekThumb"</span><span class="sc8"> </span><span class="sc3">lotick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekLoTick"</span><span class="sc8"> </span><span class="sc3">hitick</span><span class="sc8">=</span><span class="sc6">"Ft.SeekHiTick"</span><span class="sc8"> </span><span class="sc3">digits_ypos</span><span class="sc8">=</span><span class="sc6">"4"</span><span class="sc8"> </span><span class="sc3">ticks_ypos</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">chapter</span><span class="sc8">=</span><span class="sc6">"Ft.SeekChapter"</span><span class="sc8"> </span><span class="sc3">chapter_pos</span><span class="sc8">=</span><span class="sc6">"-1,12"</span><span class="sc8"> </span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- Timeline --&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,14"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"21,56"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btMute"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Audio.Mute"</span><span class="sc11">/&gt;</span><span class="sc0">          </span><span class="sc9">&lt;!-- [Mute] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-21,14"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"21,56"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btPlist"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Window.PlayList"</span><span class="sc11">/&gt;</span><span class="sc0">  </span><span class="sc9">&lt;!-- [Playlist] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Slider"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"28,35"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"90,14"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"5,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.VolBG"</span><span class="sc8"> </span><span class="sc3">bgfill</span><span class="sc8">=</span><span class="sc6">"Ft.VolBGF"</span><span class="sc8"> </span><span class="sc3">thumb</span><span class="sc8">=</span><span class="sc6">"Ft.VolThumb"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- Volume --&gt;</span><span class="sc0">
+    
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,17"</span><span class="sc8"> </span><span class="sc3">align</span><span class="sc8">=</span><span class="sc6">"center"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"218,50"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Ft.CenterBg"</span><span class="sc1">&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- Central panel --&gt;</span><span class="sc0">  
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"0,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"42,24"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btStop"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Playback.RealStop"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Stop] --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"42,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,24"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btPlPrev"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PlayList.Prev"</span><span class="sc11">/&gt;</span><span class="sc0">    </span><span class="sc9">&lt;!-- [Previous in playlist] --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"133,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"43,24"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btPlNext"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PlayList.Next"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Next in playlist] --&gt;</span><span class="sc0">
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"84,0"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"50,50"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btPlay"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"App.SuperPlay"</span><span class="sc11">/&gt;</span><span class="sc0">       </span><span class="sc9">&lt;!-- [Play / pause] --&gt;</span><span class="sc0"> 
+        </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"176,13"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"42,24"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Ft.btOpen"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PlayList.OpenFiles"</span><span class="sc11">/&gt;</span><span class="sc9">&lt;!-- [Open file] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;/CONTROL&gt;</span><span class="sc0">
+
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-100,33"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"75,15"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">" {POS}"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"Position.Switch"</span><span class="sc11">/&gt;</span><span class="sc0">        </span><span class="sc9">&lt;!-- Position --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Text"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"-65,52"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"38,7"</span><span class="sc8"> </span><span class="sc3">font</span><span class="sc8">=</span><span class="sc6">"Digits_dur"</span><span class="sc8"> </span><span class="sc3">text</span><span class="sc8">=</span><span class="sc6">"{DUR}"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- Duration --&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;/CTLDEF&gt;</span><span class="sc0">
+ 
+</span><span class="sc9">&lt;!-- Playlist controls --&gt;</span><span class="sc0"> 
+</span><span class="sc1">&lt;CTLDEF</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"PListPanel"</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"Panel"</span><span class="sc8"> </span><span class="sc3">bg</span><span class="sc8">=</span><span class="sc6">"Pl.bg"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"200,42"</span><span class="sc8"> </span><span class="sc3">bgsplit</span><span class="sc8">=</span><span class="sc6">"10,10"</span><span class="sc1">&gt;</span><span class="sc0">              </span><span class="sc9">&lt;!-- Playlist background --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"10,7"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,27"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Pl.btPlay"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PList.Play"</span><span class="sc11">/&gt;</span><span class="sc0">      </span><span class="sc9">&lt;!-- [Play selected] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"45,7"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,27"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Pl.btAdd"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PList.AddFiles"</span><span class="sc11">/&gt;</span><span class="sc0">   </span><span class="sc9">&lt;!-- [Add file(s) to playlist] --&gt;</span><span class="sc0">  
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"80,7"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,27"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Pl.btRem"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PList.Remove"</span><span class="sc11">/&gt;</span><span class="sc0">     </span><span class="sc9">&lt;!-- [Remove from playlist] --&gt;</span><span class="sc0">
+    </span><span class="sc1">&lt;CONTROL</span><span class="sc8"> </span><span class="sc3">type</span><span class="sc8">=</span><span class="sc6">"GfxBtn"</span><span class="sc8"> </span><span class="sc3">pos</span><span class="sc8">=</span><span class="sc6">"115,7"</span><span class="sc8"> </span><span class="sc3">size</span><span class="sc8">=</span><span class="sc6">"31,27"</span><span class="sc8"> </span><span class="sc3">img</span><span class="sc8">=</span><span class="sc6">"Pl.btMarks"</span><span class="sc8"> </span><span class="sc3">link</span><span class="sc8">=</span><span class="sc6">"PList.ShowMarks"</span><span class="sc11">/&gt;</span><span class="sc9">&lt;!-- [Bookmarks in playlist]  --&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/CTLDEF&gt;</span>
+</p>
+
+<p>После того, как все элементы получают свою позицию и размер, шкурку надо посмотреть на предмет проблем, некрасивых решений и недоработок. Если что - поправить позицию контролов. </p>
+<p>После этого этапа работа над файлом разметки завершена.</p>
+
+<h2>Сборка шкурки</h2>
+<p>На данный момент шкуркой уже можно пользоваться но всё ещё неудобно передавать. Теперь её нужно оптимизировать и упаковать.</p>
+
+<h3>Оптимизация шкурки (формат PNG)</h3>
+<p>PNG использует сжатие, поэтому оптимизация для него требуется весьма незначительная: если изначально PNG-файл был создан в Photoshop, его следует пересохранить, используя максимальное сжатие, с помощью <a class="ext" href="http://www.faststone.org/FSViewerDetail.htm">FastStone Image Viewer</a> (бесплатен для домашнего пользования) - это может в 2-4 раза уменьшить размер файла.</p>
+<p>Других оптимизаций, как правило, не требуется.</p>
+<p>Обратите внимание: шкурка, использующая PNG-изображения, поддерживается проигрывателем только с версии 4.8.0.</p>
+
+<h3>Оптимизация шкурки (формат BMP)</h3>
+<p>Оптимизация заключается в изменении графических файлов.</p>
+<p> Как известно, формат "bmp" очень расточительно расходует место, поскольку он не имеет встроенных возможностей к сжатию. Но не всё так плохо. Взамен можно сыграть на глубине цвета. Рисунок формата "bmp" поддерживает такие варианты глубины цвета:</p>
+<ul>
+<li>24-бит - 16,8 млн. цветов - стандартное полноцветное изображение</li>
+<li>8-бит - 256 любых цветов - достаточно для отображения любого цветного градиента, чёрно-белого изображения;</li>
+<li>4 бит - 16 любых цветов - подходит для сверхминималистичных в плане цвета изображений, например, для набора цветов;</li>
+<li>1 бит - монохромный рисунок; всего два цвета: чёрный и белый. Отлично подойдёт для факсов, но вот для создания шкурок - очень мало манёвров.</li>
+</ul>
+
+<p>Количество цветов в рисунках нашей шкурки следующее:</p>
+<ul>
+<li>Color.bmp - 28</li>
+<li>Footer.bmp - 873</li>
+<li>Header.bmp - 23</li>
+<li>hint.bmp - 27</li>
+<li>Logo.bmp - 3979</li>
+<li>Menu.bmp - 524</li>
+<li>Playlist.bmp - 62</li>
+</ul>
+
+<p>Как видно, большинство изображении можно сжать до 8-битной глубины цвета. В принципе, даже если сжать Footer.bmp и Menu.bmp, это будет незаметно. Чтобы в новом изображении сохранились <b>нужные</b> цвета, их необходимо проиндексировать. Как это сделать, зависит от графического редактора. Например, в Photoshop нужно перейти в <span class="path">главное меню \ Изображение \ Режим \ Индексированные цвета...</span>. В результате объёмы файлов изменились следующим образом:</p>
+
+<table>
+<tr>
+<th>Файл</th>
+<th>Старый размер, KiB</th>
+<th>Новая глубина цвета</th>
+<th>Новый размер, KiB</th>
+</tr>
+
+<tr>
+<td>Color.bmp</td>
+<td>64,5</td>
+<td>8 бит</td>
+<td>21,6</td>
+</tr>
+<tr>
+<td>Footer.bmp</td>
+<td>182</td>
+<td>8 бит</td>
+<td>61,4</td>
+</tr>
+<tr>
+<td>Header.bmp</td>
+<td>43,4</td>
+<td>8 бит</td>
+<td>14,6</td>
+</tr>
+<tr>
+<td>hint.bmp</td>
+<td>3,0</td>
+<td>8 бит</td>
+<td>1,2</td>
+</tr>
+<td>Logo.bmp</td>
+<td>99.6</td>
+<td>24 бит</td>
+<td>99.6</td>
+</tr>
+<td>Menu.bmp</td>
+<td>12,4</td>
+<td>8 бит</td>
+<td>5,6</td>
+</tr>
+<td>Playlist.bmp</td>
+<td>43,8</td>
+<td>8 бит</td>
+<td>14,8</td>
+</tr>
+<tr>
+<td>ВСЕГО</td>
+<td>448,7</td>
+<td>-</td>
+<td>218,8</td>
+</tr>
+</table>
+<p>Как оказалось общий объём рисунков уменьшился примерно вдвое. Впечатляет! Аналогичным образом нужно поступить с файлом "preview.png" Единственная разница, что формат "png" не имеет 4-битную глубину цвета, а только полную (16,8 млн. цветов) или 8-битную (256 цветов).</p>
+
+<h3>Упаковка шкурки</h3>
+<p>Всё довольно просто: берутся все нужные файлы и архивируются в формат "zip". Уровень сжатия - любой, но рекомендуется максимальный. Настройки сжатия лучше оставить по умолчанию, поскольку Light Alloy не понимает современные методы сжатия навроде LZMA.</p>
+
+<p>Наконец, финальный штрих: у шкурки необходимо поменять расширение. Был ".zip" - стал ".las".</p>
+
+<h2>Результат</h2>
+<p>Наконец, можно насладиться результатом!</p>
+<p><img src="Images/z_skins.practice.result.png" /></p>
+<p><a href="Other/Ei8ht_4.8.0.las">Сохранить шкурку...</a></p>
+<p><a href="Other/Ei8ht_4.8.0_source.7z">Сохранить исходные файлы к шкурке...</a></p>
+
+
+
+</body></html>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Создание иконок. Практика - Справка Light Alloy</title>
+<LINK href="Styles.css" rel="stylesheet" type="text/css" />
+<LINK href="code.css" rel="stylesheet" type="text/css" />
+</head><body>
+<iframe src="z_contents.htm" frameborder="0">Contents</iframe>
+<h1>Создание иконок. Практика</h1>
+
+<p>Первое, что нам понадобится, это ответить на ряд вопросов:</p>
+<ol>
+<li>насколько сложный пакет мы хотим получить?</li>
+<li>какие размеры включить?</li>
+<li>будем ли делать один рисунок и потом его уменьшать или каждый размер рисовать заново?</li>
+</ol>
+
+<p>Для тестового пакета определим такие требования:</p>
+<ol>
+<li>пакет будет иметь три универсальные иконки и особые иконки для нескольких популярных расширений</li>
+<li>иконки для расширений должны содержать текст расширения и особый цвет;</li>
+<li>цвета для расширений будут соответствовать аналогичным в пакете иконок "amigos";</li>
+<li>для каждого размера изображение будет рисоваться заново;</li>
+<li>размеры будут: 16, 32, 48, 96, 256 пикселей.</li>
+</ol>
+
+<p>В качестве протопипа будет использоваться этот рисунок (найден <a class="ext" href="http://www.glossyicon.com/video-file-icons/">здесь</a>):</p>
+<p><img src="Images/z_icons.practice.video_file_type.jpg" /></p>
+
+<p>За дело!</p>
+
+<h2>Берегите голову!</h2>
+<p>И сразу - стоп! Первое, что важно помнить про иконки - их <b>много</b>! И у каждой - <b>много размеров</b>! А это значит, что придётся выполнить колоссальное колличество <b>нудной, однообразной работы</b>.</p>
+<p>Поэтому самое первое, о чём надо подумать - это как максимально 
+автоматизировать весь процесс и исключить из него рутину. Практика показывает, 
+что лучше потратить неделю на обдумывание автоматизации процесса, чем три дня повторять однообразные действия. Потому что уже к концу первого дня вы будете тихо ненавидеть ваш пакет иконок и <i>мечтать о его завершении</i>.</p>
+
+<h2>Программное обеспечение</h2>
+<p>Понадобятся такие программы:</p>
+<ul>
+<li><b>Графический редактор</b> - для рисования отдельных размеров иконки;</li>
+<li><b>Редактор иконок</b> - для сборки отдельных размеров в иконку;</li>
+<li><b>Редактор библиотек иконок</b> - для сборки иконок в библиотеку;</li>
+<li><b>Блокнот</b> (желательно с подсветкой xml-синтаксиса) - для создания файла описания.</li>
+</ul>
+<p>Программы подбирались таким образом, чтобы они были достаточно знакомы и обязательно максимально автоматизировали процесс. В результате был сделан выбор таким образом:</p>
+<ul>
+<li>Графический редактор - <b>Adobe Photoshop</b> (бесплатная альтернатива: PixBuilder Studio, Artweaver free, The Gimp);</li>
+<li>Редактор иконок - <b>Microangelo Studio</b> (бесплатная альтернатива: IcoFX 1.6, Greenfish Icon Editor Pro);</li>
+<li>Редактор библиотек иконок - <b>Microangelo Librarian</b> (бесплатная альтернатива: Greenfish Icon Editor Pro);</li>
+<li>Блокнот с подсветкой xml-синтаксиса - <b>Notepad2 mod</b> (бесплатный; другие варианты: Notepad++, AkelPad, Dpad).</li>
+</ul>
+
+<h2>Автоматизация процесса</h2>
+<p>Путём долгих рассуждений были определены такие вопросы, которые рутинны, но могут быть автоматизированы:</p>
+<ol>
+<li>быстрое создание всех размеров иконки;</li>
+<li>быстрое создание новой иконки из существующей</li>
+<li>быстрая сборка иконки.</li>
+</ol>
+
+<h3>Быстрое создание всех размеров иконки</h3>
+<p>Photoshop имеет превосходный инструмент, который позволяет сохранять изображение как набор фрагментов. Это <span class="path">Файл \ Сохранить для Веб</span>. Вот как это работает. Сперва с помощью инструмента "раскройка" на изображении выделяются области, которые будут соответствовать размерам иконок:</p>
+<p><img src="Images/z_icons.practice.layout.png" /></p>
+<p>Далее, собственно выполняется команда <span class="path">Файл \ Сохранить для Веб</span>. В появившемся окне для каждого ранее раскроенного фрагмента выставляется формат "PNG-24":</p>
+<p><img src="Images/z_icons.practice.saveforweb.png" /></p>
+<p>В окне сохранения выбираются "только изображения" и "только пользовательские фрагменты"; кстати говоря, имя файла вообще никак не участвует в сохранении, так что его можно писать любое:</p>
+<p><img src="Images/z_icons.practice.savedialog.png" /></p>
+<p>В результате после сохранения в подпапке "images" сохранились все нужные изображения, готовые для импорта в иконку. Первый пункт выполнен!</p>
+
+<h3>Быстрое создание новой иконки из существующей</h3>
+<p>Планируются два отличия иконок: цвет и расширение.</p>
+<p>Для быстрого изменения цвета в Photoshop будут использоваться корректирующие слои с маской ("<b>цветовой тон/насыщенность</b>" и "<b>уровни</b>").</p>
+<p>А вот с расширениями не всё так просто: если с крупными размерами всё хорошо, то для мелких размеров расширения нужно рисовать попиксельно, чтобы они были чёткие. Или же использовать особые шрифты. Поиск по интернету нашёл два правильных шрифта: <b>Munro</b> и <b>Wendy</b>. Таким образом оба аспекта создания новой иконки из существующей автоматизированы.</p>
+
+<h3>Быстрая сборка иконки</h3>
+<p>Здесь всё просто: Microangelo Studio поддерживает импорт изображений без дополнительных вопросов, если эти изображения на него просто перетащить. Причём перетащить можно все изображения сразу. Единственный недостаток - сохранение в новый файл не имеет клавиатурного сокращения, а значит, его придётся каждый раз выполнять через главное меню.</p>
+
+<h2>Рисование размеров иконки</h2>
+<p>Сперва был нарисован самый большой размер. Получилось весьма похоже, хотя фон пришлось использовать несколько иной:</p>
+<p><img src="Images/z_icons.practice.size256.png" /></p>
+<p>Далее копии всех слоёв иконки объединялись и уменьшались до нового целевого размера, например, до 96х96. Полученное изображение использовалось как подложка при рисовании уменьшённого изображения. При этом элементы подгонялись так, чтобы иметь чёткие границы. Даже если это не соответствовало изображению своего большого брата.</p>
+<p>В конечном итоге были нарисованы все размеры. Для размера 16х16 не вышло добавить расширение, поэтому придётся обойтись без него:</p>
+<p><img src="Images/z_icons.practice.all_sizes.png" /></p>
+<p>Далее, чтобы быстро менять оттенок значка, добавляются корректирующие слои-фильтры с растровой маской:</p>
+<p><img src="Images/z_icons.practice.correction.png" /></p>
+<p>На этом создание размеров иконки (исходника) завершено. В нём предусмотрены все размеры, автоматизированы расширение и оттенок, всё представлено наглядно.</p>
+<p>Иконки плейлистов и аудио создаются аналогичным образом.</p>
+
+<h2>Сборка размеров в иконку</h2>
+<p>После того, как в папку Images сохранены все размеры одной иконки, выполняется следующая последовательность:</p>
+<ul>
+<li>Запускается Microangelo Studio и наживается "Create new icon".</li>
+<li>Диалог импорта изображения нужно закрыть; после этого программа переходит в основное окно.</li>
+<li>В папке "images" выделяются все рисунки и перетаскиваются на окно Microangelo Studio (если появятся предупреждения, надо со всеми согласиться).</li>
+<li>Размерам 256х256 и 96х96 присваивается сжатие в PNG.</li>
+</ul>
+<p>После всех манипуляций иконка "сохраняется как" (с именем целевого расширения, чтобы не путаться).</p>
+<p><img src="Images/z_icons.practice.ico.png" /></p>
+
+<p>Обратите внимание: перечень размеров справа имеет ограничение по размеру предпросмотра в 48х48 пикселей. Поэтому тут хорошо видно, что было бы, если бы при создании малых размеров мы пошли по пути простого изменения размера.</p>
+
+<h2>Создание всех иконок</h2>
+<p>Наконец, наступает момент, когда на нас начинает работать вся наша автоматизация. Для создания следующей иконки требуется пять простых действий:</p>
+<ol>
+<li>Создаётся копия исходника, переименовывается в соответствии с расширением, которое в ней будет храниться, и открывается (в Photoshop).</li>
+<li>Вписывается расширение и настраивается оттенок "кадра" на иконке.</li>
+<li>Производится "сохранение для веб".</li>
+<li>В папке "images" выделяются все рисунки и перетаскиваются на окно Microangelo Studio.</li>
+<li>Иконка "сохраняется как".</li>
+</ol>
+<p>Таким образом, на каждую иконку будет тратиться максимум минута. И то, лишь для того, чтобы подобрать иконке цвет. В результате всего через 15-20 минут все иконки сохранены и готовы к следующему шагу.</p>
+
+<h2>Создание библиотеки иконок</h2>
+<p>Создание библиотеки иконок выполняется так:</p>
+<ol>
+<li>Открывается Microangelo Librarian и в нём создаётся новый документ.</li>
+<li>Все ранее созданные иконки перетаскиваются на окно Microangelo Librarian; во всплывающем меню выбирается "add icons to workspace".</li>
+<li>Свежедобавленные иконки упорядочиваются.</li>
+<li>Библиотека иконок сохраняется с помощью <span class="path">File \ Save as...</span>.</li>
+</ol>
+
+<p>В итоге, библиотека иконок приобрела следующий вид:</p>
+<p><img src="Images/z_icons.practice.icl.png" /></p>
+<p>Обратите внимание: для удобства и функциональности сперва идут три иконки типов, потом - иконки расширений в том виде, в котором они идут в типах файлов Light Alloy. Такая организация не обязательна, но очень облегчит жизнь на следующем этапе. И помним про нулевую иконку!</p>
+
+<h2>Создание файла описания</h2>
+<p>Файл описания создаётся в соответствии с правилами, описанными в теории создания иконок для Light Alloy.</p>
+
+<p class="code xml">
+<span class="sc12">&lt;?</span><span class="sc1">xml</span><span class="sc8"> </span><span class="sc3">version</span><span class="sc8">=</span><span class="sc6">"1.3"</span><span class="sc13">?&gt;</span><span class="sc0">
+
+</span><span class="sc1">&lt;ICONLIB&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;AUTHOR</span><span class="sc8"> </span><span class="sc3">name</span><span class="sc8">=</span><span class="sc6">"Gilorn"</span><span class="sc8"> </span><span class="sc3">email</span><span class="sc8">=</span><span class="sc6">""</span><span class="sc8"> </span><span class="sc3">homepage</span><span class="sc8">=</span><span class="sc6">"http://www.light-alloy.ru"</span><span class="sc8"> </span><span class="sc3">comments</span><span class="sc8">=</span><span class="sc6">"16x32x48x96x256 (RGB + alpha)"</span><span class="sc11">/&gt;</span><span class="sc0">
+ </span><span class="sc1">&lt;ICONS&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"0"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"3GP,ASF,AVS,EVO,BIK,TP,QT,RM,RMVB,RV,TS,WEBM,WTV,DVR-MS"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- video --&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"1"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AIF,AIFC,AIFF,APE,AT3,AU,CDA,DTS,KAR,M4A,MID,MIDI,MKA,MOD,MP1,MP2,MPA,MPC,OMA,RA,RAM,RMI,
+   SND,AMR,AOB,IT,MO3,S3M,WV,XM,OPUS,TAK"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- audio --&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"2"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"ASX,BDMV,IFO,LST,MPLS,PLS"</span><span class="sc11">/&gt;</span><span class="sc0"> </span><span class="sc9">&lt;!-- playlist --&gt;</span><span class="sc0">
+   
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"3"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"LAP"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"4"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"CUE"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"5"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"M3U,M3U8"</span><span class="sc11">/&gt;</span><span class="sc0">
+
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"6"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AVI,DIVX"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"7"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"MPE,MPEG,MPG,MPV,VOB,MTS,M2TS,M1V,M2V"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"8"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"MKV"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"9"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"F4V,FLV"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"10"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"MP4,M4V"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"11"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"HDMOV,MOV"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"12"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"OGM,OGX,OGV"</span><span class="sc11">/&gt;</span><span class="sc0">
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"13"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"WM,WMV"</span><span class="sc11">/&gt;</span><span class="sc0">
+   
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"14"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AAC"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"15"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"AC3"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"16"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"FLAC"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"17"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"MP3"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"18"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"OGG"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"19"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"WAV"</span><span class="sc11">/&gt;</span><span class="sc0">  
+   </span><span class="sc1">&lt;ICON</span><span class="sc8"> </span><span class="sc3">id</span><span class="sc8">=</span><span class="sc6">"20"</span><span class="sc8"> </span><span class="sc3">ext</span><span class="sc8">=</span><span class="sc6">"WMA"</span><span class="sc11">/&gt;</span><span class="sc0">  
+
+</span><span class="sc1">&lt;/ICONS&gt;</span><span class="sc0">
+</span><span class="sc1">&lt;/ICONLIB&gt;</span>
+</p>
+
+<p>Конструкция вида "&lt;!-- video --&gt;" является комментарием. Он позволяет делать пометки для собственных нужд, которые будут игнорироваться при обработке файла программами.</p>
+
+
+<h2>Результат</h2>
+<p>И вот, наконец свежий пакет иконок готов. Осталось только проверить, что имена файла описания и библиотеки иконок совпадают, и - готово!</p>
+<p><img src="Images/z_icons.practice.result.png" /></p>
+
+</body></html>
