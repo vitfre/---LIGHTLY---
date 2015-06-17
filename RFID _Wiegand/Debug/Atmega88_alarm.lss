@@ -1,0 +1,1080 @@
+
+Atmega88_alarm.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00000648  000006fc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000648  00000000  00000000  000000b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000017  00800100  00800100  000006fc  2**0
+                  ALLOC
+  3 .eeprom       00000001  00810000  00810000  000006fc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .stab         00000870  00000000  00000000  00000700  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  5 .stabstr      00000182  00000000  00000000  00000f70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .comment      0000002f  00000000  00000000  000010f2  2**0
+                  CONTENTS, READONLY
+  7 .debug_aranges 000000a8  00000000  00000000  00001121  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_info   00000668  00000000  00000000  000011c9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_abbrev 000002c7  00000000  00000000  00001831  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_line   000004e4  00000000  00000000  00001af8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_frame  00000134  00000000  00000000  00001fdc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_str    00000255  00000000  00000000  00002110  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_loc    000002c8  00000000  00000000  00002365  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 000000a8  00000000  00000000  0000262d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	44 c0       	rjmp	.+136    	; 0x8a <__ctors_end>
+   2:	53 c0       	rjmp	.+166    	; 0xaa <__bad_interrupt>
+   4:	52 c0       	rjmp	.+164    	; 0xaa <__bad_interrupt>
+   6:	51 c0       	rjmp	.+162    	; 0xaa <__bad_interrupt>
+   8:	a4 c0       	rjmp	.+328    	; 0x152 <__vector_4>
+   a:	4f c0       	rjmp	.+158    	; 0xaa <__bad_interrupt>
+   c:	4e c0       	rjmp	.+156    	; 0xaa <__bad_interrupt>
+   e:	4d c0       	rjmp	.+154    	; 0xaa <__bad_interrupt>
+  10:	4c c0       	rjmp	.+152    	; 0xaa <__bad_interrupt>
+  12:	4b c0       	rjmp	.+150    	; 0xaa <__bad_interrupt>
+  14:	4a c0       	rjmp	.+148    	; 0xaa <__bad_interrupt>
+  16:	49 c0       	rjmp	.+146    	; 0xaa <__bad_interrupt>
+  18:	48 c0       	rjmp	.+144    	; 0xaa <__bad_interrupt>
+  1a:	47 c0       	rjmp	.+142    	; 0xaa <__bad_interrupt>
+  1c:	a8 c1       	rjmp	.+848    	; 0x36e <__vector_14>
+  1e:	45 c0       	rjmp	.+138    	; 0xaa <__bad_interrupt>
+  20:	44 c0       	rjmp	.+136    	; 0xaa <__bad_interrupt>
+  22:	43 c0       	rjmp	.+134    	; 0xaa <__bad_interrupt>
+  24:	42 c0       	rjmp	.+132    	; 0xaa <__bad_interrupt>
+  26:	41 c0       	rjmp	.+130    	; 0xaa <__bad_interrupt>
+  28:	40 c0       	rjmp	.+128    	; 0xaa <__bad_interrupt>
+  2a:	3f c0       	rjmp	.+126    	; 0xaa <__bad_interrupt>
+  2c:	3e c0       	rjmp	.+124    	; 0xaa <__bad_interrupt>
+  2e:	3d c0       	rjmp	.+122    	; 0xaa <__bad_interrupt>
+  30:	3c c0       	rjmp	.+120    	; 0xaa <__bad_interrupt>
+  32:	3b c0       	rjmp	.+118    	; 0xaa <__bad_interrupt>
+  34:	84 c1       	rjmp	.+776    	; 0x33e <__vector_4+0x1ec>
+  36:	b0 c0       	rjmp	.+352    	; 0x198 <__vector_4+0x46>
+  38:	b5 c0       	rjmp	.+362    	; 0x1a4 <__vector_4+0x52>
+  3a:	ba c0       	rjmp	.+372    	; 0x1b0 <__vector_4+0x5e>
+  3c:	bf c0       	rjmp	.+382    	; 0x1bc <__vector_4+0x6a>
+  3e:	c4 c0       	rjmp	.+392    	; 0x1c8 <__vector_4+0x76>
+  40:	c9 c0       	rjmp	.+402    	; 0x1d4 <__vector_4+0x82>
+  42:	ce c0       	rjmp	.+412    	; 0x1e0 <__vector_4+0x8e>
+  44:	d3 c0       	rjmp	.+422    	; 0x1ec <__vector_4+0x9a>
+  46:	d8 c0       	rjmp	.+432    	; 0x1f8 <__vector_4+0xa6>
+  48:	e1 c0       	rjmp	.+450    	; 0x20c <__vector_4+0xba>
+  4a:	ea c0       	rjmp	.+468    	; 0x220 <__vector_4+0xce>
+  4c:	f3 c0       	rjmp	.+486    	; 0x234 <__vector_4+0xe2>
+  4e:	fc c0       	rjmp	.+504    	; 0x248 <__vector_4+0xf6>
+  50:	05 c1       	rjmp	.+522    	; 0x25c <__vector_4+0x10a>
+  52:	0e c1       	rjmp	.+540    	; 0x270 <__vector_4+0x11e>
+  54:	17 c1       	rjmp	.+558    	; 0x284 <__vector_4+0x132>
+  56:	20 c1       	rjmp	.+576    	; 0x298 <__vector_4+0x146>
+  58:	29 c1       	rjmp	.+594    	; 0x2ac <__vector_4+0x15a>
+  5a:	32 c1       	rjmp	.+612    	; 0x2c0 <__vector_4+0x16e>
+  5c:	3b c1       	rjmp	.+630    	; 0x2d4 <__vector_4+0x182>
+  5e:	44 c1       	rjmp	.+648    	; 0x2e8 <__vector_4+0x196>
+  60:	4d c1       	rjmp	.+666    	; 0x2fc <__vector_4+0x1aa>
+  62:	56 c1       	rjmp	.+684    	; 0x310 <__vector_4+0x1be>
+  64:	5f c1       	rjmp	.+702    	; 0x324 <__vector_4+0x1d2>
+  66:	6b c1       	rjmp	.+726    	; 0x33e <__vector_4+0x1ec>
+
+00000068 <key>:
+  68:	51 99 6c 52 96 15 52 e8 17 51 f2 6c b7 b0 b3 b8     Q.lR..R..Q.l....
+  78:	08 0e 51 73 a7 e6 53 e4 b7 b2 b6 51 ee 6d 00 00     ..Qs..S....Q.m..
+	...
+
+0000008a <__ctors_end>:
+  8a:	11 24       	eor	r1, r1
+  8c:	1f be       	out	0x3f, r1	; 63
+  8e:	cf ef       	ldi	r28, 0xFF	; 255
+  90:	d4 e0       	ldi	r29, 0x04	; 4
+  92:	de bf       	out	0x3e, r29	; 62
+  94:	cd bf       	out	0x3d, r28	; 61
+
+00000096 <__do_clear_bss>:
+  96:	21 e0       	ldi	r18, 0x01	; 1
+  98:	a0 e0       	ldi	r26, 0x00	; 0
+  9a:	b1 e0       	ldi	r27, 0x01	; 1
+  9c:	01 c0       	rjmp	.+2      	; 0xa0 <.do_clear_bss_start>
+
+0000009e <.do_clear_bss_loop>:
+  9e:	1d 92       	st	X+, r1
+
+000000a0 <.do_clear_bss_start>:
+  a0:	a7 31       	cpi	r26, 0x17	; 23
+  a2:	b2 07       	cpc	r27, r18
+  a4:	e1 f7       	brne	.-8      	; 0x9e <.do_clear_bss_loop>
+  a6:	79 d1       	rcall	.+754    	; 0x39a <main>
+  a8:	cd c2       	rjmp	.+1434   	; 0x644 <_exit>
+
+000000aa <__bad_interrupt>:
+  aa:	aa cf       	rjmp	.-172    	; 0x0 <__vectors>
+
+000000ac <mcu_init_ports>:
+	1 - подтяжка включена
+	0 - подтяжка выключена
+	значение 0 так же устанавливает выход в 0 при включении мик-ра, если 
+	вывод сконфигурирован выходом, а 1 включает выход относительно минуса питания*/
+
+	DDRC  = 0b00001000;       //если 0 значит вход
+  ac:	88 e0       	ldi	r24, 0x08	; 8
+  ae:	87 b9       	out	0x07, r24	; 7
+	PORTC = 0b11110111;       //если 1 подтяжка включена
+  b0:	87 ef       	ldi	r24, 0xF7	; 247
+  b2:	88 b9       	out	0x08, r24	; 8
+
+	DDRB  = 0b00001110;
+  b4:	8e e0       	ldi	r24, 0x0E	; 14
+  b6:	84 b9       	out	0x04, r24	; 4
+	PORTB = 0b11110001;
+  b8:	81 ef       	ldi	r24, 0xF1	; 241
+  ba:	85 b9       	out	0x05, r24	; 5
+
+	DDRD  = 0b01111111;
+  bc:	8f e7       	ldi	r24, 0x7F	; 127
+  be:	8a b9       	out	0x0a, r24	; 10
+	PORTD = 0b10000000;
+  c0:	80 e8       	ldi	r24, 0x80	; 128
+  c2:	8b b9       	out	0x0b, r24	; 11
+  c4:	08 95       	ret
+
+000000c6 <mcu_init_timer0>:
+			если там были выставлены лог. 1. И таймеры начинают работать 
+			одновременно.
+			PSRSYNC - при записи лог. 1 предделители таймеров Т0 и Т1
+			будут сброшены. После сброса бит аппаратно вернется в 0.*/
+	
+	TCCR0A=(0<<COM0A1)|(0<<COM0A0)|(0<<COM0B1)|(0<<COM0B0)|(1<<WGM01)|(0<<WGM00);  	
+  c6:	82 e0       	ldi	r24, 0x02	; 2
+  c8:	84 bd       	out	0x24, r24	; 36
+	  4         1          0          0     Reserved
+	  5         1          0          1     PWM, Phase Correct    OCRA    TOP           BOTTOM
+	  6         1          1          0     Reserved
+	  7         1          1          1     Fast PWM              OCRA    BOTTOM        TOP*/
+
+	OCR0A=0x47;
+  ca:	97 e4       	ldi	r25, 0x47	; 71
+  cc:	97 bd       	out	0x27, r25	; 39
+	TCCR0B=(0<<FOC0A)|(0<<FOC0B)|(0<<WGM02)|(1<<CS02)|(0<<CS01)|(1<<CS00);	
+  ce:	95 e0       	ldi	r25, 0x05	; 5
+  d0:	95 bd       	out	0x25, r25	; 37
+			 CS02 - настройка предделителя
+			 CS01 - настройка предделителя
+			 CS00 - настройка предделителя
+	000-таймер выкл, 001-1, 010-8, 011 - 64, 100 - 256, 101 - 1024*/
+
+	TIMSK0=(1<<OCIE0A)|(0<<OCIE0B)|(0<<TOIE0); 
+  d2:	80 93 6e 00 	sts	0x006E, r24
+  d6:	08 95       	ret
+
+000000d8 <mcu_init_ext_int>:
+	 Если U на AIN1 < чем на AIN0 тогда выход компаратора ACO будет равен 1 
+	 и наоборот.*/ 
+}
+void mcu_init_ext_int(void)		/*Настройка внешних прерываний INT0, INT1*/
+{
+	EIMSK=(0<<INT1)|(0<<INT0);
+  d8:	1d ba       	out	0x1d, r1	; 29
+	//INT1 разрешение на прерывание с INT1
+	//INT0 разрешение на прерывание с INT0
+
+	EICRA=(0<<ISC11)|(0<<ISC10)|(0<<ISC01)|(0<<ISC00);
+  da:	10 92 69 00 	sts	0x0069, r1
+	  0      0     по НИЗКОМУ уровню
+	  0      1     при любом логическом изменении
+	  1      0     по спадающему фронту на выводе
+	  1      1     по нарастающему фронту на выводе*/
+	
+	PCICR=(0<<PCIE2)|(1<<PCIE1)|(0<<PCIE0);
+  de:	82 e0       	ldi	r24, 0x02	; 2
+  e0:	80 93 68 00 	sts	0x0068, r24
+	PCIE0 -  Разрешение прерывания по изменению состояния выводов 2й группы. если в этом
+			бите записана лог. 1 и флаг I=1, то разрешается внешнее прерывание по изменению
+			состояния выводов PCINT7...0 мк. К возникновению прерывания приводит любое
+			изменение сигнала на любом выводе. */
+
+	PCMSK0=(0<<PCINT7)|(0<<PCINT6)|(0<<PCINT5)|(0<<PCINT4)|(0<<PCINT3)|(0<<PCINT2)|(0<<PCINT1)|(0<<PCINT0);  
+  e4:	10 92 6b 00 	sts	0x006B, r1
+	PCMSK1=(0<<PCINT14)|(1<<PCINT13)|(1<<PCINT12)|(0<<PCINT11)|(0<<PCINT10)|(0<<PCINT9)|(0<<PCINT8); 
+  e8:	80 e3       	ldi	r24, 0x30	; 48
+  ea:	80 93 6c 00 	sts	0x006C, r24
+	PCMSK2=(0<<PCINT23)|(0<<PCINT22)|(0<<PCINT21)|(0<<PCINT20)|(0<<PCINT19)|(0<<PCINT18)|(0<<PCINT17)|(0<<PCINT16); 
+  ee:	10 92 6d 00 	sts	0x006D, r1
+  f2:	08 95       	ret
+
+000000f4 <check_key>:
+	{0,0}
+};
+
+uint8_t check_key(uint8_t in_zone, uint16_t in_key)//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё СЃС‡РёС‚Р°РЅРЅРѕРіРѕ РєР»СЋС‡Р° СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
+{	
+	uint16_t i = 0;
+  f4:	20 e0       	ldi	r18, 0x00	; 0
+  f6:	30 e0       	ldi	r19, 0x00	; 0
+	while ((pgm_read_byte(&key[i].zone) != 0) || (pgm_read_word(&key[i].key) != 0))
+  f8:	12 c0       	rjmp	.+36     	; 0x11e <check_key+0x2a>
+	{
+		if ((pgm_read_byte(&key[i].zone) == in_zone) && (pgm_read_word(&key[i].key) == in_key))
+  fa:	fa 01       	movw	r30, r20
+  fc:	44 91       	lpm	r20, Z
+  fe:	48 13       	cpse	r20, r24
+ 100:	0c c0       	rjmp	.+24     	; 0x11a <check_key+0x26>
+ 102:	f9 01       	movw	r30, r18
+ 104:	ee 0f       	add	r30, r30
+ 106:	ff 1f       	adc	r31, r31
+ 108:	e2 0f       	add	r30, r18
+ 10a:	f3 1f       	adc	r31, r19
+ 10c:	e7 59       	subi	r30, 0x97	; 151
+ 10e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 110:	45 91       	lpm	r20, Z+
+ 112:	54 91       	lpm	r21, Z
+ 114:	46 17       	cp	r20, r22
+ 116:	57 07       	cpc	r21, r23
+ 118:	d1 f0       	breq	.+52     	; 0x14e <check_key+0x5a>
+		{
+			return 1;//РєР»СЋС‡ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ
+		}
+		i++;
+ 11a:	2f 5f       	subi	r18, 0xFF	; 255
+ 11c:	3f 4f       	sbci	r19, 0xFF	; 255
+};
+
+uint8_t check_key(uint8_t in_zone, uint16_t in_key)//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё СЃС‡РёС‚Р°РЅРЅРѕРіРѕ РєР»СЋС‡Р° СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
+{	
+	uint16_t i = 0;
+	while ((pgm_read_byte(&key[i].zone) != 0) || (pgm_read_word(&key[i].key) != 0))
+ 11e:	a9 01       	movw	r20, r18
+ 120:	44 0f       	add	r20, r20
+ 122:	55 1f       	adc	r21, r21
+ 124:	42 0f       	add	r20, r18
+ 126:	53 1f       	adc	r21, r19
+ 128:	48 59       	subi	r20, 0x98	; 152
+ 12a:	5f 4f       	sbci	r21, 0xFF	; 255
+ 12c:	fa 01       	movw	r30, r20
+ 12e:	94 91       	lpm	r25, Z
+ 130:	91 11       	cpse	r25, r1
+ 132:	e3 cf       	rjmp	.-58     	; 0xfa <check_key+0x6>
+ 134:	f9 01       	movw	r30, r18
+ 136:	ee 0f       	add	r30, r30
+ 138:	ff 1f       	adc	r31, r31
+ 13a:	e2 0f       	add	r30, r18
+ 13c:	f3 1f       	adc	r31, r19
+ 13e:	e7 59       	subi	r30, 0x97	; 151
+ 140:	ff 4f       	sbci	r31, 0xFF	; 255
+ 142:	a5 91       	lpm	r26, Z+
+ 144:	b4 91       	lpm	r27, Z
+ 146:	ab 2b       	or	r26, r27
+ 148:	c1 f6       	brne	.-80     	; 0xfa <check_key+0x6>
+			return 1;//РєР»СЋС‡ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ
+		}
+		i++;
+	}
+	
+	return 0;//РєР»СЋС‡Р° РЅРµС‚ РІ Р±Р°Р·Рµ
+ 14a:	80 e0       	ldi	r24, 0x00	; 0
+ 14c:	08 95       	ret
+	uint16_t i = 0;
+	while ((pgm_read_byte(&key[i].zone) != 0) || (pgm_read_word(&key[i].key) != 0))
+	{
+		if ((pgm_read_byte(&key[i].zone) == in_zone) && (pgm_read_word(&key[i].key) == in_key))
+		{
+			return 1;//РєР»СЋС‡ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ
+ 14e:	81 e0       	ldi	r24, 0x01	; 1
+		}
+		i++;
+	}
+	
+	return 0;//РєР»СЋС‡Р° РЅРµС‚ РІ Р±Р°Р·Рµ
+}
+ 150:	08 95       	ret
+
+00000152 <__vector_4>:
+uint8_t Tim0Count,PcintVar,ExitTimer,CountBit,DetectorFlag,DetectorCount;
+uint16_t CountAlarm,SirenCount;
+uint8_t EEMEM StartAlarm;
+
+ISR(PCINT1_vect)//внешние прерывания 
+{
+ 152:	1f 92       	push	r1
+ 154:	0f 92       	push	r0
+ 156:	0f b6       	in	r0, 0x3f	; 63
+ 158:	0f 92       	push	r0
+ 15a:	11 24       	eor	r1, r1
+ 15c:	8f 93       	push	r24
+ 15e:	9f 93       	push	r25
+ 160:	af 93       	push	r26
+ 162:	bf 93       	push	r27
+ 164:	ef 93       	push	r30
+ 166:	ff 93       	push	r31
+	PcintVar=1;
+ 168:	81 e0       	ldi	r24, 0x01	; 1
+ 16a:	80 93 0e 01 	sts	0x010E, r24
+	if (BitIsSet(PIN_WIG_26, DATA0) && BitIsSet(PIN_WIG_26, DATA1))
+ 16e:	35 9b       	sbis	0x06, 5	; 6
+ 170:	02 c0       	rjmp	.+4      	; 0x176 <__vector_4+0x24>
+ 172:	34 99       	sbic	0x06, 4	; 6
+ 174:	f1 c0       	rjmp	.+482    	; 0x358 <__vector_4+0x206>
+	{
+		return;
+	}
+	CountBit++;
+ 176:	80 91 10 01 	lds	r24, 0x0110
+ 17a:	8f 5f       	subi	r24, 0xFF	; 255
+ 17c:	80 93 10 01 	sts	0x0110, r24
+	if (BitIsClear(PIN_WIG_26, DATA1))
+ 180:	34 99       	sbic	0x06, 4	; 6
+ 182:	dd c0       	rjmp	.+442    	; 0x33e <__vector_4+0x1ec>
+	{
+		switch (CountBit)
+ 184:	90 e0       	ldi	r25, 0x00	; 0
+ 186:	fc 01       	movw	r30, r24
+ 188:	31 97       	sbiw	r30, 0x01	; 1
+ 18a:	ea 31       	cpi	r30, 0x1A	; 26
+ 18c:	f1 05       	cpc	r31, r1
+ 18e:	08 f0       	brcs	.+2      	; 0x192 <__vector_4+0x40>
+ 190:	d3 c0       	rjmp	.+422    	; 0x338 <__vector_4+0x1e6>
+ 192:	e6 5e       	subi	r30, 0xE6	; 230
+ 194:	ff 4f       	sbci	r31, 0xFF	; 255
+ 196:	09 94       	ijmp
+		{
+			case 1:break;
+			case 2: SetBit(Zone,7);break;
+ 198:	80 91 0d 01 	lds	r24, 0x010D
+ 19c:	80 68       	ori	r24, 0x80	; 128
+ 19e:	80 93 0d 01 	sts	0x010D, r24
+ 1a2:	cd c0       	rjmp	.+410    	; 0x33e <__vector_4+0x1ec>
+			case 3: SetBit(Zone,6);break;
+ 1a4:	80 91 0d 01 	lds	r24, 0x010D
+ 1a8:	80 64       	ori	r24, 0x40	; 64
+ 1aa:	80 93 0d 01 	sts	0x010D, r24
+ 1ae:	c7 c0       	rjmp	.+398    	; 0x33e <__vector_4+0x1ec>
+			case 4: SetBit(Zone,5);break;
+ 1b0:	80 91 0d 01 	lds	r24, 0x010D
+ 1b4:	80 62       	ori	r24, 0x20	; 32
+ 1b6:	80 93 0d 01 	sts	0x010D, r24
+ 1ba:	c1 c0       	rjmp	.+386    	; 0x33e <__vector_4+0x1ec>
+			case 5: SetBit(Zone,4);break;
+ 1bc:	80 91 0d 01 	lds	r24, 0x010D
+ 1c0:	80 61       	ori	r24, 0x10	; 16
+ 1c2:	80 93 0d 01 	sts	0x010D, r24
+ 1c6:	bb c0       	rjmp	.+374    	; 0x33e <__vector_4+0x1ec>
+			case 6: SetBit(Zone,3);break;
+ 1c8:	80 91 0d 01 	lds	r24, 0x010D
+ 1cc:	88 60       	ori	r24, 0x08	; 8
+ 1ce:	80 93 0d 01 	sts	0x010D, r24
+ 1d2:	b5 c0       	rjmp	.+362    	; 0x33e <__vector_4+0x1ec>
+			case 7: SetBit(Zone,2);break;
+ 1d4:	80 91 0d 01 	lds	r24, 0x010D
+ 1d8:	84 60       	ori	r24, 0x04	; 4
+ 1da:	80 93 0d 01 	sts	0x010D, r24
+ 1de:	af c0       	rjmp	.+350    	; 0x33e <__vector_4+0x1ec>
+			case 8: SetBit(Zone,1);break;
+ 1e0:	80 91 0d 01 	lds	r24, 0x010D
+ 1e4:	82 60       	ori	r24, 0x02	; 2
+ 1e6:	80 93 0d 01 	sts	0x010D, r24
+ 1ea:	a9 c0       	rjmp	.+338    	; 0x33e <__vector_4+0x1ec>
+			case 9: SetBit(Zone,0);break;
+ 1ec:	80 91 0d 01 	lds	r24, 0x010D
+ 1f0:	81 60       	ori	r24, 0x01	; 1
+ 1f2:	80 93 0d 01 	sts	0x010D, r24
+ 1f6:	a3 c0       	rjmp	.+326    	; 0x33e <__vector_4+0x1ec>
+			case 10: SetBit(Key,15);break;
+ 1f8:	80 91 11 01 	lds	r24, 0x0111
+ 1fc:	90 91 12 01 	lds	r25, 0x0112
+ 200:	90 68       	ori	r25, 0x80	; 128
+ 202:	90 93 12 01 	sts	0x0112, r25
+ 206:	80 93 11 01 	sts	0x0111, r24
+ 20a:	99 c0       	rjmp	.+306    	; 0x33e <__vector_4+0x1ec>
+			case 11: SetBit(Key,14);break;
+ 20c:	80 91 11 01 	lds	r24, 0x0111
+ 210:	90 91 12 01 	lds	r25, 0x0112
+ 214:	90 64       	ori	r25, 0x40	; 64
+ 216:	90 93 12 01 	sts	0x0112, r25
+ 21a:	80 93 11 01 	sts	0x0111, r24
+ 21e:	8f c0       	rjmp	.+286    	; 0x33e <__vector_4+0x1ec>
+			case 12: SetBit(Key,13);break;
+ 220:	80 91 11 01 	lds	r24, 0x0111
+ 224:	90 91 12 01 	lds	r25, 0x0112
+ 228:	90 62       	ori	r25, 0x20	; 32
+ 22a:	90 93 12 01 	sts	0x0112, r25
+ 22e:	80 93 11 01 	sts	0x0111, r24
+ 232:	85 c0       	rjmp	.+266    	; 0x33e <__vector_4+0x1ec>
+			case 13: SetBit(Key,12);break;
+ 234:	80 91 11 01 	lds	r24, 0x0111
+ 238:	90 91 12 01 	lds	r25, 0x0112
+ 23c:	90 61       	ori	r25, 0x10	; 16
+ 23e:	90 93 12 01 	sts	0x0112, r25
+ 242:	80 93 11 01 	sts	0x0111, r24
+ 246:	7b c0       	rjmp	.+246    	; 0x33e <__vector_4+0x1ec>
+			case 14: SetBit(Key,11);break;
+ 248:	80 91 11 01 	lds	r24, 0x0111
+ 24c:	90 91 12 01 	lds	r25, 0x0112
+ 250:	98 60       	ori	r25, 0x08	; 8
+ 252:	90 93 12 01 	sts	0x0112, r25
+ 256:	80 93 11 01 	sts	0x0111, r24
+ 25a:	71 c0       	rjmp	.+226    	; 0x33e <__vector_4+0x1ec>
+			case 15: SetBit(Key,10);break;
+ 25c:	80 91 11 01 	lds	r24, 0x0111
+ 260:	90 91 12 01 	lds	r25, 0x0112
+ 264:	94 60       	ori	r25, 0x04	; 4
+ 266:	90 93 12 01 	sts	0x0112, r25
+ 26a:	80 93 11 01 	sts	0x0111, r24
+ 26e:	67 c0       	rjmp	.+206    	; 0x33e <__vector_4+0x1ec>
+			case 16: SetBit(Key,9);break;
+ 270:	80 91 11 01 	lds	r24, 0x0111
+ 274:	90 91 12 01 	lds	r25, 0x0112
+ 278:	92 60       	ori	r25, 0x02	; 2
+ 27a:	90 93 12 01 	sts	0x0112, r25
+ 27e:	80 93 11 01 	sts	0x0111, r24
+ 282:	5d c0       	rjmp	.+186    	; 0x33e <__vector_4+0x1ec>
+			case 17: SetBit(Key,8);break;
+ 284:	80 91 11 01 	lds	r24, 0x0111
+ 288:	90 91 12 01 	lds	r25, 0x0112
+ 28c:	91 60       	ori	r25, 0x01	; 1
+ 28e:	90 93 12 01 	sts	0x0112, r25
+ 292:	80 93 11 01 	sts	0x0111, r24
+ 296:	53 c0       	rjmp	.+166    	; 0x33e <__vector_4+0x1ec>
+			case 18: SetBit(Key,7);break;
+ 298:	80 91 11 01 	lds	r24, 0x0111
+ 29c:	90 91 12 01 	lds	r25, 0x0112
+ 2a0:	80 68       	ori	r24, 0x80	; 128
+ 2a2:	90 93 12 01 	sts	0x0112, r25
+ 2a6:	80 93 11 01 	sts	0x0111, r24
+ 2aa:	49 c0       	rjmp	.+146    	; 0x33e <__vector_4+0x1ec>
+			case 19: SetBit(Key,6);break;
+ 2ac:	80 91 11 01 	lds	r24, 0x0111
+ 2b0:	90 91 12 01 	lds	r25, 0x0112
+ 2b4:	80 64       	ori	r24, 0x40	; 64
+ 2b6:	90 93 12 01 	sts	0x0112, r25
+ 2ba:	80 93 11 01 	sts	0x0111, r24
+ 2be:	3f c0       	rjmp	.+126    	; 0x33e <__vector_4+0x1ec>
+			case 20: SetBit(Key,5);break;
+ 2c0:	80 91 11 01 	lds	r24, 0x0111
+ 2c4:	90 91 12 01 	lds	r25, 0x0112
+ 2c8:	80 62       	ori	r24, 0x20	; 32
+ 2ca:	90 93 12 01 	sts	0x0112, r25
+ 2ce:	80 93 11 01 	sts	0x0111, r24
+ 2d2:	35 c0       	rjmp	.+106    	; 0x33e <__vector_4+0x1ec>
+			case 21: SetBit(Key,4);break;
+ 2d4:	80 91 11 01 	lds	r24, 0x0111
+ 2d8:	90 91 12 01 	lds	r25, 0x0112
+ 2dc:	80 61       	ori	r24, 0x10	; 16
+ 2de:	90 93 12 01 	sts	0x0112, r25
+ 2e2:	80 93 11 01 	sts	0x0111, r24
+ 2e6:	2b c0       	rjmp	.+86     	; 0x33e <__vector_4+0x1ec>
+			case 22: SetBit(Key,3);break;
+ 2e8:	80 91 11 01 	lds	r24, 0x0111
+ 2ec:	90 91 12 01 	lds	r25, 0x0112
+ 2f0:	88 60       	ori	r24, 0x08	; 8
+ 2f2:	90 93 12 01 	sts	0x0112, r25
+ 2f6:	80 93 11 01 	sts	0x0111, r24
+ 2fa:	21 c0       	rjmp	.+66     	; 0x33e <__vector_4+0x1ec>
+			case 23: SetBit(Key,2);break;
+ 2fc:	80 91 11 01 	lds	r24, 0x0111
+ 300:	90 91 12 01 	lds	r25, 0x0112
+ 304:	84 60       	ori	r24, 0x04	; 4
+ 306:	90 93 12 01 	sts	0x0112, r25
+ 30a:	80 93 11 01 	sts	0x0111, r24
+ 30e:	17 c0       	rjmp	.+46     	; 0x33e <__vector_4+0x1ec>
+			case 24: SetBit(Key,1);break;
+ 310:	80 91 11 01 	lds	r24, 0x0111
+ 314:	90 91 12 01 	lds	r25, 0x0112
+ 318:	82 60       	ori	r24, 0x02	; 2
+ 31a:	90 93 12 01 	sts	0x0112, r25
+ 31e:	80 93 11 01 	sts	0x0111, r24
+ 322:	0d c0       	rjmp	.+26     	; 0x33e <__vector_4+0x1ec>
+			case 25: SetBit(Key,0);break;
+ 324:	80 91 11 01 	lds	r24, 0x0111
+ 328:	90 91 12 01 	lds	r25, 0x0112
+ 32c:	81 60       	ori	r24, 0x01	; 1
+ 32e:	90 93 12 01 	sts	0x0112, r25
+ 332:	80 93 11 01 	sts	0x0111, r24
+ 336:	03 c0       	rjmp	.+6      	; 0x33e <__vector_4+0x1ec>
+			case 26:break;	
+			default: CountBit=0;break;
+ 338:	10 92 10 01 	sts	0x0110, r1
+ 33c:	0d c0       	rjmp	.+26     	; 0x358 <__vector_4+0x206>
+		}
+		
+	}
+	
+	if (CountBit==26)
+ 33e:	80 91 10 01 	lds	r24, 0x0110
+ 342:	8a 31       	cpi	r24, 0x1A	; 26
+ 344:	49 f4       	brne	.+18     	; 0x358 <__vector_4+0x206>
+	{
+		CountBit=0;
+ 346:	10 92 10 01 	sts	0x0110, r1
+		CheckKey=1;
+ 34a:	81 e0       	ldi	r24, 0x01	; 1
+ 34c:	80 93 08 01 	sts	0x0108, r24
+		PcintVar=0;
+ 350:	10 92 0e 01 	sts	0x010E, r1
+		ExitTimer=0;
+ 354:	10 92 0a 01 	sts	0x010A, r1
+	}
+}
+ 358:	ff 91       	pop	r31
+ 35a:	ef 91       	pop	r30
+ 35c:	bf 91       	pop	r27
+ 35e:	af 91       	pop	r26
+ 360:	9f 91       	pop	r25
+ 362:	8f 91       	pop	r24
+ 364:	0f 90       	pop	r0
+ 366:	0f be       	out	0x3f, r0	; 63
+ 368:	0f 90       	pop	r0
+ 36a:	1f 90       	pop	r1
+ 36c:	18 95       	reti
+
+0000036e <__vector_14>:
+
+ISR(TIMER0_COMPA_vect)//прерывание раз в 10 мсек режим СТС
+{
+ 36e:	1f 92       	push	r1
+ 370:	0f 92       	push	r0
+ 372:	0f b6       	in	r0, 0x3f	; 63
+ 374:	0f 92       	push	r0
+ 376:	11 24       	eor	r1, r1
+ 378:	8f 93       	push	r24
+	Tim0Count++;
+ 37a:	80 91 0f 01 	lds	r24, 0x010F
+ 37e:	8f 5f       	subi	r24, 0xFF	; 255
+ 380:	80 93 0f 01 	sts	0x010F, r24
+	Tim0Count0++;
+ 384:	80 91 0c 01 	lds	r24, 0x010C
+ 388:	8f 5f       	subi	r24, 0xFF	; 255
+ 38a:	80 93 0c 01 	sts	0x010C, r24
+}
+ 38e:	8f 91       	pop	r24
+ 390:	0f 90       	pop	r0
+ 392:	0f be       	out	0x3f, r0	; 63
+ 394:	0f 90       	pop	r0
+ 396:	1f 90       	pop	r1
+ 398:	18 95       	reti
+
+0000039a <main>:
+
+int main(void)
+{
+	mcu_init_ports();
+ 39a:	88 de       	rcall	.-752    	; 0xac <mcu_init_ports>
+	mcu_init_ext_int();
+ 39c:	9d de       	rcall	.-710    	; 0xd8 <mcu_init_ext_int>
+	mcu_init_timer0();
+ 39e:	93 de       	rcall	.-730    	; 0xc6 <mcu_init_timer0>
+	if (eeprom_read_byte(& StartAlarm)==0)
+ 3a0:	80 e0       	ldi	r24, 0x00	; 0
+ 3a2:	90 e0       	ldi	r25, 0x00	; 0
+ 3a4:	35 d1       	rcall	.+618    	; 0x610 <__eerd_byte_m88>
+ 3a6:	81 11       	cpse	r24, r1
+ 3a8:	01 c0       	rjmp	.+2      	; 0x3ac <main+0x12>
+	{
+		SetBit(PORT_LED_GREEN,LED_GREEN);
+ 3aa:	43 9a       	sbi	0x08, 3	; 8
+	}
+	sei();
+ 3ac:	78 94       	sei
+			
+			#if 1//Включаем свет в туалете
+			static uint8_t ToiletFlag;
+			if (BitIsClear(IN_PUT, TOILET) && ToiletFlag==0)
+			{
+				InvBit(OUT_PUT, OUT_3);//свет в туалете
+ 3ae:	08 e0       	ldi	r16, 0x08	; 8
+				ToiletFlag=1;
+ 3b0:	11 e0       	ldi	r17, 0x01	; 1
+			}
+			
+			static uint8_t PogrebFlag;
+			if (BitIsClear(IN_PUT, POGREB) && PogrebFlag==0)
+			{
+				InvBit(OUT_PUT, OUT_4);//свет в погребе
+ 3b2:	68 94       	set
+ 3b4:	ee 24       	eor	r14, r14
+ 3b6:	e4 f8       	bld	r14, 4
+			static uint8_t Blink;
+			Blink++;
+			if (Blink==20)
+			{
+				Blink=0;
+				InvBit(PORT_LED, LED1);
+ 3b8:	68 94       	set
+ 3ba:	ff 24       	eor	r15, r15
+ 3bc:	f2 f8       	bld	r15, 2
+		#endif
+		
+		#if 1//установка на сигнализацию
+		if (CountAlarm==DELAY_ALARM)
+		{
+			CountAlarm=6001;
+ 3be:	c1 e7       	ldi	r28, 0x71	; 113
+ 3c0:	d7 e1       	ldi	r29, 0x17	; 23
+	
+    while(1)
+    {
+		
+		#if 1 //Сюда ныряем раз в 100 мсек.
+		if (Tim0Count0>=10)
+ 3c2:	80 91 0c 01 	lds	r24, 0x010C
+ 3c6:	8a 30       	cpi	r24, 0x0A	; 10
+ 3c8:	08 f4       	brcc	.+2      	; 0x3cc <main+0x32>
+ 3ca:	6c c0       	rjmp	.+216    	; 0x4a4 <main+0x10a>
+		{
+			Tim0Count0=0;
+ 3cc:	10 92 0c 01 	sts	0x010C, r1
+			
+			#if 1//Включаем свет в погребе
+			
+			static uint8_t PogrebLight;
+			if (BitIsClear(IN_PUT, POGREB) && PogrebLight!=DEL)//если держим кнопку долго, то свет включаем на 2 часа
+ 3d0:	31 99       	sbic	0x06, 1	; 6
+ 3d2:	07 c0       	rjmp	.+14     	; 0x3e2 <main+0x48>
+ 3d4:	80 91 00 01 	lds	r24, 0x0100
+ 3d8:	84 31       	cpi	r24, 0x14	; 20
+ 3da:	19 f0       	breq	.+6      	; 0x3e2 <main+0x48>
+			{
+				PogrebLight++;
+ 3dc:	8f 5f       	subi	r24, 0xFF	; 255
+ 3de:	80 93 00 01 	sts	0x0100, r24
+			}
+			
+			if (BitIsSet(IN_PUT, POGREB) && PogrebLight<DEL)
+ 3e2:	31 9b       	sbis	0x06, 1	; 6
+ 3e4:	06 c0       	rjmp	.+12     	; 0x3f2 <main+0x58>
+ 3e6:	80 91 00 01 	lds	r24, 0x0100
+ 3ea:	84 31       	cpi	r24, 0x14	; 20
+ 3ec:	10 f4       	brcc	.+4      	; 0x3f2 <main+0x58>
+			{
+				PogrebLight=0;
+ 3ee:	10 92 00 01 	sts	0x0100, r1
+			}
+			
+			static uint8_t PogrebFlag;
+			if (BitIsClear(IN_PUT, POGREB) && PogrebFlag==0)
+ 3f2:	31 99       	sbic	0x06, 1	; 6
+ 3f4:	0a c0       	rjmp	.+20     	; 0x40a <main+0x70>
+ 3f6:	80 91 01 01 	lds	r24, 0x0101
+ 3fa:	81 11       	cpse	r24, r1
+ 3fc:	06 c0       	rjmp	.+12     	; 0x40a <main+0x70>
+			{
+				InvBit(OUT_PUT, OUT_4);//свет в погребе
+ 3fe:	8b b1       	in	r24, 0x0b	; 11
+ 400:	8e 25       	eor	r24, r14
+ 402:	8b b9       	out	0x0b, r24	; 11
+				PogrebFlag=1;
+ 404:	10 93 01 01 	sts	0x0101, r17
+ 408:	07 c0       	rjmp	.+14     	; 0x418 <main+0x7e>
+			}
+			else if(BitIsSet(IN_PUT, POGREB) && PogrebFlag)
+ 40a:	31 9b       	sbis	0x06, 1	; 6
+ 40c:	05 c0       	rjmp	.+10     	; 0x418 <main+0x7e>
+ 40e:	80 91 01 01 	lds	r24, 0x0101
+ 412:	81 11       	cpse	r24, r1
+			{
+				PogrebFlag=0;
+ 414:	10 92 01 01 	sts	0x0101, r1
+			}
+			
+			static uint16_t PogrebDelay;
+			if (BitIsSet(OUT_PUT, OUT_4))
+ 418:	5c 9b       	sbis	0x0b, 4	; 11
+ 41a:	17 c0       	rjmp	.+46     	; 0x44a <main+0xb0>
+			{
+				PogrebDelay++;
+ 41c:	80 91 02 01 	lds	r24, 0x0102
+ 420:	90 91 03 01 	lds	r25, 0x0103
+ 424:	01 96       	adiw	r24, 0x01	; 1
+ 426:	90 93 03 01 	sts	0x0103, r25
+ 42a:	80 93 02 01 	sts	0x0102, r24
+				if (PogrebDelay==9000 && PogrebLight!=DEL)//15 мин
+ 42e:	88 32       	cpi	r24, 0x28	; 40
+ 430:	23 e2       	ldi	r18, 0x23	; 35
+ 432:	92 07       	cpc	r25, r18
+ 434:	31 f4       	brne	.+12     	; 0x442 <main+0xa8>
+ 436:	80 91 00 01 	lds	r24, 0x0100
+ 43a:	84 31       	cpi	r24, 0x14	; 20
+ 43c:	61 f0       	breq	.+24     	; 0x456 <main+0xbc>
+				{
+					ClearBit(OUT_PUT, OUT_4);//свет в погребе
+ 43e:	5c 98       	cbi	0x0b, 4	; 11
+ 440:	0a c0       	rjmp	.+20     	; 0x456 <main+0xbc>
+				}
+				else if(PogrebDelay==0xFFFF) //~110мин 
+ 442:	01 96       	adiw	r24, 0x01	; 1
+ 444:	41 f4       	brne	.+16     	; 0x456 <main+0xbc>
+				{
+					ClearBit(OUT_PUT, OUT_4);//свет в погребе
+ 446:	5c 98       	cbi	0x0b, 4	; 11
+ 448:	06 c0       	rjmp	.+12     	; 0x456 <main+0xbc>
+				}
+			}
+			else
+			{
+				PogrebDelay=0;
+ 44a:	10 92 03 01 	sts	0x0103, r1
+ 44e:	10 92 02 01 	sts	0x0102, r1
+				PogrebLight=0;
+ 452:	10 92 00 01 	sts	0x0100, r1
+			}
+			#endif
+			
+			#if 1//Включаем свет в туалете
+			static uint8_t ToiletFlag;
+			if (BitIsClear(IN_PUT, TOILET) && ToiletFlag==0)
+ 456:	30 99       	sbic	0x06, 0	; 6
+ 458:	0a c0       	rjmp	.+20     	; 0x46e <main+0xd4>
+ 45a:	80 91 04 01 	lds	r24, 0x0104
+ 45e:	81 11       	cpse	r24, r1
+ 460:	06 c0       	rjmp	.+12     	; 0x46e <main+0xd4>
+			{
+				InvBit(OUT_PUT, OUT_3);//свет в туалете
+ 462:	8b b1       	in	r24, 0x0b	; 11
+ 464:	80 27       	eor	r24, r16
+ 466:	8b b9       	out	0x0b, r24	; 11
+				ToiletFlag=1;
+ 468:	10 93 04 01 	sts	0x0104, r17
+ 46c:	07 c0       	rjmp	.+14     	; 0x47c <main+0xe2>
+			}
+			else if(BitIsSet(IN_PUT, TOILET) && ToiletFlag)
+ 46e:	30 9b       	sbis	0x06, 0	; 6
+ 470:	05 c0       	rjmp	.+10     	; 0x47c <main+0xe2>
+ 472:	80 91 04 01 	lds	r24, 0x0104
+ 476:	81 11       	cpse	r24, r1
+			{
+				ToiletFlag=0;
+ 478:	10 92 04 01 	sts	0x0104, r1
+			}
+			
+			static uint16_t ToiletDelay;
+			if (BitIsSet(OUT_PUT, OUT_3))
+ 47c:	5b 9b       	sbis	0x0b, 3	; 11
+ 47e:	0e c0       	rjmp	.+28     	; 0x49c <main+0x102>
+			{
+				ToiletDelay++;
+ 480:	80 91 05 01 	lds	r24, 0x0105
+ 484:	90 91 06 01 	lds	r25, 0x0106
+ 488:	01 96       	adiw	r24, 0x01	; 1
+ 48a:	90 93 06 01 	sts	0x0106, r25
+ 48e:	80 93 05 01 	sts	0x0105, r24
+				if (ToiletDelay==36000)
+ 492:	80 3a       	cpi	r24, 0xA0	; 160
+ 494:	9c 48       	sbci	r25, 0x8C	; 140
+ 496:	31 f4       	brne	.+12     	; 0x4a4 <main+0x10a>
+				{
+					ClearBit(OUT_PUT, OUT_3);//свет в туалете
+ 498:	5b 98       	cbi	0x0b, 3	; 11
+ 49a:	04 c0       	rjmp	.+8      	; 0x4a4 <main+0x10a>
+				}
+			}
+			else
+			{
+				ToiletDelay=0;
+ 49c:	10 92 06 01 	sts	0x0106, r1
+ 4a0:	10 92 05 01 	sts	0x0105, r1
+			#endif
+		}
+		#endif
+		
+		#if 1//Обработчик прерывания Т0 сюда ныряем раз в 10 мсек
+		if (Tim0Count>=1)
+ 4a4:	80 91 0f 01 	lds	r24, 0x010F
+ 4a8:	88 23       	and	r24, r24
+ 4aa:	09 f4       	brne	.+2      	; 0x4ae <main+0x114>
+ 4ac:	69 c0       	rjmp	.+210    	; 0x580 <__stack+0x81>
+		{
+			Tim0Count=0;
+ 4ae:	10 92 0f 01 	sts	0x010F, r1
+			
+			#if 1//аварийный таймер выхода при считывании данных c ключей
+			if (PcintVar==1)
+ 4b2:	80 91 0e 01 	lds	r24, 0x010E
+ 4b6:	81 30       	cpi	r24, 0x01	; 1
+ 4b8:	99 f4       	brne	.+38     	; 0x4e0 <main+0x146>
+			{
+				ExitTimer++;
+ 4ba:	80 91 0a 01 	lds	r24, 0x010A
+ 4be:	8f 5f       	subi	r24, 0xFF	; 255
+ 4c0:	80 93 0a 01 	sts	0x010A, r24
+				if (ExitTimer>=10)
+ 4c4:	8a 30       	cpi	r24, 0x0A	; 10
+ 4c6:	60 f0       	brcs	.+24     	; 0x4e0 <main+0x146>
+				{
+					PcintVar=0;
+ 4c8:	10 92 0e 01 	sts	0x010E, r1
+					ExitTimer=0;
+ 4cc:	10 92 0a 01 	sts	0x010A, r1
+					CountBit=0;
+ 4d0:	10 92 10 01 	sts	0x0110, r1
+					Zone=0;
+ 4d4:	10 92 0d 01 	sts	0x010D, r1
+					Key=0;
+ 4d8:	10 92 12 01 	sts	0x0112, r1
+ 4dc:	10 92 11 01 	sts	0x0111, r1
+				}
+			}
+			#endif
+			
+			#if 1//задержка перед установкой на сигнализацию.
+			if (BitIsClear(PORT_LED_GREEN,LED_GREEN) && CountAlarm!=6001)
+ 4e0:	43 99       	sbic	0x08, 3	; 8
+ 4e2:	0e c0       	rjmp	.+28     	; 0x500 <__stack+0x1>
+ 4e4:	80 91 15 01 	lds	r24, 0x0115
+ 4e8:	90 91 16 01 	lds	r25, 0x0116
+ 4ec:	81 37       	cpi	r24, 0x71	; 113
+ 4ee:	27 e1       	ldi	r18, 0x17	; 23
+ 4f0:	92 07       	cpc	r25, r18
+ 4f2:	31 f0       	breq	.+12     	; 0x500 <__stack+0x1>
+			{
+				CountAlarm++;
+ 4f4:	01 96       	adiw	r24, 0x01	; 1
+ 4f6:	90 93 16 01 	sts	0x0116, r25
+ 4fa:	80 93 15 01 	sts	0x0115, r24
+ 4fe:	11 c0       	rjmp	.+34     	; 0x522 <__stack+0x23>
+			}
+			else if(BitIsSet(PORT_LED_GREEN,LED_GREEN))
+ 500:	43 9b       	sbis	0x08, 3	; 8
+ 502:	0f c0       	rjmp	.+30     	; 0x522 <__stack+0x23>
+			{
+				CountAlarm=0;
+ 504:	10 92 16 01 	sts	0x0116, r1
+ 508:	10 92 15 01 	sts	0x0115, r1
+				ClearBit(SIREN, OUT_6);
+ 50c:	5e 98       	cbi	0x0b, 6	; 11
+				ClearBit(SIREN, OUT_5);
+ 50e:	5d 98       	cbi	0x0b, 5	; 11
+				if (eeprom_read_byte(& StartAlarm))
+ 510:	80 e0       	ldi	r24, 0x00	; 0
+ 512:	90 e0       	ldi	r25, 0x00	; 0
+ 514:	7d d0       	rcall	.+250    	; 0x610 <__eerd_byte_m88>
+ 516:	88 23       	and	r24, r24
+ 518:	21 f0       	breq	.+8      	; 0x522 <__stack+0x23>
+				{
+					eeprom_update_byte(& StartAlarm,0);
+ 51a:	60 e0       	ldi	r22, 0x00	; 0
+ 51c:	80 e0       	ldi	r24, 0x00	; 0
+ 51e:	90 e0       	ldi	r25, 0x00	; 0
+ 520:	7f d0       	rcall	.+254    	; 0x620 <__eeupd_byte_m88>
+				}
+			}
+			#endif
+			
+			#if 1//Здесь работаем с сиреной и датчиками движения
+			if (DetectorFlag)
+ 522:	80 91 0b 01 	lds	r24, 0x010B
+ 526:	88 23       	and	r24, r24
+ 528:	31 f0       	breq	.+12     	; 0x536 <__stack+0x37>
+			{
+				DetectorCount++;
+ 52a:	80 91 09 01 	lds	r24, 0x0109
+ 52e:	8f 5f       	subi	r24, 0xFF	; 255
+ 530:	80 93 09 01 	sts	0x0109, r24
+ 534:	02 c0       	rjmp	.+4      	; 0x53a <__stack+0x3b>
+			} 
+			else
+			{
+				DetectorCount=0;
+ 536:	10 92 09 01 	sts	0x0109, r1
+			}
+			
+			if (BitIsSet(SIREN, OUT_6))
+ 53a:	5e 9b       	sbis	0x0b, 6	; 11
+ 53c:	14 c0       	rjmp	.+40     	; 0x566 <__stack+0x67>
+			{
+				SirenCount++;
+ 53e:	80 91 13 01 	lds	r24, 0x0113
+ 542:	90 91 14 01 	lds	r25, 0x0114
+ 546:	01 96       	adiw	r24, 0x01	; 1
+				if (SirenCount>12000)//2 минуты
+ 548:	81 3e       	cpi	r24, 0xE1	; 225
+ 54a:	2e e2       	ldi	r18, 0x2E	; 46
+ 54c:	92 07       	cpc	r25, r18
+ 54e:	28 f4       	brcc	.+10     	; 0x55a <__stack+0x5b>
+				DetectorCount=0;
+			}
+			
+			if (BitIsSet(SIREN, OUT_6))
+			{
+				SirenCount++;
+ 550:	90 93 14 01 	sts	0x0114, r25
+ 554:	80 93 13 01 	sts	0x0113, r24
+ 558:	06 c0       	rjmp	.+12     	; 0x566 <__stack+0x67>
+				if (SirenCount>12000)//2 минуты
+				{
+					SirenCount=0;
+ 55a:	10 92 14 01 	sts	0x0114, r1
+ 55e:	10 92 13 01 	sts	0x0113, r1
+					ClearBit(SIREN, OUT_6);
+ 562:	5e 98       	cbi	0x0b, 6	; 11
+					ClearBit(SIREN, OUT_5);
+ 564:	5d 98       	cbi	0x0b, 5	; 11
+			
+			#endif
+			
+			#if 1//Просто мигаем диодом на плате
+			static uint8_t Blink;
+			Blink++;
+ 566:	80 91 07 01 	lds	r24, 0x0107
+ 56a:	8f 5f       	subi	r24, 0xFF	; 255
+			if (Blink==20)
+ 56c:	84 31       	cpi	r24, 0x14	; 20
+ 56e:	19 f0       	breq	.+6      	; 0x576 <__stack+0x77>
+			
+			#endif
+			
+			#if 1//Просто мигаем диодом на плате
+			static uint8_t Blink;
+			Blink++;
+ 570:	80 93 07 01 	sts	0x0107, r24
+ 574:	05 c0       	rjmp	.+10     	; 0x580 <__stack+0x81>
+			if (Blink==20)
+			{
+				Blink=0;
+ 576:	10 92 07 01 	sts	0x0107, r1
+				InvBit(PORT_LED, LED1);
+ 57a:	85 b1       	in	r24, 0x05	; 5
+ 57c:	8f 25       	eor	r24, r15
+ 57e:	85 b9       	out	0x05, r24	; 5
+			#endif
+		}
+		#endif
+		
+		#if 1//проверим считанный ключ по базе.
+        if (CheckKey==1)
+ 580:	80 91 08 01 	lds	r24, 0x0108
+ 584:	81 30       	cpi	r24, 0x01	; 1
+ 586:	b1 f4       	brne	.+44     	; 0x5b4 <__stack+0xb5>
+        {
+			CheckKey=0;
+ 588:	10 92 08 01 	sts	0x0108, r1
+			uint8_t Led=check_key(Zone,Key);
+ 58c:	60 91 11 01 	lds	r22, 0x0111
+ 590:	70 91 12 01 	lds	r23, 0x0112
+ 594:	80 91 0d 01 	lds	r24, 0x010D
+ 598:	ad dd       	rcall	.-1190   	; 0xf4 <check_key>
+			if (Led==1)
+ 59a:	81 30       	cpi	r24, 0x01	; 1
+ 59c:	19 f4       	brne	.+6      	; 0x5a4 <__stack+0xa5>
+			{
+				InvBit(PORT_LED_GREEN,LED_GREEN);	
+ 59e:	88 b1       	in	r24, 0x08	; 8
+ 5a0:	80 27       	eor	r24, r16
+ 5a2:	88 b9       	out	0x08, r24	; 8
+			}
+			CountBit=0;
+ 5a4:	10 92 10 01 	sts	0x0110, r1
+			Zone=0;
+ 5a8:	10 92 0d 01 	sts	0x010D, r1
+			Key=0;
+ 5ac:	10 92 12 01 	sts	0x0112, r1
+ 5b0:	10 92 11 01 	sts	0x0111, r1
+        }
+		#endif
+		
+		#if 1//установка на сигнализацию
+		if (CountAlarm==DELAY_ALARM)
+ 5b4:	80 91 15 01 	lds	r24, 0x0115
+ 5b8:	90 91 16 01 	lds	r25, 0x0116
+ 5bc:	80 37       	cpi	r24, 0x70	; 112
+ 5be:	97 41       	sbci	r25, 0x17	; 23
+ 5c0:	41 f4       	brne	.+16     	; 0x5d2 <__stack+0xd3>
+		{
+			CountAlarm=6001;
+ 5c2:	d0 93 16 01 	sts	0x0116, r29
+ 5c6:	c0 93 15 01 	sts	0x0115, r28
+			eeprom_update_byte(& StartAlarm,1);
+ 5ca:	61 2f       	mov	r22, r17
+ 5cc:	80 e0       	ldi	r24, 0x00	; 0
+ 5ce:	90 e0       	ldi	r25, 0x00	; 0
+ 5d0:	27 d0       	rcall	.+78     	; 0x620 <__eeupd_byte_m88>
+		}
+		#endif
+		
+		#if 1//Контролируем датчики движения
+		if (eeprom_read_byte(& StartAlarm) && BitIsSet(MOUTION_DET, INPUT) && CountAlarm==6001)
+ 5d2:	80 e0       	ldi	r24, 0x00	; 0
+ 5d4:	90 e0       	ldi	r25, 0x00	; 0
+ 5d6:	1c d0       	rcall	.+56     	; 0x610 <__eerd_byte_m88>
+ 5d8:	88 23       	and	r24, r24
+ 5da:	81 f0       	breq	.+32     	; 0x5fc <__stack+0xfd>
+ 5dc:	32 9b       	sbis	0x06, 2	; 6
+ 5de:	0e c0       	rjmp	.+28     	; 0x5fc <__stack+0xfd>
+ 5e0:	80 91 15 01 	lds	r24, 0x0115
+ 5e4:	90 91 16 01 	lds	r25, 0x0116
+ 5e8:	81 37       	cpi	r24, 0x71	; 113
+ 5ea:	97 41       	sbci	r25, 0x17	; 23
+ 5ec:	39 f4       	brne	.+14     	; 0x5fc <__stack+0xfd>
+		{
+			DetectorFlag=1;
+ 5ee:	10 93 0b 01 	sts	0x010B, r17
+			SirenCount=0;
+ 5f2:	10 92 14 01 	sts	0x0114, r1
+ 5f6:	10 92 13 01 	sts	0x0113, r1
+ 5fa:	02 c0       	rjmp	.+4      	; 0x600 <__stack+0x101>
+		}
+		else
+		{
+			DetectorFlag=0;
+ 5fc:	10 92 0b 01 	sts	0x010B, r1
+		}
+		
+		if (DetectorCount>50)//0.5 сек
+ 600:	80 91 09 01 	lds	r24, 0x0109
+ 604:	83 33       	cpi	r24, 0x33	; 51
+ 606:	08 f4       	brcc	.+2      	; 0x60a <__stack+0x10b>
+ 608:	dc ce       	rjmp	.-584    	; 0x3c2 <main+0x28>
+		{
+			SetBit(SIREN, OUT_6);//включили сирены если контакт разомкнулся более чем на 1 сек
+ 60a:	5e 9a       	sbi	0x0b, 6	; 11
+			SetBit(SIREN, OUT_5);
+ 60c:	5d 9a       	sbi	0x0b, 5	; 11
+ 60e:	d9 ce       	rjmp	.-590    	; 0x3c2 <main+0x28>
+
+00000610 <__eerd_byte_m88>:
+ 610:	f9 99       	sbic	0x1f, 1	; 31
+ 612:	fe cf       	rjmp	.-4      	; 0x610 <__eerd_byte_m88>
+ 614:	92 bd       	out	0x22, r25	; 34
+ 616:	81 bd       	out	0x21, r24	; 33
+ 618:	f8 9a       	sbi	0x1f, 0	; 31
+ 61a:	99 27       	eor	r25, r25
+ 61c:	80 b5       	in	r24, 0x20	; 32
+ 61e:	08 95       	ret
+
+00000620 <__eeupd_byte_m88>:
+ 620:	26 2f       	mov	r18, r22
+
+00000622 <__eeupd_r18_m88>:
+ 622:	f9 99       	sbic	0x1f, 1	; 31
+ 624:	fe cf       	rjmp	.-4      	; 0x622 <__eeupd_r18_m88>
+ 626:	92 bd       	out	0x22, r25	; 34
+ 628:	81 bd       	out	0x21, r24	; 33
+ 62a:	f8 9a       	sbi	0x1f, 0	; 31
+ 62c:	01 97       	sbiw	r24, 0x01	; 1
+ 62e:	00 b4       	in	r0, 0x20	; 32
+ 630:	02 16       	cp	r0, r18
+ 632:	39 f0       	breq	.+14     	; 0x642 <__eeupd_r18_m88+0x20>
+ 634:	1f ba       	out	0x1f, r1	; 31
+ 636:	20 bd       	out	0x20, r18	; 32
+ 638:	0f b6       	in	r0, 0x3f	; 63
+ 63a:	f8 94       	cli
+ 63c:	fa 9a       	sbi	0x1f, 2	; 31
+ 63e:	f9 9a       	sbi	0x1f, 1	; 31
+ 640:	0f be       	out	0x3f, r0	; 63
+ 642:	08 95       	ret
+
+00000644 <_exit>:
+ 644:	f8 94       	cli
+
+00000646 <__stop_program>:
+ 646:	ff cf       	rjmp	.-2      	; 0x646 <__stop_program>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Atmega88_alarm", "Atmega88_alarm.cproj", "{AB9068B3-A827-4FB5-B5F2-4105E9771509}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB9068B3-A827-4FB5-B5F2-4105E9771509}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AB9068B3-A827-4FB5-B5F2-4105E9771509}.Debug|AVR.Build.0 = Debug|AVR
+		{AB9068B3-A827-4FB5-B5F2-4105E9771509}.Release|AVR.ActiveCfg = Release|AVR
+		{AB9068B3-A827-4FB5-B5F2-4105E9771509}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
