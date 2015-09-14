@@ -1,1 +1,1 @@
-http://chipenable.ru/index.php/projects-avr/item/154-stroboskop-tiny13.html
+http://chipenable.ru/index.php/projects-avr/item/143-usb-scope-avr.html
