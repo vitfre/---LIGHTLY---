@@ -1,0 +1,11 @@
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\bin\Debug\UsbADC.exe
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\bin\Debug\UsbADC.pdb
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\bin\Debug\UsbLibrary.dll
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\bin\Debug\UsbLibrary.pdb
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\bin\Debug\UsbLibrary.xml
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbScope.csprojResolveAssemblyReference.cache
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbApp.Properties.Resources.resources
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbApp.usbscope.resources
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbScope.csproj.GenerateResource.Cache
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbADC.exe
+D:\###WORK###\###EOL###\---LIGHTLY---\Low_Cost_Usb-Scope\usb-scope\UsbApp\obj\Debug\UsbADC.pdb
