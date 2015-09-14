@@ -1,0 +1,15 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+led_table                                                         0x0080      10
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+dn                                                                R3           1
+dig_shn                                                           R4,R5        2
+led_num                                                           R6,R7        2

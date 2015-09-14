@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:42C263A2
+NODE:I LEVEL:0 LINE:1 "C:\cvavreval\inc\tiny2313.h"
+NODE:I LEVEL:0 LINE:2 "C:\cvavreval\inc\delay.h"
+NODE:M LEVEL:0 LINE:5 "pls"
+NODE:M LEVEL:0 LINE:6 "mns"
+NODE:V LEVEL:0 LINE:8 "dn -> R3"
+NODE:V LEVEL:0 LINE:9 "dig_shn -> R4,R5"
+NODE:V LEVEL:0 LINE:10 "led_num -> R6,R7"
+NODE:V LEVEL:0 LINE:13 "led_table -> RAM:????"
+NODE:F LEVEL:0 LINE:15 "dig_show(void)"
+NODE:F LEVEL:0 LINE:36 "timer0_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:40 "main(void)"
