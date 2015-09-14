@@ -1,0 +1,1 @@
+http://chipenable.ru/index.php/projects-avr/item/169-ukazatel-povorotov.html
