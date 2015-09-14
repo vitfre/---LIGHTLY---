@@ -1,0 +1,692 @@
+
+Stroboskop.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003fc  00000000  00000000  000000b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  000003fc  000004b0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000013  00800060  00800060  000004b0  2**0
+                  ALLOC
+  3 .eeprom       00000002  00810000  00810000  000004b0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .stab         00000828  00000000  00000000  000004b4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  5 .stabstr      00000181  00000000  00000000  00000cdc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .comment      0000002f  00000000  00000000  00000e5d  2**0
+                  CONTENTS, READONLY
+  7 .debug_aranges 000000a8  00000000  00000000  00000e8c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_info   00000919  00000000  00000000  00000f34  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_abbrev 00000468  00000000  00000000  0000184d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_line   0000058f  00000000  00000000  00001cb5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_frame  000000f0  00000000  00000000  00002244  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_str    000002da  00000000  00000000  00002334  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_loc    00000287  00000000  00000000  0000260e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 00000068  00000000  00000000  00002895  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	7c c0       	rjmp	.+248    	; 0xfa <__ctors_end>
+   2:	89 c0       	rjmp	.+274    	; 0x116 <__bad_interrupt>
+   4:	88 c0       	rjmp	.+272    	; 0x116 <__bad_interrupt>
+   6:	87 c0       	rjmp	.+270    	; 0x116 <__bad_interrupt>
+   8:	86 c0       	rjmp	.+268    	; 0x116 <__bad_interrupt>
+   a:	85 c0       	rjmp	.+266    	; 0x116 <__bad_interrupt>
+   c:	d0 c1       	rjmp	.+928    	; 0x3ae <__vector_6>
+   e:	83 c0       	rjmp	.+262    	; 0x116 <__bad_interrupt>
+  10:	82 c0       	rjmp	.+260    	; 0x116 <__bad_interrupt>
+  12:	81 c0       	rjmp	.+258    	; 0x116 <__bad_interrupt>
+
+00000014 <led_prog>:
+  14:	df 00 f0 00 a6 00 95 00 74 00 33 00 22 00           ........t.3.".
+
+00000022 <led_pr7>:
+  22:	18 05 00 05 18 05 00 05 18 05 00 05 18 05 00 19     ................
+  32:	ff                                                  .
+
+00000033 <led_pr6>:
+  33:	08 04 00 04 08 04 00 0c 08 04 00 04 08 04 00 0c     ................
+  43:	08 04 00 04 08 04 00 04 18 04 00 04 18 04 00 04     ................
+  53:	10 04 00 04 10 04 00 0c 10 04 00 04 10 04 00 0c     ................
+  63:	10 04 00 04 10 04 00 04 18 04 00 04 18 04 00 04     ................
+  73:	ff                                                  .
+
+00000074 <led_pr5>:
+  74:	08 05 00 05 08 05 00 05 10 05 00 05 10 05 00 19     ................
+  84:	10 05 00 05 10 05 00 05 08 05 00 05 08 05 00 19     ................
+  94:	ff                                                  .
+
+00000095 <led_pr4>:
+  95:	08 05 00 05 08 05 00 19 10 05 00 05 10 05 00 05     ................
+  a5:	ff                                                  .
+
+000000a6 <led_pr3>:
+  a6:	08 05 00 05 08 05 00 05 08 05 00 05 08 05 00 05     ................
+  b6:	08 05 00 05 08 05 00 05 08 05 00 05 10 05 00 05     ................
+  c6:	10 05 00 05 10 05 00 05 10 05 00 05 10 05 00 05     ................
+  d6:	10 05 00 05 10 05 00 05 ff                          .........
+
+000000df <led_pr1>:
+  df:	08 05 00 05 08 05 00 05 10 05 00 05 10 05 00 05     ................
+  ef:	ff                                                  .
+
+000000f0 <led_pr2>:
+  f0:	08 05 00 05 10 05 00 05 ff 00                       ..........
+
+000000fa <__ctors_end>:
+  fa:	11 24       	eor	r1, r1
+  fc:	1f be       	out	0x3f, r1	; 63
+  fe:	cf e9       	ldi	r28, 0x9F	; 159
+ 100:	cd bf       	out	0x3d, r28	; 61
+
+00000102 <__do_clear_bss>:
+ 102:	20 e0       	ldi	r18, 0x00	; 0
+ 104:	a0 e6       	ldi	r26, 0x60	; 96
+ 106:	b0 e0       	ldi	r27, 0x00	; 0
+ 108:	01 c0       	rjmp	.+2      	; 0x10c <.do_clear_bss_start>
+
+0000010a <.do_clear_bss_loop>:
+ 10a:	1d 92       	st	X+, r1
+
+0000010c <.do_clear_bss_start>:
+ 10c:	a3 37       	cpi	r26, 0x73	; 115
+ 10e:	b2 07       	cpc	r27, r18
+ 110:	e1 f7       	brne	.-8      	; 0x10a <.do_clear_bss_loop>
+ 112:	c3 d0       	rcall	.+390    	; 0x29a <main>
+ 114:	71 c1       	rjmp	.+738    	; 0x3f8 <_exit>
+
+00000116 <__bad_interrupt>:
+ 116:	74 cf       	rjmp	.-280    	; 0x0 <__vectors>
+
+00000118 <BUT_Debrief>:
+	static but_state_t buf = BUT_NO_PRESS;
+	static uint8_t count = 0;
+	
+	but_state_t but_state = BUT_NO_PRESS;
+		
+	if (!(BUT_PINX & (1<<BUT_NUM))){
+ 118:	b1 99       	sbic	0x16, 1	; 22
+ 11a:	1a c0       	rjmp	.+52     	; 0x150 <BUT_Debrief+0x38>
+	   if (count < BUT_COUNT_MAX) {
+ 11c:	80 91 60 00 	lds	r24, 0x0060
+ 120:	8a 3a       	cpi	r24, 0xAA	; 170
+ 122:	10 f0       	brcs	.+4      	; 0x128 <BUT_Debrief+0x10>
+but_state_t BUT_Debrief(void)
+{
+	static but_state_t buf = BUT_NO_PRESS;
+	static uint8_t count = 0;
+	
+	but_state_t but_state = BUT_NO_PRESS;
+ 124:	80 e0       	ldi	r24, 0x00	; 0
+ 126:	08 95       	ret
+		
+	if (!(BUT_PINX & (1<<BUT_NUM))){
+	   if (count < BUT_COUNT_MAX) {
+		   count++;
+ 128:	8f 5f       	subi	r24, 0xFF	; 255
+ 12a:	80 93 60 00 	sts	0x0060, r24
+		   if (count > BUT_THRESHOLD){
+ 12e:	86 30       	cpi	r24, 0x06	; 6
+ 130:	c8 f3       	brcs	.-14     	; 0x124 <BUT_Debrief+0xc>
+			   buf = BUT_PRESSED;
+			   if (count > BUT_LONG_THRESHOLD){
+ 132:	87 39       	cpi	r24, 0x97	; 151
+ 134:	20 f4       	brcc	.+8      	; 0x13e <BUT_Debrief+0x26>
+		
+	if (!(BUT_PINX & (1<<BUT_NUM))){
+	   if (count < BUT_COUNT_MAX) {
+		   count++;
+		   if (count > BUT_THRESHOLD){
+			   buf = BUT_PRESSED;
+ 136:	81 e0       	ldi	r24, 0x01	; 1
+ 138:	80 93 61 00 	sts	0x0061, r24
+ 13c:	06 c0       	rjmp	.+12     	; 0x14a <BUT_Debrief+0x32>
+			   if (count > BUT_LONG_THRESHOLD){
+				   buf = BUT_LONG_PRESS;
+ 13e:	83 e0       	ldi	r24, 0x03	; 3
+ 140:	80 93 61 00 	sts	0x0061, r24
+				   count = BUT_COUNT_MAX + 10;
+ 144:	84 eb       	ldi	r24, 0xB4	; 180
+ 146:	80 93 60 00 	sts	0x0060, r24
+			   }
+			   but_state = buf;
+ 14a:	80 91 61 00 	lds	r24, 0x0061
+ 14e:	08 95       	ret
+	       }
+	   }
+	}
+	else{
+	   count = 0;
+ 150:	10 92 60 00 	sts	0x0060, r1
+	   if (buf == BUT_PRESSED){
+ 154:	80 91 61 00 	lds	r24, 0x0061
+ 158:	81 30       	cpi	r24, 0x01	; 1
+ 15a:	11 f0       	breq	.+4      	; 0x160 <BUT_Debrief+0x48>
+but_state_t BUT_Debrief(void)
+{
+	static but_state_t buf = BUT_NO_PRESS;
+	static uint8_t count = 0;
+	
+	but_state_t but_state = BUT_NO_PRESS;
+ 15c:	80 e0       	ldi	r24, 0x00	; 0
+ 15e:	01 c0       	rjmp	.+2      	; 0x162 <BUT_Debrief+0x4a>
+	   }
+	}
+	else{
+	   count = 0;
+	   if (buf == BUT_PRESSED){
+	      but_state = BUT_RELEASE;
+ 160:	82 e0       	ldi	r24, 0x02	; 2
+	   }
+       buf = BUT_NO_PRESS;	
+ 162:	10 92 61 00 	sts	0x0061, r1
+	/*uint8_t tmp = but_state;
+	but_state = BUT_NO_PRESS;
+	return tmp;	*/
+	
+	return but_state;
+}
+ 166:	08 95       	ret
+
+00000168 <BUZ_Start>:
+
+
+void BUZ_Start(uint8_t num, uint8_t dur)
+{
+   //pin = 1;	
+   BUZ_PORTX |= (1<<BUZ_PIN);
+ 168:	c0 9a       	sbi	0x18, 0	; 24
+   cycle = (num + 1)<<1;	
+ 16a:	8f 5f       	subi	r24, 0xFF	; 255
+ 16c:	88 0f       	add	r24, r24
+ 16e:	80 93 62 00 	sts	0x0062, r24
+   duration_buf = dur;
+ 172:	60 93 63 00 	sts	0x0063, r22
+   duration = dur;
+ 176:	60 93 64 00 	sts	0x0064, r22
+   buz_state = 1;
+ 17a:	81 e0       	ldi	r24, 0x01	; 1
+ 17c:	80 93 6d 00 	sts	0x006D, r24
+ 180:	08 95       	ret
+
+00000182 <BUZ_Contr>:
+	}
+}*/
+
+void BUZ_Contr(void)
+{
+	if (buz_state){
+ 182:	80 91 6d 00 	lds	r24, 0x006D
+ 186:	88 23       	and	r24, r24
+ 188:	c9 f0       	breq	.+50     	; 0x1bc <BUZ_Contr+0x3a>
+		duration--;
+ 18a:	80 91 64 00 	lds	r24, 0x0064
+ 18e:	81 50       	subi	r24, 0x01	; 1
+ 190:	80 93 64 00 	sts	0x0064, r24
+		if (!duration){
+ 194:	81 11       	cpse	r24, r1
+ 196:	12 c0       	rjmp	.+36     	; 0x1bc <BUZ_Contr+0x3a>
+		      duration = duration_buf;
+ 198:	80 91 63 00 	lds	r24, 0x0063
+ 19c:	80 93 64 00 	sts	0x0064, r24
+		      BUZ_PORTX ^= (1<<BUZ_PIN);
+ 1a0:	88 b3       	in	r24, 0x18	; 24
+ 1a2:	91 e0       	ldi	r25, 0x01	; 1
+ 1a4:	89 27       	eor	r24, r25
+ 1a6:	88 bb       	out	0x18, r24	; 24
+			  //pin ^= 1;
+     		  cycle--;
+ 1a8:	80 91 62 00 	lds	r24, 0x0062
+ 1ac:	81 50       	subi	r24, 0x01	; 1
+ 1ae:	80 93 62 00 	sts	0x0062, r24
+			  if (!cycle){
+ 1b2:	81 11       	cpse	r24, r1
+ 1b4:	03 c0       	rjmp	.+6      	; 0x1bc <BUZ_Contr+0x3a>
+			     buz_state = 0;
+ 1b6:	10 92 6d 00 	sts	0x006D, r1
+				 BUZ_PORTX &= ~(1<<BUZ_PIN); 
+ 1ba:	c0 98       	cbi	0x18, 0	; 24
+ 1bc:	08 95       	ret
+
+000001be <LED_Start>:
+
+
+void LED_Start(uint8_t num)
+{
+	//if (num < LED_PROG_NUM){
+	   if((num == num_prog) && (led_state)){
+ 1be:	90 91 66 00 	lds	r25, 0x0066
+ 1c2:	89 13       	cpse	r24, r25
+ 1c4:	04 c0       	rjmp	.+8      	; 0x1ce <LED_Start+0x10>
+ 1c6:	90 91 67 00 	lds	r25, 0x0067
+ 1ca:	91 11       	cpse	r25, r1
+ 1cc:	19 c0       	rjmp	.+50     	; 0x200 <LED_Start+0x42>
+		   return;
+	   }
+	   num_prog = num; 
+ 1ce:	80 93 66 00 	sts	0x0066, r24
+	   pLedProg = (uint8_t *)pgm_read_word(&led_prog[num]);
+ 1d2:	e8 2f       	mov	r30, r24
+ 1d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d6:	ee 0f       	add	r30, r30
+ 1d8:	ff 1f       	adc	r31, r31
+ 1da:	ec 5e       	subi	r30, 0xEC	; 236
+ 1dc:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1de:	85 91       	lpm	r24, Z+
+ 1e0:	94 91       	lpm	r25, Z
+ 1e2:	80 93 68 00 	sts	0x0068, r24
+ 1e6:	90 93 69 00 	sts	0x0069, r25
+       led_index = 0;
+ 1ea:	10 92 6a 00 	sts	0x006A, r1
+       count = 0;
+ 1ee:	10 92 6c 00 	sts	0x006C, r1
+ 1f2:	10 92 6b 00 	sts	0x006B, r1
+	   count_rep = 0;
+ 1f6:	10 92 65 00 	sts	0x0065, r1
+       led_state = 1;
+ 1fa:	81 e0       	ldi	r24, 0x01	; 1
+ 1fc:	80 93 67 00 	sts	0x0067, r24
+ 200:	08 95       	ret
+
+00000202 <LED_Stop>:
+	//}
+}
+
+void LED_Stop(void)
+{
+   led_state = 0;
+ 202:	10 92 67 00 	sts	0x0067, r1
+   LED_PORTX |= (1<<LED1)|(1<<LED2);
+ 206:	88 b3       	in	r24, 0x18	; 24
+ 208:	88 61       	ori	r24, 0x18	; 24
+ 20a:	88 bb       	out	0x18, r24	; 24
+ 20c:	08 95       	ret
+
+0000020e <LED_Contr>:
+void LED_Contr(void)
+{   
+	uint8_t tmp;
+	uint8_t port;
+	
+	if (led_state)	{
+ 20e:	80 91 67 00 	lds	r24, 0x0067
+ 212:	88 23       	and	r24, r24
+ 214:	09 f4       	brne	.+2      	; 0x218 <LED_Contr+0xa>
+ 216:	40 c0       	rjmp	.+128    	; 0x298 <LED_Contr+0x8a>
+		if (!count) {
+ 218:	80 91 6b 00 	lds	r24, 0x006B
+ 21c:	90 91 6c 00 	lds	r25, 0x006C
+ 220:	00 97       	sbiw	r24, 0x00	; 0
+ 222:	a9 f5       	brne	.+106    	; 0x28e <LED_Contr+0x80>
+			
+			tmp = pgm_read_byte(&pLedProg[led_index++]);
+ 224:	80 91 68 00 	lds	r24, 0x0068
+ 228:	90 91 69 00 	lds	r25, 0x0069
+ 22c:	20 91 6a 00 	lds	r18, 0x006A
+ 230:	32 2f       	mov	r19, r18
+ 232:	3f 5f       	subi	r19, 0xFF	; 255
+ 234:	30 93 6a 00 	sts	0x006A, r19
+ 238:	fc 01       	movw	r30, r24
+ 23a:	e2 0f       	add	r30, r18
+ 23c:	f1 1d       	adc	r31, r1
+ 23e:	e4 91       	lpm	r30, Z
+			if (tmp == REPEAT){
+ 240:	ef 3f       	cpi	r30, 0xFF	; 255
+ 242:	69 f4       	brne	.+26     	; 0x25e <LED_Contr+0x50>
+				if (count_rep < 255) {
+ 244:	20 91 65 00 	lds	r18, 0x0065
+ 248:	2f 3f       	cpi	r18, 0xFF	; 255
+ 24a:	19 f0       	breq	.+6      	; 0x252 <LED_Contr+0x44>
+					count_rep++;
+ 24c:	2f 5f       	subi	r18, 0xFF	; 255
+ 24e:	20 93 65 00 	sts	0x0065, r18
+				}
+				led_index = 0;
+				tmp = pgm_read_byte(&pLedProg[led_index++]);
+ 252:	21 e0       	ldi	r18, 0x01	; 1
+ 254:	20 93 6a 00 	sts	0x006A, r18
+ 258:	fc 01       	movw	r30, r24
+ 25a:	84 91       	lpm	r24, Z
+ 25c:	01 c0       	rjmp	.+2      	; 0x260 <LED_Contr+0x52>
+	
+	if (led_state)	{
+		if (!count) {
+			
+			tmp = pgm_read_byte(&pLedProg[led_index++]);
+			if (tmp == REPEAT){
+ 25e:	8e 2f       	mov	r24, r30
+				}
+				led_index = 0;
+				tmp = pgm_read_byte(&pLedProg[led_index++]);
+			}
+			
+			port = LED_PORTX & (~((1<<LED1)|(1<<LED2)));
+ 260:	98 b3       	in	r25, 0x18	; 24
+ 262:	97 7e       	andi	r25, 0xE7	; 231
+			port |= tmp;
+ 264:	98 2b       	or	r25, r24
+			LED_PORTX = port;
+ 266:	98 bb       	out	0x18, r25	; 24
+		
+			count = (pgm_read_byte(&pLedProg[led_index++]) - 1);
+ 268:	80 91 6a 00 	lds	r24, 0x006A
+ 26c:	e0 91 68 00 	lds	r30, 0x0068
+ 270:	f0 91 69 00 	lds	r31, 0x0069
+ 274:	e8 0f       	add	r30, r24
+ 276:	f1 1d       	adc	r31, r1
+ 278:	8f 5f       	subi	r24, 0xFF	; 255
+ 27a:	80 93 6a 00 	sts	0x006A, r24
+ 27e:	e4 91       	lpm	r30, Z
+ 280:	f0 e0       	ldi	r31, 0x00	; 0
+ 282:	31 97       	sbiw	r30, 0x01	; 1
+ 284:	f0 93 6c 00 	sts	0x006C, r31
+ 288:	e0 93 6b 00 	sts	0x006B, r30
+ 28c:	08 95       	ret
+		}
+		else{
+		   count--;
+ 28e:	01 97       	sbiw	r24, 0x01	; 1
+ 290:	90 93 6c 00 	sts	0x006C, r25
+ 294:	80 93 6b 00 	sts	0x006B, r24
+ 298:	08 95       	ret
+
+0000029a <main>:
+
+int main(void)
+{
+	/*LED_Init();
+	BUZ_Init();*/
+	DDRB  = (1<<LED1)|(1<<LED2)|(1<<BUZ_PIN)|(0<<BUT_NUM)|(0<<CONTR_PIN); 
+ 29a:	89 e1       	ldi	r24, 0x19	; 25
+ 29c:	87 bb       	out	0x17, r24	; 23
+	PORTB = (0<<LED1)|(0<<LED2)|(0<<BUZ_PIN)|(1<<BUT_NUM)|(0<<CONTR_PIN);
+ 29e:	82 e0       	ldi	r24, 0x02	; 2
+ 2a0:	88 bb       	out	0x18, r24	; 24
+ 2a2:	84 e0       	ldi	r24, 0x04	; 4
+
+    /*моргаем светодиодами перед запуском устройства*/
+    for(uint8_t i = 0; i < 4; i++){
+	   LED_Toggle();
+ 2a4:	28 e1       	ldi	r18, 0x18	; 24
+ 2a6:	98 b3       	in	r25, 0x18	; 24
+ 2a8:	92 27       	eor	r25, r18
+ 2aa:	98 bb       	out	0x18, r25	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2ac:	3f ef       	ldi	r19, 0xFF	; 255
+ 2ae:	44 e6       	ldi	r20, 0x64	; 100
+ 2b0:	94 e0       	ldi	r25, 0x04	; 4
+ 2b2:	31 50       	subi	r19, 0x01	; 1
+ 2b4:	40 40       	sbci	r20, 0x00	; 0
+ 2b6:	90 40       	sbci	r25, 0x00	; 0
+ 2b8:	e1 f7       	brne	.-8      	; 0x2b2 <main+0x18>
+ 2ba:	00 c0       	rjmp	.+0      	; 0x2bc <main+0x22>
+ 2bc:	00 00       	nop
+ 2be:	81 50       	subi	r24, 0x01	; 1
+	BUZ_Init();*/
+	DDRB  = (1<<LED1)|(1<<LED2)|(1<<BUZ_PIN)|(0<<BUT_NUM)|(0<<CONTR_PIN); 
+	PORTB = (0<<LED1)|(0<<LED2)|(0<<BUZ_PIN)|(1<<BUT_NUM)|(0<<CONTR_PIN);
+
+    /*моргаем светодиодами перед запуском устройства*/
+    for(uint8_t i = 0; i < 4; i++){
+ 2c0:	91 f7       	brne	.-28     	; 0x2a6 <main+0xc>
+	
+    /*загружаем начальные установки:
+	 - режим
+	 - последняя прога*/
+
+	strob_regime = eeprom_read_byte(&strob_regime_eep);
+ 2c2:	81 e0       	ldi	r24, 0x01	; 1
+ 2c4:	90 e0       	ldi	r25, 0x00	; 0
+ 2c6:	82 d0       	rcall	.+260    	; 0x3cc <__eerd_byte_tn13>
+ 2c8:	80 93 72 00 	sts	0x0072, r24
+ 2cc:	2f ef       	ldi	r18, 0xFF	; 255
+ 2ce:	35 ea       	ldi	r19, 0xA5	; 165
+ 2d0:	4e e0       	ldi	r20, 0x0E	; 14
+ 2d2:	21 50       	subi	r18, 0x01	; 1
+ 2d4:	30 40       	sbci	r19, 0x00	; 0
+ 2d6:	40 40       	sbci	r20, 0x00	; 0
+ 2d8:	e1 f7       	brne	.-8      	; 0x2d2 <main+0x38>
+ 2da:	00 c0       	rjmp	.+0      	; 0x2dc <main+0x42>
+ 2dc:	00 00       	nop
+	_delay_ms(500);
+	count_led_prog = eeprom_read_byte(&count_led_prog_eep);
+ 2de:	80 e0       	ldi	r24, 0x00	; 0
+ 2e0:	90 e0       	ldi	r25, 0x00	; 0
+ 2e2:	74 d0       	rcall	.+232    	; 0x3cc <__eerd_byte_tn13>
+ 2e4:	80 93 71 00 	sts	0x0071, r24
+	
+	if (strob_regime == REG_STROBO){
+ 2e8:	90 91 72 00 	lds	r25, 0x0072
+ 2ec:	91 30       	cpi	r25, 0x01	; 1
+ 2ee:	11 f4       	brne	.+4      	; 0x2f4 <main+0x5a>
+	   LED_Start(count_led_prog);
+ 2f0:	66 df       	rcall	.-308    	; 0x1be <LED_Start>
+ 2f2:	03 c0       	rjmp	.+6      	; 0x2fa <main+0x60>
+	}
+	else{
+		LED_On();
+ 2f4:	88 b3       	in	r24, 0x18	; 24
+ 2f6:	88 61       	ori	r24, 0x18	; 24
+ 2f8:	88 bb       	out	0x18, r24	; 24
+	
+    //button = BUT_NO_PRESS;
+	//BUT_Init();
+
+	/*инициализация таймера Т0. период 10мс.*/
+	TCCR0A = (1<<WGM01)|(0<<WGM00);
+ 2fa:	82 e0       	ldi	r24, 0x02	; 2
+ 2fc:	8f bd       	out	0x2f, r24	; 47
+	TCCR0B = (0<<WGM02)|(1<<CS02)|(0<<CS01)|(1<<CS00);
+ 2fe:	85 e0       	ldi	r24, 0x05	; 5
+ 300:	83 bf       	out	0x33, r24	; 51
+	OCR0A  = TIM_OCR_VALUE;
+ 302:	8c e5       	ldi	r24, 0x5C	; 92
+ 304:	86 bf       	out	0x36, r24	; 54
+	TIMSK0 = (1<<OCIE0A);
+ 306:	84 e0       	ldi	r24, 0x04	; 4
+ 308:	89 bf       	out	0x39, r24	; 57
+	//tim0_comp_flag = 0;
+	
+	sei();
+ 30a:	78 94       	sei
+						   strob_regime = REG_NORMAL;
+						   LED_Stop();
+						   BUZ_Start(0, 75);
+					   }
+					   else{
+						   strob_regime = REG_STROBO;
+ 30c:	c1 e0       	ldi	r28, 0x01	; 1
+	//tim0_comp_flag = 0;
+	
+	sei();
+    while(1)
+    {
+	   if (tim0_comp_flag){
+ 30e:	80 91 6f 00 	lds	r24, 0x006F
+ 312:	88 23       	and	r24, r24
+ 314:	e1 f3       	breq	.-8      	; 0x30e <main+0x74>
+		   tim0_comp_flag = 0;
+ 316:	10 92 6f 00 	sts	0x006F, r1
+               
+				   /*при появлении упр. сигнала, запускаем первый режим*/
+				   if (strob_regime == REG_NORMAL){
+ 31a:	80 91 72 00 	lds	r24, 0x0072
+ 31e:	81 11       	cpse	r24, r1
+ 320:	08 c0       	rjmp	.+16     	; 0x332 <main+0x98>
+					  if ((CONTR_PINX & (1<<CONTR_PIN))){
+ 322:	b2 9b       	sbis	0x16, 2	; 22
+ 324:	02 c0       	rjmp	.+4      	; 0x32a <main+0x90>
+						 LED_Start(0);	  
+ 326:	4b df       	rcall	.-362    	; 0x1be <LED_Start>
+ 328:	04 c0       	rjmp	.+8      	; 0x332 <main+0x98>
+					  }
+					  else{
+						  if (count_rep > 0){
+ 32a:	80 91 65 00 	lds	r24, 0x0065
+ 32e:	81 11       	cpse	r24, r1
+						     LED_Stop();
+ 330:	68 df       	rcall	.-304    	; 0x202 <LED_Stop>
+						  }
+					  }
+				   }
+			   
+				   button = BUT_Debrief();
+ 332:	f2 de       	rcall	.-540    	; 0x118 <BUT_Debrief>
+ 334:	80 93 70 00 	sts	0x0070, r24
+
+				   /*если нажатие длительное, то перекл. в другой режим*/
+				   if (button == BUT_LONG_PRESS){
+ 338:	83 30       	cpi	r24, 0x03	; 3
+ 33a:	c1 f4       	brne	.+48     	; 0x36c <main+0xd2>
+					   if (strob_regime){
+ 33c:	80 91 72 00 	lds	r24, 0x0072
+ 340:	88 23       	and	r24, r24
+ 342:	31 f0       	breq	.+12     	; 0x350 <main+0xb6>
+						   strob_regime = REG_NORMAL;
+ 344:	10 92 72 00 	sts	0x0072, r1
+						   LED_Stop();
+ 348:	5c df       	rcall	.-328    	; 0x202 <LED_Stop>
+						   BUZ_Start(0, 75);
+ 34a:	6b e4       	ldi	r22, 0x4B	; 75
+ 34c:	80 e0       	ldi	r24, 0x00	; 0
+ 34e:	08 c0       	rjmp	.+16     	; 0x360 <main+0xc6>
+					   }
+					   else{
+						   strob_regime = REG_STROBO;
+ 350:	c0 93 72 00 	sts	0x0072, r28
+						   LED_Start(count_led_prog);
+ 354:	80 91 71 00 	lds	r24, 0x0071
+ 358:	32 df       	rcall	.-412    	; 0x1be <LED_Start>
+						   BUZ_Start(count_led_prog, 18);
+ 35a:	62 e1       	ldi	r22, 0x12	; 18
+ 35c:	80 91 71 00 	lds	r24, 0x0071
+ 360:	03 df       	rcall	.-506    	; 0x168 <BUZ_Start>
+					   }
+					   eeprom_write_byte(&strob_regime_eep, strob_regime);
+ 362:	60 91 72 00 	lds	r22, 0x0072
+ 366:	81 e0       	ldi	r24, 0x01	; 1
+ 368:	90 e0       	ldi	r25, 0x00	; 0
+ 36a:	38 d0       	rcall	.+112    	; 0x3dc <__eewr_byte_tn13>
+				   }
+		   
+				   /*если короткое нажатие и режим стробоскопа, перекл. программу*/
+				   if (button == BUT_RELEASE){
+ 36c:	80 91 70 00 	lds	r24, 0x0070
+ 370:	82 30       	cpi	r24, 0x02	; 2
+ 372:	d1 f4       	brne	.+52     	; 0x3a8 <main+0x10e>
+					   if (strob_regime == REG_STROBO){
+ 374:	80 91 72 00 	lds	r24, 0x0072
+ 378:	81 30       	cpi	r24, 0x01	; 1
+ 37a:	b1 f4       	brne	.+44     	; 0x3a8 <main+0x10e>
+						   /*cчетчик программ*/
+						   count_led_prog++;
+ 37c:	80 91 71 00 	lds	r24, 0x0071
+ 380:	8f 5f       	subi	r24, 0xFF	; 255
+						   if (count_led_prog == LED_PROG_NUM){
+ 382:	87 30       	cpi	r24, 0x07	; 7
+ 384:	19 f0       	breq	.+6      	; 0x38c <main+0xf2>
+		   
+				   /*если короткое нажатие и режим стробоскопа, перекл. программу*/
+				   if (button == BUT_RELEASE){
+					   if (strob_regime == REG_STROBO){
+						   /*cчетчик программ*/
+						   count_led_prog++;
+ 386:	80 93 71 00 	sts	0x0071, r24
+ 38a:	02 c0       	rjmp	.+4      	; 0x390 <main+0xf6>
+						   if (count_led_prog == LED_PROG_NUM){
+							   count_led_prog = 0;
+ 38c:	10 92 71 00 	sts	0x0071, r1
+						   }
+						   LED_Start(count_led_prog);
+ 390:	80 91 71 00 	lds	r24, 0x0071
+ 394:	14 df       	rcall	.-472    	; 0x1be <LED_Start>
+						   BUZ_Start(count_led_prog, 18);
+ 396:	62 e1       	ldi	r22, 0x12	; 18
+ 398:	80 91 71 00 	lds	r24, 0x0071
+ 39c:	e5 de       	rcall	.-566    	; 0x168 <BUZ_Start>
+						   eeprom_write_byte(&count_led_prog_eep, count_led_prog);
+ 39e:	60 91 71 00 	lds	r22, 0x0071
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	90 e0       	ldi	r25, 0x00	; 0
+ 3a6:	1a d0       	rcall	.+52     	; 0x3dc <__eewr_byte_tn13>
+					   }
+				   }
+
+				   LED_Contr();
+ 3a8:	32 df       	rcall	.-412    	; 0x20e <LED_Contr>
+				   BUZ_Contr();
+ 3aa:	eb de       	rcall	.-554    	; 0x182 <BUZ_Contr>
+ 3ac:	b0 cf       	rjmp	.-160    	; 0x30e <main+0x74>
+
+000003ae <__vector_6>:
+    }
+	return 0;
+}
+
+ISR(TIM0_COMPA_vect)
+{
+ 3ae:	1f 92       	push	r1
+ 3b0:	0f 92       	push	r0
+ 3b2:	0f b6       	in	r0, 0x3f	; 63
+ 3b4:	0f 92       	push	r0
+ 3b6:	11 24       	eor	r1, r1
+ 3b8:	8f 93       	push	r24
+   tim0_comp_flag = 1;
+ 3ba:	81 e0       	ldi	r24, 0x01	; 1
+ 3bc:	80 93 6f 00 	sts	0x006F, r24
+ 3c0:	8f 91       	pop	r24
+ 3c2:	0f 90       	pop	r0
+ 3c4:	0f be       	out	0x3f, r0	; 63
+ 3c6:	0f 90       	pop	r0
+ 3c8:	1f 90       	pop	r1
+ 3ca:	18 95       	reti
+
+000003cc <__eerd_byte_tn13>:
+ 3cc:	e1 99       	sbic	0x1c, 1	; 28
+ 3ce:	fe cf       	rjmp	.-4      	; 0x3cc <__eerd_byte_tn13>
+ 3d0:	1f ba       	out	0x1f, r1	; 31
+ 3d2:	8e bb       	out	0x1e, r24	; 30
+ 3d4:	e0 9a       	sbi	0x1c, 0	; 28
+ 3d6:	99 27       	eor	r25, r25
+ 3d8:	8d b3       	in	r24, 0x1d	; 29
+ 3da:	08 95       	ret
+
+000003dc <__eewr_byte_tn13>:
+ 3dc:	26 2f       	mov	r18, r22
+
+000003de <__eewr_r18_tn13>:
+ 3de:	e1 99       	sbic	0x1c, 1	; 28
+ 3e0:	fe cf       	rjmp	.-4      	; 0x3de <__eewr_r18_tn13>
+ 3e2:	1c ba       	out	0x1c, r1	; 28
+ 3e4:	1f ba       	out	0x1f, r1	; 31
+ 3e6:	8e bb       	out	0x1e, r24	; 30
+ 3e8:	2d bb       	out	0x1d, r18	; 29
+ 3ea:	0f b6       	in	r0, 0x3f	; 63
+ 3ec:	f8 94       	cli
+ 3ee:	e2 9a       	sbi	0x1c, 2	; 28
+ 3f0:	e1 9a       	sbi	0x1c, 1	; 28
+ 3f2:	0f be       	out	0x3f, r0	; 63
+ 3f4:	01 96       	adiw	r24, 0x01	; 1
+ 3f6:	08 95       	ret
+
+000003f8 <_exit>:
+ 3f8:	f8 94       	cli
+
+000003fa <__stop_program>:
+ 3fa:	ff cf       	rjmp	.-2      	; 0x3fa <__stop_program>

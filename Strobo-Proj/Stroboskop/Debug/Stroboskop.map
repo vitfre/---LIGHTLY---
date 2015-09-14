@@ -1,0 +1,536 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+                              c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o (exit)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+                              button.o (__do_clear_bss)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+                              Stroboskop.o (__eerd_byte_tn13)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+                              Stroboskop.o (__eewr_byte_tn13)
+
+Allocating common symbols
+Common symbol       size              file
+
+buz_state           0x1               buzzer.o
+tim0_comp_flag      0x1               Stroboskop.o
+but_state           0x1               button.o
+button              0x1               Stroboskop.o
+count_led_prog      0x1               Stroboskop.o
+pin                 0x1               buzzer.o
+strob_regime        0x1               Stroboskop.o
+
+Discarded input sections
+
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+ .text          0x00000000        0x0 button.o
+ .bss           0x00000000        0x0 button.o
+ .text.BUT_Init
+                0x00000000        0x2 button.o
+ COMMON         0x00000000        0x1 button.o
+ .text          0x00000000        0x0 buzzer.o
+ .bss           0x00000000        0x0 buzzer.o
+ .text          0x00000000        0x0 led.o
+ .bss           0x00000000        0x0 led.o
+ .text          0x00000000        0x0 Stroboskop.o
+ .bss           0x00000000        0x0 Stroboskop.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+LOAD button.o
+LOAD buzzer.o
+LOAD led.o
+LOAD Stroboskop.o
+START GROUP
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libm.a
+END GROUP
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a
+LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x3fc
+ *(.vectors)
+ .vectors       0x00000000       0x14 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data.led_prog
+                0x00000014        0xe led.o
+                0x00000014                led_prog
+ .progmem.data.led_pr7
+                0x00000022       0x11 led.o
+                0x00000022                led_pr7
+ .progmem.data.led_pr6
+                0x00000033       0x41 led.o
+                0x00000033                led_pr6
+ .progmem.data.led_pr5
+                0x00000074       0x21 led.o
+                0x00000074                led_pr5
+ .progmem.data.led_pr4
+                0x00000095       0x11 led.o
+                0x00000095                led_pr4
+ .progmem.data.led_pr3
+                0x000000a6       0x39 led.o
+                0x000000a6                led_pr3
+ .progmem.data.led_pr1
+                0x000000df       0x11 led.o
+                0x000000df                led_pr1
+ .progmem.data.led_pr2
+                0x000000f0        0x9 led.o
+                0x000000f0                led_pr2
+                0x000000fa                . = ALIGN (0x2)
+ *fill*         0x000000f9        0x1 
+                0x000000fa                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000fa        0x0 linker stubs
+ *(.trampolines*)
+                0x000000fa                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000fa                __ctors_start = .
+ *(.ctors)
+                0x000000fa                __ctors_end = .
+                0x000000fa                __dtors_start = .
+ *(.dtors)
+                0x000000fa                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000fa        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+                0x000000fa                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000fa        0x8 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000102       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+                0x00000102                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000112        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+ *(.init9)
+ *(.text)
+ .text          0x00000116        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+                0x00000116                __vector_1
+                0x00000116                __bad_interrupt
+                0x00000116                __vector_3
+                0x00000116                __vector_7
+                0x00000116                __vector_5
+                0x00000116                __vector_4
+                0x00000116                __vector_9
+                0x00000116                __vector_2
+                0x00000116                __vector_8
+                0x00000118                . = ALIGN (0x2)
+ *(.text.*)
+ .text.BUT_Debrief
+                0x00000118       0x50 button.o
+                0x00000118                BUT_Debrief
+ .text.BUZ_Start
+                0x00000168       0x1a buzzer.o
+                0x00000168                BUZ_Start
+ .text.BUZ_Contr
+                0x00000182       0x3c buzzer.o
+                0x00000182                BUZ_Contr
+ .text.LED_Start
+                0x000001be       0x44 led.o
+                0x000001be                LED_Start
+ .text.LED_Stop
+                0x00000202        0xc led.o
+                0x00000202                LED_Stop
+ .text.LED_Contr
+                0x0000020e       0x8c led.o
+                0x0000020e                LED_Contr
+ .text.startup.main
+                0x0000029a      0x114 Stroboskop.o
+                0x0000029a                main
+ .text.__vector_6
+                0x000003ae       0x1e Stroboskop.o
+                0x000003ae                __vector_6
+ .text.avr-libc
+                0x000003cc       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+                0x000003cc                __eerd_byte_tn13
+ .text.avr-libc
+                0x000003dc       0x1c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+                0x000003dc                __eewr_byte_tn13
+                0x000003de                __eewr_r18_tn13
+                0x000003f8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000003f8        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+                0x000003f8                _exit
+                0x000003f8                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000003f8        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000003fc                _etext = .
+
+.data           0x00800060        0x0 load address 0x000003fc
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+ .data          0x00800060        0x0 button.o
+ .data          0x00800060        0x0 buzzer.o
+ .data          0x00800060        0x0 led.o
+ .data          0x00800060        0x0 Stroboskop.o
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr25/tiny-stack\libgcc.a(_clear_bss.o)
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800060                . = ALIGN (0x2)
+                0x00800060                _edata = .
+                0x00800060                PROVIDE (__data_end, .)
+
+.bss            0x00800060       0x13
+                0x00800060                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.count.1370
+                0x00800060        0x1 button.o
+ .bss.buf.1369  0x00800061        0x1 button.o
+ .bss.cycle     0x00800062        0x1 buzzer.o
+ .bss.duration_buf
+                0x00800063        0x1 buzzer.o
+ .bss.duration  0x00800064        0x1 buzzer.o
+ .bss.count_rep
+                0x00800065        0x1 led.o
+                0x00800065                count_rep
+ .bss.num_prog  0x00800066        0x1 led.o
+ .bss.led_state
+                0x00800067        0x1 led.o
+ .bss.pLedProg  0x00800068        0x2 led.o
+ .bss.led_index
+                0x0080006a        0x1 led.o
+ .bss.count     0x0080006b        0x2 led.o
+ *(COMMON)
+ COMMON         0x0080006d        0x2 buzzer.o
+                0x0080006d                buz_state
+                0x0080006e                pin
+ COMMON         0x0080006f        0x4 Stroboskop.o
+                0x0080006f                tim0_comp_flag
+                0x00800070                button
+                0x00800071                count_led_prog
+                0x00800072                strob_regime
+                0x00800073                PROVIDE (__bss_end, .)
+                0x000003fc                __data_load_start = LOADADDR (.data)
+                0x000003fc                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800073        0x0
+                0x00800073                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800073                PROVIDE (__noinit_end, .)
+                0x00800073                _end = .
+                0x00800073                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x2
+ *(.eeprom*)
+ .eeprom        0x00810000        0x2 Stroboskop.o
+                0x00810000                count_led_prog_eep
+                0x00810001                strob_regime_eep
+                0x00810002                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab           0x00000000      0x828
+ *(.stab)
+ .stab          0x00000000      0x6b4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+ .stab          0x000006b4       0x90 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eerd_byte_attiny13.o)
+                                 0x9c (size before relaxing)
+ .stab          0x00000744       0xe4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack\libc.a(eewr_byte_attiny13.o)
+                                 0xf0 (size before relaxing)
+
+.stabstr        0x00000000      0x181
+ *(.stabstr)
+ .stabstr       0x00000000      0x181 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr25/tiny-stack/crttn13.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x2f
+ *(.comment)
+ .comment       0x00000000       0x2f button.o
+                                 0x30 (size before relaxing)
+ .comment       0x00000000       0x30 buzzer.o
+ .comment       0x00000000       0x30 led.o
+ .comment       0x00000000       0x30 Stroboskop.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xa8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 button.o
+ .debug_aranges
+                0x00000028       0x28 buzzer.o
+ .debug_aranges
+                0x00000050       0x30 led.o
+ .debug_aranges
+                0x00000080       0x28 Stroboskop.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0x919
+ *(.debug_info)
+ .debug_info    0x00000000      0x115 button.o
+ .debug_info    0x00000115      0x116 buzzer.o
+ .debug_info    0x0000022b      0x326 led.o
+ .debug_info    0x00000551      0x3c8 Stroboskop.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x468
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xc3 button.o
+ .debug_abbrev  0x000000c3       0xc1 buzzer.o
+ .debug_abbrev  0x00000184       0xfb led.o
+ .debug_abbrev  0x0000027f      0x1e9 Stroboskop.o
+
+.debug_line     0x00000000      0x58f
+ *(.debug_line)
+ .debug_line    0x00000000      0x100 button.o
+ .debug_line    0x00000100       0xee buzzer.o
+ .debug_line    0x000001ee      0x10d led.o
+ .debug_line    0x000002fb      0x294 Stroboskop.o
+
+.debug_frame    0x00000000       0xf0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x34 button.o
+ .debug_frame   0x00000034       0x34 buzzer.o
+ .debug_frame   0x00000068       0x44 led.o
+ .debug_frame   0x000000ac       0x44 Stroboskop.o
+
+.debug_str      0x00000000      0x2da
+ *(.debug_str)
+ .debug_str     0x00000000       0xec button.o
+                                0x120 (size before relaxing)
+ .debug_str     0x000000ec       0x48 buzzer.o
+                                 0xf5 (size before relaxing)
+ .debug_str     0x00000134       0xb9 led.o
+                                0x175 (size before relaxing)
+ .debug_str     0x000001ed       0xed Stroboskop.o
+                                0x234 (size before relaxing)
+
+.debug_loc      0x00000000      0x287
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x36 button.o
+ .debug_loc     0x00000036       0x2e buzzer.o
+ .debug_loc     0x00000064      0x1d3 led.o
+ .debug_loc     0x00000237       0x50 Stroboskop.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0x68
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x18 button.o
+ .debug_ranges  0x00000018       0x18 buzzer.o
+ .debug_ranges  0x00000030       0x20 led.o
+ .debug_ranges  0x00000050       0x18 Stroboskop.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(Stroboskop.elf elf32-avr)
+LOAD linker stubs
